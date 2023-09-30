@@ -11,32 +11,36 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_09_30_000150) do
- # Users table
- create_table "users", force: :cascade do |t|
-  t.string "first_name"
-  t.string "last_name"
-  t.string "username", unique: true
-  t.string "email", unique: true
-  t.string "password_digest"
-  t.string "phone_number", unique: true
-end
+  # Users table
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "username", unique: true
+    t.string "email", unique: true
+    t.string "password_digest"
+    t.string "phone_number", unique: true
+    t.string "address"
+  end
 
 # Categories table
 create_table "categories", force: :cascade do |t|
   t.string "name", unique: true
 end
 
-# Dishes table
-create_table "dishes", force: :cascade do |t|
+ # Dishes table
+ create_table "dishes", force: :cascade do |t|
   t.references "category", foreign_key: true
   t.string "name"
   t.text "description"
   t.decimal "price"
   t.integer "quantity"
-  t.text "ingredients"
-  t.text "allergens"
   t.string "image_url"  # Photo of the dish
   t.boolean "isActive", default: true
+  t.boolean "dairy_allergen", default: false
+  t.boolean "nuts_allergen", default: false
+  t.boolean "gluten_allergen", default: false
+  t.boolean "shellfish_allergen", default: false
+  t.boolean "eggs_allergen", default: false
   t.datetime "created_at", null: false
   t.datetime "updated_at", null: false
 end
@@ -96,6 +100,8 @@ create_table "tables", force: :cascade do |t|
   t.integer "table_number", unique: true
   t.integer "capacity"
   t.string "status" # e.g. 'Available', 'Reserved'
+  t.string "location" # patio, main salon, lounge
 end
 
 end
+
