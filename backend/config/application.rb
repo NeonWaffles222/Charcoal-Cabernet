@@ -37,7 +37,7 @@ module Backend
     Rails.application.config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins 'http://localhost:3000'
-        resource '/users.json', headers: :any, methods: [:get, :post, :put, :patch, :delete]
+        resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete]
       end
     end
   end
