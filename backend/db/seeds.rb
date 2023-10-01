@@ -7,10 +7,3 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Seeding Data ..."
-
-User.destroy_all
-
-User.create(first_name: "Noah", last_name: "McMillan")
-User.create(first_name: "jim", last_name: "jones")
-User.create(first_name: "linda", last_name: "book")
-User.create(first_name: "joe", last_name: "bean")
