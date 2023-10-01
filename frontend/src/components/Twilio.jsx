@@ -15,10 +15,10 @@ function Twilio () {
   
     // Array of URLs for the requests
     const urls = [
-      "http://localhost:3000/confirmation_sms",
-      "http://localhost:3000/prepping_sms",
-      "http://localhost:3000/enroute_sms",
-      "http://localhost:3000/delivered_sms",
+      "http://localhost:3001/confirmation_sms",
+      "http://localhost:3001/prepping_sms",
+      "http://localhost:3001/enroute_sms",
+      "http://localhost:3001/delivered_sms",
     ];
 
     // Function to iterate through the URLs with a 2 second delay
