@@ -1,0 +1,2 @@
+json.merge! table.attributes
+

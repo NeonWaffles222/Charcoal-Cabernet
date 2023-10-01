@@ -15,6 +15,28 @@ puts "Finding or Creating Categories ..."
 cat1 = Category.find_or_create_by! name: 'food'
 cat2 = Category.find_or_create_by! name: 'drinks'
 
+puts "Re-creating Tables ..."
+
+  Table.destroy_all
+
+  Table.create({
+    table_number: 1,
+    capacity: 2,
+    location: 'Front'
+  })
+
+  Table.create({
+    table_number: 2,
+    capacity: 4,
+    location: 'Back'
+  })
+
+  Table.create({
+    table_number: 3,
+    capacity: 6,
+    location: 'Outside'
+  })
+
 puts "Re-creating Dishes ..."
 
 Dish.destroy_all
@@ -38,6 +60,15 @@ User.create({
   email: 'BillyB@gmail.com',
   password: 'password123',
   phone_number: '222-222-2222'
+})
+
+User.create({
+  first_name: 'Jimmy',
+  last_name: 'Jom',
+  username: 'JJlameguy',
+  email: 'JimmyJ@gmail.com',
+  password: 'password123',
+  phone_number: '333-333-3333'
 })
 
 puts "DONE!"
