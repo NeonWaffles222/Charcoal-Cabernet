@@ -18,15 +18,15 @@ categories.each do |category_name|
   Category.create!(name: category_name)
 end
 
-appetizers = Category.create!(name: 'Appetizers')
-salads = Category.create!(name: 'Salads')
-soups = Category.create!(name: 'Soups')
-side_dishes = Category.create!(name: 'Side Dishes')
-sandwiches = Category.create!(name: 'Sandwiches')
-meats = Category.create!(name: 'Meats')
-seafood = Category.create!(name: 'Seafood')
-desserts = Category.create!(name: 'Desserts')
-beverages = Category.create!(name: 'Beverages')
+appetizers = Category.find_by(name: 'Appetizers')
+salads = Category.find_by(name: 'Salads')
+soups = Category.find_by(name: 'Soups')
+side_dishes = Category.find_by(name: 'Side Dishes')
+sandwiches = Category.find_by(name: 'Sandwiches')
+meats = Category.find_by(name: 'Meats')
+seafood = Category.find_by(name: 'Seafood')
+desserts = Category.find_by(name: 'Desserts')
+beverages = Category.find_by(name: 'Beverages')
 
 
 puts "Seeded #{Category.count} categories!"
@@ -59,7 +59,7 @@ Dish.destroy_all
 
 dishes = [
   {
-    category_id: 1
+    category: appetizers,
     name: 'Seasoned Steakhouse Wings',
     description: 'Crispy wings seasoned to perfection, served with tangy blue cheese and buffalo sauce.',
     price: 11.29,
@@ -75,7 +75,7 @@ dishes = [
     updated_at: 2023-10-01 12:30:45,
   },
   {
-    category_id: 1
+    category: appetizers,
     name: 'Wild West Shrimp',
     description: 'Shrimp fried to a golden brown, tossed with spicy cherry peppers and garlic butter, paired with a creamy ranch dip.',
     price: 11.49,
@@ -91,7 +91,7 @@ dishes = [
     updated_at: 2023-10-01 12:30:45,
   },
   {
-    category_id: 1,
+    category: appetizers,
     name: 'Spicy Chicken Bites',
     description: 'Bite-sized chicken pieces infused with a sweet and spicy chili-ginger sauce.',
     price: 5.99,
@@ -107,7 +107,7 @@ dishes = [
     updated_at: '2023-10-01 12:30:45',
 },
 {
-    category_id: 1,
+    category: appetizers,
     name: 'Texas Tonion',
     description: 'Delicately battered onion petals fried until golden and crispy, complemented with a zesty dip.',
     price: 8.99,
@@ -123,7 +123,7 @@ dishes = [
     updated_at: '2023-10-01 12:30:45',
 },
 {
-    category_id: 1,
+    category: appetizers,
     name: 'White Cheddar Stuffed Mushrooms',
     description: 'Juicy mushrooms filled with creamy garlic herb cheese and crowned with a golden Parmesan crust.',
     price: 9.99,
@@ -139,7 +139,7 @@ dishes = [
     updated_at: '2023-10-01 12:45:30',
 },
 {
-    category_id: 1, 
+    category: appetizers, 
     name: 'Firecracker Chicken Wraps',
     description: 'Spicy chicken and cheese enveloped in a soft tortilla, accompanied by an avocado-lime dip.',
     price: 10.49,
@@ -156,7 +156,7 @@ dishes = [
 },
 # For 6 Tenders
 {
-    category_id: 1, 
+    category: appetizers, 
     name: 'Hand-Breaded Chicken Tenders - 6 Tenders',
     description: 'Fresh, juicy, and hand-breaded to order with housemade honey mustard.',
     price: 13.79,
@@ -174,7 +174,7 @@ dishes = [
 
 # For 9 Tenders
 {
-    category_id: 1, 
+    category: appetizers, 
     name: 'Hand-Breaded Chicken Tenders - 9 Tenders',
     description: 'Fresh, juicy, and hand-breaded to order with housemade honey mustard.',
     price: 15.79,
@@ -191,7 +191,7 @@ dishes = [
 },
 # For 9oz Parmesan Crusted Chicken
 {
-    category_id: 1,  
+    category: appetizers,  
     name: 'Parmesan Crusted Chicken - 9oz',
     description: 'Topped with our creamy Parmesan and garlic cheese crust.',
     price: 15.49,
@@ -209,7 +209,7 @@ dishes = [
 
 # For 12oz Parmesan Crusted Chicken
 {
-    category_id: 1,  
+    category: appetizers,  
     name: 'Parmesan Crusted Chicken - 12oz',
     description: 'Topped with our creamy Parmesan and garlic cheese crust.',
     price: 17.49,
@@ -226,7 +226,7 @@ dishes = [
 },
 # For 7oz LongHorn Salmon
 {
-    category_id: 1,  
+    category: appetizers,  
     name: 'LongHorn Salmon - 7oz',
     description: 'Hand-cut, fresh Atlantic salmon marinated in our signature bourbon marinade.',
     price: 19.79,
@@ -244,7 +244,7 @@ dishes = [
 
 # For 10oz LongHorn Salmon
 {
-    category_id: 1,  
+    category: appetizers,  
     name: 'LongHorn Salmon - 10oz',
     description: 'Hand-cut, fresh Atlantic salmon marinated in our signature bourbon marinade.',
     price: 22.29,
@@ -262,7 +262,7 @@ dishes = [
 
 # For 8ct Redrock Grilled Shrimp
 {
-    category_id: 1,  
+    category: appetizers,  
     name: 'Redrock Grilled Shrimp - 8ct',
     description: 'Glazed with smoky tomato butter, served over rice with a side of garlic butter.',
     price: 15.99,
@@ -280,7 +280,7 @@ dishes = [
 
 # For 12ct Redrock Grilled Shrimp
 {
-    category_id: 1, 
+    category: appetizers, 
     name: 'Redrock Grilled Shrimp - 12ct',
     description: 'Glazed with smoky tomato butter, served over rice with a side of garlic butter.',
     price: 18.99,
@@ -297,7 +297,7 @@ dishes = [
 }, 
 # For Half-Rack Baby Back Ribs
 {
-    category_id: 1, 
+    category: appetizers, 
     name: 'Baby Back Ribs - Half-Rack',
     description: 'Slow-cooked, tender ribs seasoned with a signature spice blend.',
     price: 16.79,
@@ -315,7 +315,7 @@ dishes = [
 
 # For Full-Rack Baby Back Ribs
 {
-    category_id: 1,  
+    category: appetizers,  
     name: 'Baby Back Ribs - Full-Rack',
     description: 'Slow-cooked, tender ribs seasoned with a signature spice blend.',
     price: 21.79,
@@ -331,7 +331,7 @@ dishes = [
     updated_at: '2023-10-01 14:05:00',
 },
 {
-    category_id: 1,  
+    category: appetizers,  
     name: 'Cowboy Pork Chops (2 Chops)',
     description: 'Thick cut, bone-in chops, marinated for tenderness and flavor.',
     price: 19.49,
@@ -347,7 +347,7 @@ dishes = [
     updated_at: '2023-10-01 14:20:00',
 },
 {
-    category_id: 2, 
+    category: salads, 
     name: 'Farm Fresh Field Greens with Crispy Chicken Tenders',
     description: 'Diced tomatoes, cucumbers, croutons, and cheddar on fresh field greens.',
     price: 13.99,
@@ -363,7 +363,7 @@ dishes = [
     updated_at: '2023-10-01 15:00:00',
 },
 {
-    category_id: 2,  
+    category: salads,  
     name: 'Farm Fresh Field Greens with Salmon',
     description: 'Diced tomatoes, cucumbers, croutons, and cheddar on fresh field greens.',
     price: 16.49,
@@ -379,7 +379,7 @@ dishes = [
     updated_at: '2023-10-01 15:05:00',
 },
 {
-    category_id: 2,  
+    category: salads,  
     name: 'Grilled Chicken & Strawberry Salad',
     description: 'With strawberries, grapes, mandarin oranges, candied pecans, red onion, feta cheese, and raspberry vinaigrette.',
     price: 13.99,
@@ -395,7 +395,7 @@ dishes = [
     updated_at: '2023-10-01 15:10:00',
 },
 {
-    category_id: 2, 
+    category: salads, 
     name: 'Strawberry & Pecan Salad',
     description: 'A delightful salad featuring fresh field greens, sweet strawberries, candied pecans, and creamy feta cheese, served with your choice of dressing.',
     price: 5.29,
@@ -411,7 +411,7 @@ dishes = [
     updated_at: '2023-10-01 15:30:00',
 },
 {
-    category_id: 2, 
+    category: salads, 
     name: 'Mixed Greens Salad',
     description: 'A light and crisp salad consisting of mixed greens, fresh vegetables, and croutons, served with your preferred salad dressing.',
     price: 4.49,
@@ -427,7 +427,7 @@ dishes = [
     updated_at: '2023-10-01 15:45:00',
 },
 {
-    category_id: 2,  
+    category: salads,  
     name: 'Caesar Salad',
     description: 'A classic Caesar salad with crisp romaine lettuce, croutons, and grated Parmesan cheese, tossed in a rich Caesar dressing.',
     price: 4.49,
@@ -444,7 +444,7 @@ dishes = [
 },
 # For Cup size
 {
-    category_id: 3, 
+    category: soups, 
     name: 'French Onion Soup (Cup)',
     description: 'A savory onion soup topped with melted Swiss, Provolone, and toasted Parmesan cheese, served piping hot.',
     price: 6.49,
@@ -461,7 +461,7 @@ dishes = [
 },
 # For Bowl size
 {
-    category_id: 3,  
+    category: soups,  
     name: 'French Onion Soup (Bowl)',
     description: 'A savory onion soup topped with melted Swiss, Provolone, and toasted Parmesan cheese, served piping hot.',
     price: 7.49,
@@ -478,7 +478,7 @@ dishes = [
 },
 # For Cup size
 {
-    category_id: 3,  
+    category: soups,  
     name: 'Loaded Potato Soup (Cup)',
     description: 'A comforting potato soup, generously loaded with bacon, cheddar cheese, and fresh green onions, creating a hearty and flavorful choice.',
     price: 5.79,
@@ -495,7 +495,7 @@ dishes = [
 },
 # For Bowl size
 {
-    category_id: 3,  
+    category: soups,  
     name: 'Loaded Potato Soup (Bowl)',
     description: 'A comforting potato soup, generously loaded with bacon, cheddar cheese, and fresh green onions, creating a hearty and flavorful choice.',
     price: 7.79,
@@ -512,7 +512,7 @@ dishes = [
 },
 # For Cup size
 {
-    category_id: 3,  
+    category: soups,  
     name: 'Shrimp & Lobster Chowder (Cup)',
     description: 'A creamy chowder featuring shrimp and lobster, accented with corn, red bell peppers, and potatoes, garnished with fresh green onions.',
     price: 6.49,
@@ -529,7 +529,7 @@ dishes = [
 },
 # For Bowl size
 {
-    category_id: 3, 
+    category: soups, 
     name: 'Shrimp & Lobster Chowder (Bowl)',
     description: 'A creamy chowder featuring shrimp and lobster, accented with corn, red bell peppers, and potatoes, garnished with fresh green onions.',
     price: 7.49,
@@ -545,7 +545,7 @@ dishes = [
     updated_at: '2023-10-01 16:35:00',
 },
 {
-    category_id: 4, 
+    category: side_dishes, 
     name: 'Parmesan Cheese Crust',
     description: 'A golden crust of Parmesan cheese that adds an extra layer of flavor and crunch to your steak.',
     price: 1.99,
@@ -561,7 +561,7 @@ dishes = [
     updated_at: '2023-10-01 17:05:00',
 },
 {
-    category_id: 4, 
+    category: side_dishes, 
     name: 'Grilled Mushrooms',
     description: 'Mushrooms grilled to perfection, enhancing their earthy flavors.',
     price: 3.49,
@@ -578,7 +578,7 @@ dishes = [
 },
 # For the Cup size
 {
-    category_id: 4, 
+    category: side_dishes, 
     name: 'LongHorn Chili (Cup)',
     description: 'Rich, hearty, and full of flavor.',
     price: 5.79,
@@ -596,7 +596,7 @@ dishes = [
 
 # For the Bowl size
 {
-    category_id: 4, 
+    category: side_dishes, 
     name: 'LongHorn Chili (Bowl)',
     description: 'Rich, hearty, and full of flavor.',
     price: 7.79,
@@ -612,7 +612,7 @@ dishes = [
     updated_at: '2023-10-01 17:32:00',
 },
 {
-    category_id: 4, 
+    category: side_dishes, 
     name: 'Steakhouse Mac & Cheese',
     description: 'Creamy macaroni and cheese infused with smoky bacon and a blend of four creamy cheeses, baked to perfection.',
     price: 4.99,
@@ -628,7 +628,7 @@ dishes = [
     updated_at: '2023-10-01 17:40:00',
 },
 {
-    category_id: 4,  
+    category: side_dishes,  
     name: 'Crispy Brussels Sprouts',
     description: 'Brussels sprouts flash-fried to a crispy texture and tossed in a smoky honey butter sauce for a sweet and savory flavor.',
     price: 3.49,
@@ -644,7 +644,7 @@ dishes = [
     updated_at: '2023-10-01 17:45:00',
 },
 {
-    category_id: 4,  
+    category: side_dishes,  
     name: 'Fresh Steamed Asparagus',
     description: 'Tender asparagus spears, lightly steamed to preserve their natural freshness, and drizzled with a delicate lemon sauce.',
     price: 3.49,
@@ -660,7 +660,7 @@ dishes = [
     updated_at: '2023-10-01 17:55:00',
 },
 {
-    category_id: 4, 
+    category: side_dishes, 
     name: 'Idaho Baked Potato',
     description: 'A fluffy baked potato served hot, loaded with crispy bacon, cheddar cheese, sour cream, butter, and fresh green onions.',
     price: 2.99,
@@ -676,7 +676,7 @@ dishes = [
     updated_at: '2023-10-01 18:05:00',
 },
 {
-    category_id: 4, 
+    category: side_dishes, 
     name: 'Sweet Potato',
     description: 'A sweet and buttery roasted sweet potato, dusted with cinnamon sugar for a delightful contrast of flavors.',
     price: 2.99,
@@ -692,7 +692,7 @@ dishes = [
     updated_at: '2023-10-01 18:10:00',
 },
 {
-    category_id: 4, 
+    category: side_dishes, 
     name: 'Mashed Potatoes',
     description: 'Creamy mashed potatoes made with butter and seasoning, providing a comforting and classic side dish.',
     price: 2.99,
@@ -708,7 +708,7 @@ dishes = [
     updated_at: '2023-10-01 18:15:00',
 },
 {
-    category_id: 4, 
+    category: side_dishes, 
     name: 'Seasoned French Fries',
     description: 'Crispy golden fries seasoned with a special blend of herbs and spices, making them a savory and satisfying accompaniment.',
     price: 2.99,
@@ -724,7 +724,7 @@ dishes = [
     updated_at: '2023-10-01 18:20:00',
 },
 {
-    category_id: 5,  
+    category: sandwiches,  
     name: 'The LH Burger',
     description: 'Shaved prime rib, Swiss cheese, crispy onion straws, arugula, and steakhouse mayo on a toasted potato bun.',
     price: 13.99,
@@ -740,7 +740,7 @@ dishes = [
     updated_at: '2023-10-01 18:30:00',
 },
 {
-    category_id: 5, 
+    category: sandwiches, 
     name: 'Maverick Ribeye Sandwich',
     description: 'Shaved prime rib topped with onions, mushrooms, and Swiss cheese on French bread.',
     price: 14.49,
@@ -756,7 +756,7 @@ dishes = [
     updated_at: '2023-10-01 18:35:00',
 },
 {
-    category_id: 6,  
+    category: meats,  
     name: 'Flo\'s Filet (6oz)',
     description: 'A center-cut filet known for its exceptional tenderness, seasoned to perfection.',
     price: 21.99,
@@ -772,7 +772,7 @@ dishes = [
     updated_at: '2023-10-01 18:40:00',
 },
 {
-    category_id: 6, 
+    category: meats, 
     name: 'Flo\'s Filet (9oz)',
     description: 'A center-cut filet known for its exceptional tenderness, seasoned to perfection.',
     price: 27.49,
@@ -788,7 +788,7 @@ dishes = [
     updated_at: '2023-10-01 18:41:00',
 },
 {
-    category_id: 6, 
+    category: meats, 
     name: 'Outlaw Ribeye (20oz)',
     description: 'A bone-in cut, known for its marbling, grilled to enhance its robust flavors.',
     price: 27.49,
@@ -804,7 +804,7 @@ dishes = [
     updated_at: '2023-10-01 18:45:00',
 },
 {
-    category_id: 6, 
+    category: meats, 
     name: 'The LongHorn (22oz)',
     description: 'A porterhouse that boasts the flavors of a bone-in strip and the tenderness of a filet.',
     price: 29.99,
@@ -820,7 +820,7 @@ dishes = [
     updated_at: '2023-10-01 19:15:00',
 },
 {
-    category_id: 6,  
+    category: meats,  
     name: 'Chop Steak (10oz)',
     description: 'Freshly ground steak draped with grilled mushrooms, sautéed onions, and a rich garlic herb sauce.',
     price: 11.99,
@@ -836,7 +836,7 @@ dishes = [
     updated_at: '2023-10-01 19:25:00',
 },
 {
-    category_id: 6, 
+    category: meats, 
     name: 'Renegade Sirloin (6oz)',
     description: 'A lean USDA Choice center-cut top sirloin that promises a hearty steak experience.',
     price: 13.49,
@@ -852,7 +852,7 @@ dishes = [
     updated_at: '2023-10-01 19:30:00',
 },
 {
-    category_id: 6,  
+    category: meats,  
     name: 'Renegade Sirloin (8oz)',
     description: 'A lean USDA Choice center-cut top sirloin that promises a hearty steak experience.',
     price: 16.49,
@@ -868,7 +868,7 @@ dishes = [
     updated_at: '2023-10-01 19:33:00',
 },
 {
-    category_id: 6, 
+    category: meats, 
     name: 'Ribeye (12oz)',
     description: 'Known for its juiciness and flavorful marbling, this steak is a carnivore\'s delight.',
     price: 22.29,
@@ -884,7 +884,7 @@ dishes = [
     updated_at: '2023-10-01 19:45:00',
 },
 {
-    category_id: 6,  
+    category: meats,  
     name: 'New York Strip (12oz)',
     description: 'A thick cut that\'s fire-grilled, amplifying its distinctive taste, making it a steakhouse favorite.',
     price: 22.29,
@@ -900,7 +900,7 @@ dishes = [
     updated_at: '2023-10-01 19:50:00',
 },
 {
-    category_id: 6,  
+    category: meats,  
     name: 'Fire-Grilled T-Bone (18oz)',
     description: 'A dual-experience steak offering the marbled flavor of a strip and the softness of a filet.',
     price: 26.49,
@@ -916,7 +916,7 @@ dishes = [
     updated_at: '2023-10-01 20:00:00',
 },
 {
-    category_id: 6, 
+    category: meats, 
     name: '6oz. Renegade Sirloin with 8ct. Redrock Grilled Shrimp',
     description: 'A perfect combo of a juicy sirloin paired with grilled shrimp, served over rice with rich garlic butter.',
     price: 19.49,
@@ -932,7 +932,7 @@ dishes = [
     updated_at: '2023-10-01 20:15:00',
 },
 {
-    category_id: 6,  
+    category: meats,  
     name: '6oz. Flo\'s Filet with 4oz. Lobster Tail',
     description: 'A tender Flo\'s Filet combined with a buttery lobster tail for an elevated dining experience.',
     price: 30.29,
@@ -948,7 +948,7 @@ dishes = [
     updated_at: '2023-10-01 20:15:00',
 },
 {
-    category_id: 7, 
+    category: seafood, 
     name: '4ct. Redrock Grilled Shrimp',
     description: 'Succulent shrimp grilled to perfection, served on a bed of rice with luscious garlic butter.',
     price: 6.49,
@@ -964,7 +964,7 @@ dishes = [
     updated_at: '2023-10-01 20:20:00',
 },
 {
-    category_id: 7, 
+    category: seafood, 
     name: '4oz. Lobster Tail',
     description: 'A tender lobster tail, steamed to perfection and served with melted butter for dipping.',
     price: 10.79,
@@ -980,7 +980,7 @@ dishes = [
     updated_at: '2023-10-01 20:25:00',
 },
 {
-    category_id: 8,  
+    category: desserts,  
     name: 'Chocolate Lava Cake',
     description: 'A warm, rich chocolate cake filled with molten chocolate and topped with vanilla ice cream.',
     price: 7.49,
@@ -996,7 +996,7 @@ dishes = [
     updated_at: '2023-10-01 20:50:00',
 },
 {
-    category_id: 8, 
+    category: desserts, 
     name: 'New York Cheesecake',
     description: 'Creamy and rich classic cheesecake topped with a sweet strawberry sauce.',
     price: 7.29,
@@ -1012,7 +1012,7 @@ dishes = [
     updated_at: '2023-10-01 21:00:00',
 },
 {
-    category_id: 8,  
+    category: desserts,  
     name: 'Key Lime Pie',
     description: 'A tangy and sweet dessert with a crumbly crust, topped with whipped cream.',
     price: 7.29,
@@ -1028,7 +1028,7 @@ dishes = [
     updated_at: '2023-10-01 21:05:00',
 },
 {
-    category_id: 8,  
+    category: desserts,  
     name: 'Molten Chocolate Chip Cookie Sundae',
     description: 'A warm chocolate chip cookie, baked in a skillet, topped with vanilla ice cream and drizzled with chocolate sauce.',
     price: 7.49,
@@ -1044,7 +1044,7 @@ dishes = [
     updated_at: '2023-10-01 21:10:00',
 },
 {
-    category_id: 9,  
+    category: beverages,  
     name: 'Raspberry Lemonade',
     description: 'A refreshing blend of sweet raspberries and tart lemonade, perfect for quenching your thirst.',
     price: 3.29,
@@ -1060,7 +1060,7 @@ dishes = [
     updated_at: '2023-10-01 22:00:00',
 },
 {
-    category_id: 9, 
+    category: beverages, 
     name: 'Freshly Brewed Iced Tea',
     description: 'Classic iced tea, brewed fresh and served cold with a slice of lemon.',
     price: 2.99,
@@ -1075,7 +1075,7 @@ dishes = [
     updated_at: '2023-10-01 23:00:00',
 },
 {
-    category_id: 9,  
+    category: beverages,  
     name: 'Mango Lemonade',
     description: 'A tropical twist on traditional lemonade with the sweet flavor of ripe mangoes.',
     price: 3.29,
@@ -1091,7 +1091,7 @@ dishes = [
     updated_at: '2023-10-01 23:05:00',
 },
 {
-    category_id: 9, 
+    category: beverages, 
     name: 'LongHorn Chili Lime Ginger Ale',
     description: 'A zesty and spicy drink with a hint of lime and ginger, providing a unique refreshing experience.',
     price: 3.29,
@@ -1107,7 +1107,7 @@ dishes = [
     updated_at: '2023-10-01 23:10:00',
 },
 {
-    category_id: 9, 
+    category: beverages, 
     name: 'Fountain Drinks',
     description: 'A selection of popular sodas, served cold with ice.',
     price: 2.99,
@@ -1123,7 +1123,7 @@ dishes = [
     updated_at: '2023-10-01 23:12:00',
 },
 {
-    category_id: 9,  
+    category: beverages,  
     description: 'Crisp and clean bottled water to hydrate and refresh.',
     price: 2.99,
     quantity: 500,  
@@ -1139,9 +1139,8 @@ dishes = [
 }
 ]
 
-dishes.each do |dish|
-  category.dishes.create!(dish)
-end
+Dish.create!(dishes)
+
 
 
 puts "Re-creating Users ..."
