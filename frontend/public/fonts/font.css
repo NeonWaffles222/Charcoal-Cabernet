@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "TradeGothic";
+  src: url("https://db.onlinewebfonts.com/t/7166a11b40fc6e9aba2d07da4de98eca.eot");
+  src: url("https://db.onlinewebfonts.com/t/7166a11b40fc6e9aba2d07da4de98eca.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/7166a11b40fc6e9aba2d07da4de98eca.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/7166a11b40fc6e9aba2d07da4de98eca.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/7166a11b40fc6e9aba2d07da4de98eca.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/7166a11b40fc6e9aba2d07da4de98eca.svg#TradeGothic")format("svg");
+  font-weight: normal;
+  font-style: normal;
+}

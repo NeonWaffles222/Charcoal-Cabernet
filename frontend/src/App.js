@@ -2,6 +2,7 @@ import './App.css';
 import UserList from './components/UserList';
 import useApplicationData from './hooks/useApplicationData';
 import Twilio from './components/Twilio';
+import MenuList from './components/MenuList';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
     <div className="App">
       <UserList users={state.users} />
       {/* <Twilio/> */}
+      <MenuList/>
     </div>
   );
 }
