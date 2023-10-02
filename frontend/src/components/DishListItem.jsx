@@ -31,7 +31,7 @@ function DishListItem(props) {
         <div className="dish-info">
           <h3>"{dish.description}" - Head Chef</h3>
           <div>
-            <div> There are {dish.quantity} Grilled Ribeye Steak's left. Don't miss out and add to your order now.
+            <div> There are {dish.quantity} {dish.name}'s left. Don't miss out and add to your order now.
             </div>
             <button>Add Item to Order</button>
           </div>
