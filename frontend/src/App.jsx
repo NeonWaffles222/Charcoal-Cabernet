@@ -1,7 +1,6 @@
 import './App.css';
-import UserList from './components/UserList';
 import useApplicationData from './hooks/useApplicationData';
-import Twilio from './components/Twilio';
+import HomeRoute from './routes/HomeRoute';
 
 function App() {
 
@@ -12,8 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <UserList users={state.users} />
-      {/* <Twilio/> */}
+      <HomeRoute />
     </div>
   );
 }
