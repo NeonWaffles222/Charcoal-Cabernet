@@ -994,53 +994,155 @@ dishes = [
     eggs_allergen: true,
     created_at: '2023-10-01 20:50:00',
     updated_at: '2023-10-01 20:50:00',
+},
+{
+    category_id: 8, 
+    name: 'New York Cheesecake',
+    description: 'Creamy and rich classic cheesecake topped with a sweet strawberry sauce.',
+    price: 7.29,
+    quantity: 100,
+    image_url: 'app/assets/images/46_new-york_cheesecake.jpg',
+    isActive: true,
+    dairy_allergen: true,
+    nuts_allergen: false,
+    gluten_allergen: true,
+    shellfish_allergen: false,
+    eggs_allergen: false,
+    created_at: '2023-10-01 21:00:00',
+    updated_at: '2023-10-01 21:00:00',
+},
+{
+    category_id: 8,  
+    name: 'Key Lime Pie',
+    description: 'A tangy and sweet dessert with a crumbly crust, topped with whipped cream.',
+    price: 7.29,
+    quantity: 100,
+    image_url: 'app/assets/images/47_key_lime_pie.jpg',
+    isActive: true,
+    dairy_allergen: true,
+    nuts_allergen: false,
+    gluten_allergen: true,
+    shellfish_allergen: false,
+    eggs_allergen: false,
+    created_at: '2023-10-01 21:05:00',
+    updated_at: '2023-10-01 21:05:00',
+},
+{
+    category_id: 8,  
+    name: 'Molten Chocolate Chip Cookie Sundae',
+    description: 'A warm chocolate chip cookie, baked in a skillet, topped with vanilla ice cream and drizzled with chocolate sauce.',
+    price: 7.49,
+    quantity: 100,
+    image_url: 'app/assets/images/48_molten_choco_chip_sunday_cookie.jpg',
+    isActive: true,
+    dairy_allergen: true,
+    nuts_allergen: false,
+    gluten_allergen: true,
+    shellfish_allergen: false,
+    eggs_allergen: false,
+    created_at: '2023-10-01 21:10:00',
+    updated_at: '2023-10-01 21:10:00',
+},
+{
+    category_id: 9,  
+    name: 'Raspberry Lemonade',
+    description: 'A refreshing blend of sweet raspberries and tart lemonade, perfect for quenching your thirst.',
+    price: 3.29,
+    quantity: 200,  
+    image_url: 'app/assets/images/49_Raspberry-Lemonade.jpg',
+    isActive: true,
+    dairy_allergen: false,
+    nuts_allergen: false,
+    gluten_allergen: false,
+    shellfish_allergen: false,
+    eggs_allergen: false,
+    created_at: '2023-10-01 22:00:00',
+    updated_at: '2023-10-01 22:00:00',
+},
+{
+    category_id: 9, 
+    name: 'Freshly Brewed Iced Tea',
+    description: 'Classic iced tea, brewed fresh and served cold with a slice of lemon.',
+    price: 2.99,
+    image_url: 'app/assets/images/50_ice_tea.jpg',
+    isActive: true,
+    dairy_allergen: false,
+    nuts_allergen: false,
+    gluten_allergen: false,
+    shellfish_allergen: false,
+    eggs_allergen: false,
+    created_at: '2023-10-01 23:00:00',
+    updated_at: '2023-10-01 23:00:00',
+},
+{
+    category_id: 9,  
+    name: 'Mango Lemonade',
+    description: 'A tropical twist on traditional lemonade with the sweet flavor of ripe mangoes.',
+    price: 3.29,
+    quantity: 250, 
+    image_url: 'app/assets/images/51_mango-lemonade.jpg',
+    isActive: true,
+    dairy_allergen: false,
+    nuts_allergen: false,
+    gluten_allergen: false,
+    shellfish_allergen: false,
+    eggs_allergen: false,
+    created_at: '2023-10-01 23:05:00',
+    updated_at: '2023-10-01 23:05:00',
+},
+{
+    category_id: 9, 
+    name: 'LongHorn Chili Lime Ginger Ale',
+    description: 'A zesty and spicy drink with a hint of lime and ginger, providing a unique refreshing experience.',
+    price: 3.29,
+    quantity: 250,  
+    image_url: 'app/assets/images/52_chili_lima_ginger_ale.jpg',
+    isActive: true,
+    dairy_allergen: false,
+    nuts_allergen: false,
+    gluten_allergen: false,
+    shellfish_allergen: false,
+    eggs_allergen: false,
+    created_at: '2023-10-01 23:10:00',
+    updated_at: '2023-10-01 23:10:00',
+},
+{
+    category_id: 9, 
+    name: 'Fountain Drinks',
+    description: 'A selection of popular sodas, served cold with ice.',
+    price: 2.99,
+    quantity: 300, 
+    image_url: 'app/assets/images/53_fountain_drinks.jpg',
+    isActive: true,
+    dairy_allergen: false,
+    nuts_allergen: false,
+    gluten_allergen: false,
+    shellfish_allergen: false,
+    eggs_allergen: false,
+    created_at: '2023-10-01 23:12:00',
+    updated_at: '2023-10-01 23:12:00',
+},
+{
+    category_id: 9,  
+    description: 'Crisp and clean bottled water to hydrate and refresh.',
+    price: 2.99,
+    quantity: 500,  
+    image_url: 'app/assets/images/54_bottled_water.jpg',
+    isActive: true,
+    dairy_allergen: false,
+    nuts_allergen: false,
+    gluten_allergen: false,
+    shellfish_allergen: false,
+    eggs_allergen: false,
+    created_at: '2023-10-01 23:15:00',
+    updated_at: '2023-10-01 23:15:00',
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ]
+
+dishes.each do |dish|
+  category.dishes.create!(dish)
+end
+
 
 puts "Re-creating Users ..."
 
