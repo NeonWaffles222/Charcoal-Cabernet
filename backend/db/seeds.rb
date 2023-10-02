@@ -12,21 +12,21 @@ puts "Seeding Data ..."
 
 puts "Finding or Creating Categories ..."
 
-Category.destroy_all
-categories = ["Appetizers", "Salads", "Soups", "Side dishes", "Sandwiches", "Meats", "Seafood", "Desserts", "Beverages"]
-categories.each do |category_name|
-  Category.create!(name: category_name)
-end
+# Category.destroy_all
+# categories = ["Appetizers", "Salads", "Soups", "Side dishes", "Sandwiches", "Meats", "Seafood", "Desserts", "Beverages"]
+# categories.each do |category_name|
+#   Category.create!(name: category_name)
+# end
 
-appetizers = Category.find_by(name: 'Appetizers')
-salads = Category.find_by(name: 'Salads')
-soups = Category.find_by(name: 'Soups')
-side_dishes = Category.find_by(name: 'Side Dishes')
-sandwiches = Category.find_by(name: 'Sandwiches')
-meats = Category.find_by(name: 'Meats')
-seafood = Category.find_by(name: 'Seafood')
-desserts = Category.find_by(name: 'Desserts')
-beverages = Category.find_by(name: 'Beverages')
+appetizers = Category.find_or_create_by!(name: 'Appetizers')
+salads = Category.find_or_create_by!(name: 'Salads')
+soups = Category.find_or_create_by!(name: 'Soups')
+side_dishes = Category.find_or_create_by!(name: 'Side Dishes')
+sandwiches = Category.find_or_create_by!(name: 'Sandwiches')
+meats = Category.find_or_create_by!(name: 'Meats')
+seafood = Category.find_or_create_by!(name: 'Seafood')
+desserts = Category.find_or_create_by!(name: 'Desserts')
+beverages = Category.find_or_create_by!(name: 'Beverages')
 
 
 puts "Seeded #{Category.count} categories!"
@@ -57,8 +57,8 @@ puts "Re-creating Dishes ..."
 
 Dish.destroy_all
 
-dishes = [
-  {
+
+    appetizers.dishes.create!{
     category: appetizers,
     name: 'Seasoned Steakhouse Wings',
     description: 'Crispy wings seasoned to perfection, served with tangy blue cheese and buffalo sauce.',
@@ -70,11 +70,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: 2023-10-01 12:30:45,    
-    updated_at: 2023-10-01 12:30:45,
+    eggs_allergen: false
   },
-  {
+  appetizers.dishes.create!{
     category: appetizers,
     name: 'Wild West Shrimp',
     description: 'Shrimp fried to a golden brown, tossed with spicy cherry peppers and garlic butter, paired with a creamy ranch dip.',
@@ -87,10 +85,8 @@ dishes = [
     gluten_allergen: false,
     shellfish_allergen: true,
     eggs_allergen: false,
-    created_at: 2023-10-01 12:30:45,    
-    updated_at: 2023-10-01 12:30:45,
   },
-  {
+  appetizers.dishes.create!{
     category: appetizers,
     name: 'Spicy Chicken Bites',
     description: 'Bite-sized chicken pieces infused with a sweet and spicy chili-ginger sauce.',
@@ -102,12 +98,10 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 12:30:45',
-    updated_at: '2023-10-01 12:30:45',
+    eggs_allergen: false
 },
-{
-    category: appetizers,
+appetizers.dishes.create!{
+  category: appetizers,
     name: 'Texas Tonion',
     description: 'Delicately battered onion petals fried until golden and crispy, complemented with a zesty dip.',
     price: 8.99,
@@ -118,12 +112,10 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true, 
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 12:30:45',
-    updated_at: '2023-10-01 12:30:45',
+    eggs_allergen: false
 },
-{
-    category: appetizers,
+appetizers.dishes.create!{
+  category: appetizers,
     name: 'White Cheddar Stuffed Mushrooms',
     description: 'Juicy mushrooms filled with creamy garlic herb cheese and crowned with a golden Parmesan crust.',
     price: 9.99,
@@ -134,12 +126,10 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true, 
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 12:45:30',
-    updated_at: '2023-10-01 12:45:30',
+    eggs_allergen: false
 },
-{
-    category: appetizers, 
+appetizers.dishes.create!{
+  category: appetizers, 
     name: 'Firecracker Chicken Wraps',
     description: 'Spicy chicken and cheese enveloped in a soft tortilla, accompanied by an avocado-lime dip.',
     price: 10.49,
@@ -150,13 +140,11 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true, 
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 13:00:00',
-    updated_at: '2023-10-01 13:00:00',
+    eggs_allergen: false
 },
 # For 6 Tenders
-{
-    category: appetizers, 
+appetizers.dishes.create!{
+  category: appetizers, 
     name: 'Hand-Breaded Chicken Tenders - 6 Tenders',
     description: 'Fresh, juicy, and hand-breaded to order with housemade honey mustard.',
     price: 13.79,
@@ -167,13 +155,11 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false, 
     shellfish_allergen: false,
-    eggs_allergen: true,
-    created_at: '2023-10-01 13:15:00',
-    updated_at: '2023-10-01 13:15:00',
+    eggs_allergen: true
 },
 
 # For 9 Tenders
-{
+appetizers.dishes.create!{
     category: appetizers, 
     name: 'Hand-Breaded Chicken Tenders - 9 Tenders',
     description: 'Fresh, juicy, and hand-breaded to order with housemade honey mustard.',
@@ -185,12 +171,10 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false, 
     shellfish_allergen: false,
-    eggs_allergen: true,
-    created_at: '2023-10-01 13:20:00',
-    updated_at: '2023-10-01 13:20:00',
+    eggs_allergen: true
 },
 # For 9oz Parmesan Crusted Chicken
-{
+appetizers.dishes.create!{
     category: appetizers,  
     name: 'Parmesan Crusted Chicken - 9oz',
     description: 'Topped with our creamy Parmesan and garlic cheese crust.',
@@ -202,13 +186,11 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true, 
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 13:30:00',
-    updated_at: '2023-10-01 13:30:00',
+    eggs_allergen: false
 },
 
 # For 12oz Parmesan Crusted Chicken
-{
+appetizers.dishes.create!{
     category: appetizers,  
     name: 'Parmesan Crusted Chicken - 12oz',
     description: 'Topped with our creamy Parmesan and garlic cheese crust.',
@@ -220,12 +202,10 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true, 
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 13:35:00',
-    updated_at: '2023-10-01 13:35:00',
+    eggs_allergen: false
 },
 # For 7oz LongHorn Salmon
-{
+appetizers.dishes.create!{
     category: appetizers,  
     name: 'LongHorn Salmon - 7oz',
     description: 'Hand-cut, fresh Atlantic salmon marinated in our signature bourbon marinade.',
@@ -237,13 +217,11 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false, 
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 14:10:00',
-    updated_at: '2023-10-01 14:10:00',
+    eggs_allergen: false
 },
 
 # For 10oz LongHorn Salmon
-{
+appetizers.dishes.create!{
     category: appetizers,  
     name: 'LongHorn Salmon - 10oz',
     description: 'Hand-cut, fresh Atlantic salmon marinated in our signature bourbon marinade.',
@@ -255,13 +233,11 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false, 
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 14:15:00',
-    updated_at: '2023-10-01 14:15:00',
+    eggs_allergen: false
 },
 
 # For 8ct Redrock Grilled Shrimp
-{
+ appetizers.dishes.create!{
     category: appetizers,  
     name: 'Redrock Grilled Shrimp - 8ct',
     description: 'Glazed with smoky tomato butter, served over rice with a side of garlic butter.',
@@ -273,13 +249,11 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false, 
     shellfish_allergen: true,
-    eggs_allergen: false,
-    created_at: '2023-10-01 13:40:00',
-    updated_at: '2023-10-01 13:40:00',
+    eggs_allergen: false
 },
 
 # For 12ct Redrock Grilled Shrimp
-{
+appetizers.dishes.create!{
     category: appetizers, 
     name: 'Redrock Grilled Shrimp - 12ct',
     description: 'Glazed with smoky tomato butter, served over rice with a side of garlic butter.',
@@ -291,12 +265,10 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false, 
     shellfish_allergen: true,
-    eggs_allergen: false,
-    created_at: '2023-10-01 13:45:00',
-    updated_at: '2023-10-01 13:45:00',
+    eggs_allergen: false
 }, 
 # For Half-Rack Baby Back Ribs
-{
+appetizers.dishes.create!{
     category: appetizers, 
     name: 'Baby Back Ribs - Half-Rack',
     description: 'Slow-cooked, tender ribs seasoned with a signature spice blend.',
@@ -308,13 +280,11 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false, 
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 14:00:00',
-    updated_at: '2023-10-01 14:00:00',
+    eggs_allergen: false
 },
 
 # For Full-Rack Baby Back Ribs
-{
+appetizers.dishes.create!{
     category: appetizers,  
     name: 'Baby Back Ribs - Full-Rack',
     description: 'Slow-cooked, tender ribs seasoned with a signature spice blend.',
@@ -326,11 +296,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false, 
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 14:05:00',
-    updated_at: '2023-10-01 14:05:00',
+    eggs_allergen: false
 },
-{
+appetizers.dishes.create!{
     category: appetizers,  
     name: 'Cowboy Pork Chops (2 Chops)',
     description: 'Thick cut, bone-in chops, marinated for tenderness and flavor.',
@@ -342,11 +310,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false, 
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 14:20:00',
-    updated_at: '2023-10-01 14:20:00',
+    eggs_allergen: false
 },
-{
+salads.dishes.create!{
     category: salads, 
     name: 'Farm Fresh Field Greens with Crispy Chicken Tenders',
     description: 'Diced tomatoes, cucumbers, croutons, and cheddar on fresh field greens.',
@@ -358,11 +324,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true,  
     shellfish_allergen: false,
-    eggs_allergen: false,  
-    created_at: '2023-10-01 15:00:00',
-    updated_at: '2023-10-01 15:00:00',
+    eggs_allergen: false,
 },
-{
+salads.dishes.create!{
     category: salads,  
     name: 'Farm Fresh Field Greens with Salmon',
     description: 'Diced tomatoes, cucumbers, croutons, and cheddar on fresh field greens.',
@@ -374,11 +338,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true,  
     shellfish_allergen: false,
-    eggs_allergen: false,  
-    created_at: '2023-10-01 15:05:00',
-    updated_at: '2023-10-01 15:05:00',
+    eggs_allergen: false,
 },
-{
+salads.dishes.create!{
     category: salads,  
     name: 'Grilled Chicken & Strawberry Salad',
     description: 'With strawberries, grapes, mandarin oranges, candied pecans, red onion, feta cheese, and raspberry vinaigrette.',
@@ -390,11 +352,9 @@ dishes = [
     nuts_allergen: true,  
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,  
-    created_at: '2023-10-01 15:10:00',
-    updated_at: '2023-10-01 15:10:00',
+    eggs_allergen: false,
 },
-{
+salads.dishes.create!{
     category: salads, 
     name: 'Strawberry & Pecan Salad',
     description: 'A delightful salad featuring fresh field greens, sweet strawberries, candied pecans, and creamy feta cheese, served with your choice of dressing.',
@@ -406,11 +366,9 @@ dishes = [
     nuts_allergen: true,  
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false, 
-    created_at: '2023-10-01 15:30:00',
-    updated_at: '2023-10-01 15:30:00',
+    eggs_allergen: false
 },
-{
+salads.dishes.create!{
     category: salads, 
     name: 'Mixed Greens Salad',
     description: 'A light and crisp salad consisting of mixed greens, fresh vegetables, and croutons, served with your preferred salad dressing.',
@@ -422,11 +380,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true,  
     shellfish_allergen: false,
-    eggs_allergen: false,  
-    created_at: '2023-10-01 15:45:00',
-    updated_at: '2023-10-01 15:45:00',
+    eggs_allergen: false,
 },
-{
+salads.dishes.create!{
     category: salads,  
     name: 'Caesar Salad',
     description: 'A classic Caesar salad with crisp romaine lettuce, croutons, and grated Parmesan cheese, tossed in a rich Caesar dressing.',
@@ -438,12 +394,10 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true,  
     shellfish_allergen: false,
-    eggs_allergen: true,
-    created_at: '2023-10-01 16:00:00',
-    updated_at: '2023-10-01 16:00:00',
+    eggs_allergen: true
 },
 # For Cup size
-{
+soups.dishes.create!{
     category: soups, 
     name: 'French Onion Soup (Cup)',
     description: 'A savory onion soup topped with melted Swiss, Provolone, and toasted Parmesan cheese, served piping hot.',
@@ -455,12 +409,10 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,  
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 16:10:00',
-    updated_at: '2023-10-01 16:10:00',
+    eggs_allergen: false
 },
 # For Bowl size
-{
+soups.dishes.create!{
     category: soups,  
     name: 'French Onion Soup (Bowl)',
     description: 'A savory onion soup topped with melted Swiss, Provolone, and toasted Parmesan cheese, served piping hot.',
@@ -472,12 +424,10 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,  
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 16:15:00',
-    updated_at: '2023-10-01 16:15:00',
+    eggs_allergen: false
 },
 # For Cup size
-{
+soups.dishes.create!{
     category: soups,  
     name: 'Loaded Potato Soup (Cup)',
     description: 'A comforting potato soup, generously loaded with bacon, cheddar cheese, and fresh green onions, creating a hearty and flavorful choice.',
@@ -489,12 +439,10 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,  
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 16:20:00',
-    updated_at: '2023-10-01 16:20:00',
+    eggs_allergen: false
 },
 # For Bowl size
-{
+soups.dishes.create!{
     category: soups,  
     name: 'Loaded Potato Soup (Bowl)',
     description: 'A comforting potato soup, generously loaded with bacon, cheddar cheese, and fresh green onions, creating a hearty and flavorful choice.',
@@ -506,12 +454,10 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,  
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 16:25:00',
-    updated_at: '2023-10-01 16:25:00',
+    eggs_allergen: false
 },
 # For Cup size
-{
+soups.dishes.create!{
     category: soups,  
     name: 'Shrimp & Lobster Chowder (Cup)',
     description: 'A creamy chowder featuring shrimp and lobster, accented with corn, red bell peppers, and potatoes, garnished with fresh green onions.',
@@ -523,12 +469,10 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,  
     shellfish_allergen: true,
-    eggs_allergen: false,
-    created_at: '2023-10-01 16:30:00',
-    updated_at: '2023-10-01 16:30:00',
+    eggs_allergen: false
 },
 # For Bowl size
-{
+soups.dishes.create!{
     category: soups, 
     name: 'Shrimp & Lobster Chowder (Bowl)',
     description: 'A creamy chowder featuring shrimp and lobster, accented with corn, red bell peppers, and potatoes, garnished with fresh green onions.',
@@ -540,11 +484,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,  
     shellfish_allergen: true,
-    eggs_allergen: false,
-    created_at: '2023-10-01 16:35:00',
-    updated_at: '2023-10-01 16:35:00',
+    eggs_allergen: false
 },
-{
+side_dishes.dishes.create!{
     category: side_dishes, 
     name: 'Parmesan Cheese Crust',
     description: 'A golden crust of Parmesan cheese that adds an extra layer of flavor and crunch to your steak.',
@@ -556,11 +498,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true,  
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 17:05:00',
-    updated_at: '2023-10-01 17:05:00',
+    eggs_allergen: false
 },
-{
+side_dishes.dishes.create!{
     category: side_dishes, 
     name: 'Grilled Mushrooms',
     description: 'Mushrooms grilled to perfection, enhancing their earthy flavors.',
@@ -572,12 +512,10 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 17:15:00',
-    updated_at: '2023-10-01 17:15:00',
+    eggs_allergen: false
 },
 # For the Cup size
-{
+side_dishes.dishes.create!{
     category: side_dishes, 
     name: 'LongHorn Chili (Cup)',
     description: 'Rich, hearty, and full of flavor.',
@@ -589,13 +527,11 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 17:30:00',
-    updated_at: '2023-10-01 17:30:00',
+    eggs_allergen: false
 },
 
 # For the Bowl size
-{
+side_dishes.dishes.create!{
     category: side_dishes, 
     name: 'LongHorn Chili (Bowl)',
     description: 'Rich, hearty, and full of flavor.',
@@ -607,11 +543,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 17:32:00',
-    updated_at: '2023-10-01 17:32:00',
+    eggs_allergen: false
 },
-{
+side_dishes.dishes.create!{
     category: side_dishes, 
     name: 'Steakhouse Mac & Cheese',
     description: 'Creamy macaroni and cheese infused with smoky bacon and a blend of four creamy cheeses, baked to perfection.',
@@ -623,11 +557,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 17:40:00',
-    updated_at: '2023-10-01 17:40:00',
+    eggs_allergen: false
 },
-{
+side_dishes.dishes.create!{
     category: side_dishes,  
     name: 'Crispy Brussels Sprouts',
     description: 'Brussels sprouts flash-fried to a crispy texture and tossed in a smoky honey butter sauce for a sweet and savory flavor.',
@@ -639,11 +571,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 17:45:00',
-    updated_at: '2023-10-01 17:45:00',
+    eggs_allergen: false
 },
-{
+side_dishes.dishes.create!{
     category: side_dishes,  
     name: 'Fresh Steamed Asparagus',
     description: 'Tender asparagus spears, lightly steamed to preserve their natural freshness, and drizzled with a delicate lemon sauce.',
@@ -655,11 +585,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 17:55:00',
-    updated_at: '2023-10-01 17:55:00',
+    eggs_allergen: false
 },
-{
+side_dishes.dishes.create!{
     category: side_dishes, 
     name: 'Idaho Baked Potato',
     description: 'A fluffy baked potato served hot, loaded with crispy bacon, cheddar cheese, sour cream, butter, and fresh green onions.',
@@ -671,11 +599,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 18:05:00',
-    updated_at: '2023-10-01 18:05:00',
+    eggs_allergen: false
 },
-{
+side_dishes.dishes.create!{
     category: side_dishes, 
     name: 'Sweet Potato',
     description: 'A sweet and buttery roasted sweet potato, dusted with cinnamon sugar for a delightful contrast of flavors.',
@@ -687,11 +613,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 18:10:00',
-    updated_at: '2023-10-01 18:10:00',
+    eggs_allergen: false
 },
-{
+side_dishes.dishes.create!{
     category: side_dishes, 
     name: 'Mashed Potatoes',
     description: 'Creamy mashed potatoes made with butter and seasoning, providing a comforting and classic side dish.',
@@ -703,11 +627,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 18:15:00',
-    updated_at: '2023-10-01 18:15:00',
+    eggs_allergen: false
 },
-{
+side_dishes.dishes.create!{
     category: side_dishes, 
     name: 'Seasoned French Fries',
     description: 'Crispy golden fries seasoned with a special blend of herbs and spices, making them a savory and satisfying accompaniment.',
@@ -719,11 +641,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 18:20:00',
-    updated_at: '2023-10-01 18:20:00',
+    eggs_allergen: false
 },
-{
+sandwiches.dishes.create!{
     category: sandwiches,  
     name: 'The LH Burger',
     description: 'Shaved prime rib, Swiss cheese, crispy onion straws, arugula, and steakhouse mayo on a toasted potato bun.',
@@ -735,11 +655,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 18:30:00',
-    updated_at: '2023-10-01 18:30:00',
+    eggs_allergen: false
 },
-{
+sandwiches.dishes.create!{
     category: sandwiches, 
     name: 'Maverick Ribeye Sandwich',
     description: 'Shaved prime rib topped with onions, mushrooms, and Swiss cheese on French bread.',
@@ -751,11 +669,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 18:35:00',
-    updated_at: '2023-10-01 18:35:00',
+    eggs_allergen: false
 },
-{
+meats.dishes.create!{
     category: meats,  
     name: 'Flo\'s Filet (6oz)',
     description: 'A center-cut filet known for its exceptional tenderness, seasoned to perfection.',
@@ -767,11 +683,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 18:40:00',
-    updated_at: '2023-10-01 18:40:00',
+    eggs_allergen: false
 },
-{
+meats.dishes.create!{
     category: meats, 
     name: 'Flo\'s Filet (9oz)',
     description: 'A center-cut filet known for its exceptional tenderness, seasoned to perfection.',
@@ -783,11 +697,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 18:41:00',
-    updated_at: '2023-10-01 18:41:00',
+    eggs_allergen: false
 },
-{
+meats.dishes.create!{
     category: meats, 
     name: 'Outlaw Ribeye (20oz)',
     description: 'A bone-in cut, known for its marbling, grilled to enhance its robust flavors.',
@@ -799,11 +711,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 18:45:00',
-    updated_at: '2023-10-01 18:45:00',
+    eggs_allergen: false
 },
-{
+meats.dishes.create!{
     category: meats, 
     name: 'The LongHorn (22oz)',
     description: 'A porterhouse that boasts the flavors of a bone-in strip and the tenderness of a filet.',
@@ -815,11 +725,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 19:15:00',
-    updated_at: '2023-10-01 19:15:00',
+    eggs_allergen: false
 },
-{
+meats.dishes.create!{
     category: meats,  
     name: 'Chop Steak (10oz)',
     description: 'Freshly ground steak draped with grilled mushrooms, sautéed onions, and a rich garlic herb sauce.',
@@ -831,11 +739,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 19:25:00',
-    updated_at: '2023-10-01 19:25:00',
+    eggs_allergen: false
 },
-{
+meats.dishes.create!{
     category: meats, 
     name: 'Renegade Sirloin (6oz)',
     description: 'A lean USDA Choice center-cut top sirloin that promises a hearty steak experience.',
@@ -847,11 +753,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 19:30:00',
-    updated_at: '2023-10-01 19:30:00',
+    eggs_allergen: false
 },
-{
+meats.dishes.create!{
     category: meats,  
     name: 'Renegade Sirloin (8oz)',
     description: 'A lean USDA Choice center-cut top sirloin that promises a hearty steak experience.',
@@ -863,11 +767,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 19:33:00',
-    updated_at: '2023-10-01 19:33:00',
+    eggs_allergen: false
 },
-{
+meats.dishes.create!{
     category: meats, 
     name: 'Ribeye (12oz)',
     description: 'Known for its juiciness and flavorful marbling, this steak is a carnivore\'s delight.',
@@ -879,11 +781,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 19:45:00',
-    updated_at: '2023-10-01 19:45:00',
+    eggs_allergen: false
 },
-{
+meats.dishes.create!{
     category: meats,  
     name: 'New York Strip (12oz)',
     description: 'A thick cut that\'s fire-grilled, amplifying its distinctive taste, making it a steakhouse favorite.',
@@ -895,11 +795,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 19:50:00',
-    updated_at: '2023-10-01 19:50:00',
+    eggs_allergen: false
 },
-{
+meats.dishes.create!{
     category: meats,  
     name: 'Fire-Grilled T-Bone (18oz)',
     description: 'A dual-experience steak offering the marbled flavor of a strip and the softness of a filet.',
@@ -911,11 +809,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 20:00:00',
-    updated_at: '2023-10-01 20:00:00',
+    eggs_allergen: false
 },
-{
+meats.dishes.create!{
     category: meats, 
     name: '6oz. Renegade Sirloin with 8ct. Redrock Grilled Shrimp',
     description: 'A perfect combo of a juicy sirloin paired with grilled shrimp, served over rice with rich garlic butter.',
@@ -927,11 +823,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: true,
-    eggs_allergen: false,
-    created_at: '2023-10-01 20:15:00',
-    updated_at: '2023-10-01 20:15:00',
+    eggs_allergen: false
 },
-{
+meats.dishes.create!{
     category: meats,  
     name: '6oz. Flo\'s Filet with 4oz. Lobster Tail',
     description: 'A tender Flo\'s Filet combined with a buttery lobster tail for an elevated dining experience.',
@@ -943,11 +837,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: true,
-    eggs_allergen: false,
-    created_at: '2023-10-01 20:15:00',
-    updated_at: '2023-10-01 20:15:00',
+    eggs_allergen: false
 },
-{
+seafood.dishes.create!{
     category: seafood, 
     name: '4ct. Redrock Grilled Shrimp',
     description: 'Succulent shrimp grilled to perfection, served on a bed of rice with luscious garlic butter.',
@@ -959,11 +851,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: true,
-    eggs_allergen: false,
-    created_at: '2023-10-01 20:20:00',
-    updated_at: '2023-10-01 20:20:00',
+    eggs_allergen: false
 },
-{
+seafood.dishes.create!{
     category: seafood, 
     name: '4oz. Lobster Tail',
     description: 'A tender lobster tail, steamed to perfection and served with melted butter for dipping.',
@@ -975,11 +865,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: true,
-    eggs_allergen: false,
-    created_at: '2023-10-01 20:25:00',
-    updated_at: '2023-10-01 20:25:00',
+    eggs_allergen: false
 },
-{
+desserts.dishes.create!{
     category: desserts,  
     name: 'Chocolate Lava Cake',
     description: 'A warm, rich chocolate cake filled with molten chocolate and topped with vanilla ice cream.',
@@ -991,11 +879,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true,
     shellfish_allergen: false,
-    eggs_allergen: true,
-    created_at: '2023-10-01 20:50:00',
-    updated_at: '2023-10-01 20:50:00',
+    eggs_allergen: true
 },
-{
+desserts.dishes.create!{
     category: desserts, 
     name: 'New York Cheesecake',
     description: 'Creamy and rich classic cheesecake topped with a sweet strawberry sauce.',
@@ -1007,11 +893,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 21:00:00',
-    updated_at: '2023-10-01 21:00:00',
+    eggs_allergen: false
 },
-{
+desserts.dishes.create!{
     category: desserts,  
     name: 'Key Lime Pie',
     description: 'A tangy and sweet dessert with a crumbly crust, topped with whipped cream.',
@@ -1023,11 +907,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 21:05:00',
-    updated_at: '2023-10-01 21:05:00',
+    eggs_allergen: false
 },
-{
+desserts.dishes.create!{
     category: desserts,  
     name: 'Molten Chocolate Chip Cookie Sundae',
     description: 'A warm chocolate chip cookie, baked in a skillet, topped with vanilla ice cream and drizzled with chocolate sauce.',
@@ -1039,11 +921,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: true,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 21:10:00',
-    updated_at: '2023-10-01 21:10:00',
+    eggs_allergen: false
 },
-{
+beverages.dishes.create!{
     category: beverages,  
     name: 'Raspberry Lemonade',
     description: 'A refreshing blend of sweet raspberries and tart lemonade, perfect for quenching your thirst.',
@@ -1055,11 +935,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 22:00:00',
-    updated_at: '2023-10-01 22:00:00',
+    eggs_allergen: false
 },
-{
+beverages.dishes.create!{
     category: beverages, 
     name: 'Freshly Brewed Iced Tea',
     description: 'Classic iced tea, brewed fresh and served cold with a slice of lemon.',
@@ -1070,11 +948,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 23:00:00',
-    updated_at: '2023-10-01 23:00:00',
+    eggs_allergen: false
 },
-{
+beverages.dishes.create!{
     category: beverages,  
     name: 'Mango Lemonade',
     description: 'A tropical twist on traditional lemonade with the sweet flavor of ripe mangoes.',
@@ -1086,11 +962,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 23:05:00',
-    updated_at: '2023-10-01 23:05:00',
+    eggs_allergen: false
 },
-{
+beverages.dishes.create!{
     category: beverages, 
     name: 'LongHorn Chili Lime Ginger Ale',
     description: 'A zesty and spicy drink with a hint of lime and ginger, providing a unique refreshing experience.',
@@ -1102,11 +976,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 23:10:00',
-    updated_at: '2023-10-01 23:10:00',
+    eggs_allergen: false
 },
-{
+beverages.dishes.create!{
     category: beverages, 
     name: 'Fountain Drinks',
     description: 'A selection of popular sodas, served cold with ice.',
@@ -1118,11 +990,9 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 23:12:00',
-    updated_at: '2023-10-01 23:12:00',
+    eggs_allergen: false
 },
-{
+beverages.dishes.create!{
     category: beverages,  
     description: 'Crisp and clean bottled water to hydrate and refresh.',
     price: 2.99,
@@ -1133,13 +1003,11 @@ dishes = [
     nuts_allergen: false,
     gluten_allergen: false,
     shellfish_allergen: false,
-    eggs_allergen: false,
-    created_at: '2023-10-01 23:15:00',
-    updated_at: '2023-10-01 23:15:00',
+    eggs_allergen: false
 }
-]
 
-Dish.create!(dishes)
+
+
 
 
 
