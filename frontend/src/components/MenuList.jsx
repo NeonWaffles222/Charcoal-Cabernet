@@ -7,13 +7,13 @@ function MenuList() {
         ="menu-title">Menu</h2>
 
       <div className='menu-items'>
+        <h3 className
+          ="menu-category">Appetizers</h3>
         <div className='menu-1'>
 
-          <h3 className
-            ="menu-category">Appetizers</h3>
           <ul className='appetizers'>
             <li>
-              <a href="#">Seasoned Steakhouse Wings</a> - $11.29
+              <a href="#">Seasoned Steakhouse Wings</a> <strong>- $11.29  </strong>
               <p>Description: Crispy wings seasoned to perfection, served with tangy blue cheese and buffalo sauce.</p>
             </li>
             <li>
@@ -69,10 +69,10 @@ function MenuList() {
 
 
         </div>
+        <h3 className
+          ="menu-category">Salads</h3>
         <div className='menu-2'>
 
-          <h3 className
-            ="menu-category">Salads</h3>
           <ul className='salads'>
             <li>
               <a href="#">Farm Fresh Field Greens with Crispy Chicken Tenders</a>
@@ -100,10 +100,10 @@ function MenuList() {
 
 
         </div>
+        <h3 className
+          ="menu-category">Soups</h3>
         <div className='menu-3'>
 
-          <h3 className
-            ="menu-category">Soups</h3>
           <ul className='soups'>
             <li>
               <a href="#">French Onion Soup</a>
@@ -124,10 +124,10 @@ function MenuList() {
 
 
         </div>
+        <h3 className
+          ="menu-category">Side Dishes</h3>
         <div className='menu-4'>
 
-          <h3 className
-            ="menu-category">Side Dishes</h3>
           <ul className='side_dishes'>
             <li>
               <a href="#">Parmesan Cheese Crust</a> - $1.99
@@ -174,10 +174,10 @@ function MenuList() {
 
 
         </div>
+        <h3 className
+          ="menu-category">Sandwich</h3>
         <div className='menu-5'>
 
-          <h3 className
-            ="menu-category">Sandwich</h3>
           <ul className='sandwich'>
             <li>
               <a href="#">The LH Burger</a> - $13.99
@@ -191,10 +191,10 @@ function MenuList() {
 
 
         </div>
+        <h3 className
+          ="menu-category">Meats</h3>
         <div className='menu-6'>
 
-          <h3 className
-            ="menu-category">Meats</h3>
           <ul className='meats'>
             <li>
               <a href="#">Flo's Filet (6oz)</a>
@@ -234,10 +234,10 @@ function MenuList() {
 
 
         </div>
+        <h3 className
+          ="menu-category">Seafood</h3>
         <div className='menu-7'>
 
-          <h3 className
-            ="menu-category">Seafood</h3>
           <ul className='seafood'>
             <li>
               <a href="#">6oz. Renegade Sirloin with 8ct. Redrock Grilled Shrimp</a> - $19.49
@@ -260,10 +260,10 @@ function MenuList() {
 
 
         </div>
+        <h3 className
+          ="menu-category">Desserts</h3>
         <div className='menu-8'>
 
-          <h3 className
-            ="menu-category">Desserts</h3>
           <ul className='desserts'>
             <li>
               <a href="#">Chocolate Lava Cake</a> - $7.49
@@ -287,10 +287,10 @@ function MenuList() {
 
 
         </div>
+        <h3 className
+          ="menu-category">Beverages</h3>
         <div className='menu-9'>
 
-          <h3 className
-            ="menu-category">Beverages</h3>
           <ul>
             <li>
               <a href="#">Raspberry Lemonade</a> - $3.29
