@@ -1,7 +1,11 @@
+import { useState } from "react";
 import React from 'react';
 import "../styles/styles.css";
 import Modal from './MenuModal';
+
+
 function MenuList() {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <div className="menu">
       <h2 className
@@ -14,8 +18,16 @@ function MenuList() {
         <div className='menu-1'>
           <div className='col-1'>
             <div>
-              <Modal />
-              <a href="#" onClick={() => alert("++++++++")}>Seasoned Steakhouse Wings</a> <strong>- $11.29  </strong>
+              <Modal
+                isOpen={modalOpen}
+                imageUrl={"images/6_chicken_wrap.jpg"}
+                title={"Seasoned Steakhouse Wings"}
+                description={"Crispy wings seasoned to perfection, served with tangy blue cheese and buffalo sauce."}
+                price={"$11.29"}
+                onClose={() => setModalOpen(false)}
+              />
+
+              <a href="#" onClick={() => setModalOpen(true)}>Seasoned Steakhouse Wings</a> <strong>- $11.29  </strong>
 
               <p>Description: Crispy wings seasoned to perfection, served with tangy blue cheese and buffalo sauce.</p>
             </div>
