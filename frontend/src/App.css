@@ -36,25 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-/* ADDED CSS FOR DISH LIST ITEM NEED TO MOVE TO A BETTER STYLESHEET LATER */
-.dish-card{
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-}
-
-.dish-info{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.img-size{
-  width: 35%;
-}
-
-.border{
-  border: dashed;
-  padding: 1rem;
-}

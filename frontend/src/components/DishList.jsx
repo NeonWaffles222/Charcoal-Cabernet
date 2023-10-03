@@ -1,32 +1,71 @@
 import DishListItem from "./DishListItem";
+import '../styles/DishList.scss';
+import SearchAndCheckBox from './Allergen';
+import Category from './Category';
+import { useState } from "react";
 
 const DishList = (props) => {
+  const [selectedTab, setSelectedTab] = useState(0);
 
-  // console.log(props.dish.dishes,"----------------------------------------")
-  const DishArray = props.dish.dishes.map((dish, index)=>{
+  // Filter the dishes based on the selected tab
+  const filteredDishes = props.dish.dishes.filter((dish) => {
+    return dish.category_id === selectedTab;
+  });
+
+  const handleTabChange = (newValue) => {
+    setSelectedTab(newValue);
+  };
+
+  //When you select a tab
+  const FilteredDishArray = filteredDishes.map((dish, index) => {
     return <DishListItem
-    key={index} 
-    id={dish.id}
-    name = {dish.name}
-    category_id = {dish.category_id}
-    description = {dish.description}
-    image_url = {dish.image_url}
-    isActive = {dish.isActive}
-    price = {dish.price}
-    quantity = {dish.quantity}
-    nuts_allergen = {dish.nuts_allergen}
-    dary_allergen = {dish.dary_allergen}
-    eggs_allergen = {dish.eggs_allergen}
-    gluen_allergen = {dish.gluen_allergen}
-    shellfish_allergen = {dish.shellfish_allergen}
-    />
-  })
+      key={index}
+      id={dish.id}
+      name={dish.name}
+      category_id={dish.category_id}
+      description={dish.description}
+      image_url={dish.image_url}
+      isActive={dish.isActive}
+      price={dish.price}
+      quantity={dish.quantity}
+      nuts_allergen={dish.nuts_allergen}
+      dairy_allergen={dish.dairy_allergen}
+      eggs_allergen={dish.eggs_allergen}
+      gluten_allergen={dish.gluten_allergen}
+      shellfish_allergen={dish.shellfish_allergen}
+    />;
+  });
+  //Need to have this because categories doesn't include an all category id
+  const DishArray = props.dish.dishes.map((dish, index) => {
+    return <DishListItem
+      key={index}
+      id={dish.id}
+      name={dish.name}
+      category_id={dish.category_id}
+      description={dish.description}
+      image_url={dish.image_url}
+      isActive={dish.isActive}
+      price={dish.price}
+      quantity={dish.quantity}
+      nuts_allergen={dish.nuts_allergen}
+      dairy_allergen={dish.dairy_allergen}
+      eggs_allergen={dish.eggs_allergen}
+      gluten_allergen={dish.gluten_allergen}
+      shellfish_allergen={dish.shellfish_allergen}
+    />;
+  });
+
+
 
 
   return (
-    <ul>
-      {DishArray}
-    </ul>
+    <div>
+      <SearchAndCheckBox />
+      <Category onTabChange={handleTabChange} />
+      <ul>
+        {selectedTab === 0 ? DishArray : FilteredDishArray}
+      </ul>
+    </div>
   );
 };
 
