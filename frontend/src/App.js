@@ -9,7 +9,7 @@ function App() {
   const {
     state
   } = useApplicationData();
-  console.log(state);
+  // console.log(state);
 
   return (
     <div className="App">

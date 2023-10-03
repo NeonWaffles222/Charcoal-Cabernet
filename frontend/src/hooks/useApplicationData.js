@@ -4,7 +4,10 @@ import axios from 'axios';
 function useApplicationData() {
 
   const inital = {
-    users: []
+    users: [],
+    categories: [],
+    dishes: [],
+    tables: [],
   };
 
   const [state, dispatch] = useReducer(reducer, inital);
