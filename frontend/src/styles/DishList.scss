@@ -1,6 +1,6 @@
 ul {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); 
+  grid-template-columns: repeat(2, 1fr); 
   gap: 20px; 
   list-style: none;
   padding: 0;
@@ -8,6 +8,6 @@ ul {
 
 /* Style for each DishListItem */
 .border {
-  border: dashed;
-  padding: 1rem;
+  border: solid;
+  margin: 2rem;
 }

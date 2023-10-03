@@ -5,23 +5,9 @@ import '../App.css';
 
 
 function DishListItem(props) {
-  // const dish = {
-  //   category_id: 12,
-  //   name: 'Grilled Ribeye Steak',
-  //   description: "Whether you savor each bite slowly, letting the flavors dance on your palate, or devour it with gusto, our Savory Grilled Ribeye Steak is a culinary journey that promises satisfaction and delight. It's the perfect choice for a special occasion or a memorable evening out, inviting you to savor the finest in steakhouse dining.",
-  //   price: 12.00,
-  //   quantity: 100,
-  //   image_url: 'https://images.pexels.com/photos/769289/pexels-photo-769289.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-  //   isActive: true,
-  //   diary_allergen: true,
-  //   nuts_allergen: true,
-  //   gluten_allergen: true,
-  //   shellfish_allergen: true,
-  //   eggs_allergen: true,
-  // };
 
     let dish =props
-    // console.log(props)
+    console.log(props.category_id)
 
   return (
     <div className="border">
@@ -42,7 +28,7 @@ function DishListItem(props) {
             {props.dairy_allergen && <FontAwesomeIcon icon={faCow} size = '2x'/>}
             {props.eggs_allergen && <FontAwesomeIcon icon={faEgg} size = '2x'/>}
             
-            
+            {props.nuts_allergen && <p><strong>NUT PLACEHOLDER</strong></p>}
             
             {/* <FontAwesomeIcon icon={faSeedling} size = '2x'/> */}
           </div>

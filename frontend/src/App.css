@@ -39,9 +39,7 @@
 
 /* ADDED CSS FOR DISH LIST ITEM NEED TO MOVE TO A BETTER STYLESHEET LATER */
 .dish-card{
-  /* display: flex; */
-  flex-direction: row;
-  align-items: stretch;
+  display: block;
 }
 
 .dish-info{
