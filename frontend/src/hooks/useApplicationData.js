@@ -5,6 +5,9 @@ function useApplicationData() {
 
   const inital = {
     users: [],
+    categories: [],
+    dishes: [],
+    tables: [],
     modal: {
       open: null,
     },
