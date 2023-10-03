@@ -1,6 +1,6 @@
 import DishListItem from "./DishListItem";
 import '../styles/DishList.scss';
-import SearchAndCheckBox from './SearchAndCheckBox';
+import SearchAndCheckBox from './Allergen';
 import Category from './Category';
 import { useState } from "react";
 

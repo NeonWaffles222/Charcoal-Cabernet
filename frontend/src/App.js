@@ -30,8 +30,8 @@ function App() {
       <UserList users={state.users} />
       {/* <Twilio/> */}
       {/* <MenuList /> */}
-      <DishScroll dish={state}/>
-      <DishList dish={state}/>
+      {/* <DishScroll dish={state}/> */}
+      {/* <DishList dish={state}/> */}
       <Footer />
     </div>
   );
