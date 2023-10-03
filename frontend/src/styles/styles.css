@@ -6,7 +6,7 @@
   font-family: Bebas Neue;
   text-transform: uppercase;
   font-size: 70px;
-  text-decoration: underline;
+
 }
 
 .menu {
@@ -26,9 +26,17 @@
 
 .menu-1 {
   padding: 40px;
-  column-count: 2;
+  /* column-count: 2; */
+  display: flex;
   text-align: center;
   margin-top: 4em;
+}
+
+.menu-1 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
 }
 
 
@@ -114,4 +122,10 @@ ul>li>a {
 
 ul>li {
   font-size: 30px;
+}
+
+hr {
+  margin-top: -60px;
+  margin-left: 16em;
+  margin-right: 16em;
 }

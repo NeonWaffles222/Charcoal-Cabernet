@@ -1,6 +1,5 @@
 import React from 'react';
 import "../styles/styles.css";
-import Modal from './MenuModal';
 function MenuList() {
   return (
     <div className="menu">
@@ -10,68 +9,63 @@ function MenuList() {
       <div className='menu-items'>
         <h3 className
           ="menu-category">Appetizers</h3>
-        <hr />
         <div className='menu-1'>
-          <div className='col-1'>
-            <div>
-              <Modal />
-              <a href="#" onClick={() => alert("++++++++")}>Seasoned Steakhouse Wings</a> <strong>- $11.29  </strong>
 
+          <ul className='appetizers'>
+            <li>
+              <a href="#">Seasoned Steakhouse Wings</a> <strong>- $11.29  </strong>
               <p>Description: Crispy wings seasoned to perfection, served with tangy blue cheese and buffalo sauce.</p>
-            </div>
-            <div>
+            </li>
+            <li>
               <a href="#">Wild West Shrimp</a> - $11.49
               <p>Description: Shrimp fried to a golden brown, tossed with spicy cherry peppers and garlic butter, paired with a creamy ranch dip.</p>
-            </div>
-            <div>
+            </li>
+            <li>
               <a href="#">Spicy Chicken Bites</a> - $5.99
               <p>Description: Bite-sized chicken pieces infused with a sweet and spicy chili-ginger sauce.</p>
-            </div>
-            <div>
+            </li>
+            <li>
               <a href="#">Texas Tonion</a> - $8.99
               <p>Description: Delicately battered onion petals fried until golden and crispy, complemented with a zesty dip.</p>
-            </div>
-            <div>
+            </li>
+            <li>
               <a href="#">White Cheddar Stuffed Mushrooms</a> - $9.99
               <p>Description: Juicy mushrooms filled with creamy garlic herb cheese and crowned with a golden Parmesan crust.</p>
-            </div>
-            <div>
+            </li>
+            <li>
               <a href="#">Firecracker Chicken Wraps</a> - $10.49
               <p>Description: Spicy chicken and cheese enveloped in a soft tortilla, accompanied by an avocado-lime dip.</p>
-            </div>
-            <div>
+            </li>
+            <li>
               <a href="#">Hand-Breaded Chicken Tenders</a>
               <p>6 Tenders - $13.79 | 9 Tenders - $15.79</p>
               <p>Description: Fresh, juicy, and hand-breaded to order with housemade honey mustard.</p>
-            </div>
-          </div>
-          <div className='col-2'>
-            <div>
+            </li>
+            <li>
               <a href="#">Parmesan Crusted Chicken</a>
               <p>9oz - $15.49 | 12oz - $17.49</p>
               <p>Description: Topped with our creamy Parmesan and garlic cheese crust.</p>
-            </div>
-            <div>
+            </li>
+            <li>
               <a href="#">LongHorn Salmon</a>
               <p>7oz - $19.79 | 10oz - $22.29</p>
               <p>Description: Hand-cut, fresh Atlantic salmon marinated in our signature bourbon marinade.</p>
-            </div>
-            <div>
+            </li>
+            <li>
               <a href="#">Redrock Grilled Shrimp</a>
               <p>8ct - $15.99 | 12ct - $18.99</p>
               <p>Description: Glazed with smoky tomato butter, served over rice with a side of garlic butter.</p>
-            </div>
-            <div>
+            </li>
+            <li>
               <a href="#">Baby Back Ribs</a>
               <p>Half-Rack - $16.79 | Full-Rack - $21.79</p>
               <p>Description: Slow-cooked, tender ribs seasoned with a signature spice blend.</p>
-            </div>
-            <div>
+            </li>
+            <li>
               <a href="#">Cowboy Pork Chops (2 Chops)</a> - $19.49
               <p>Description: Thick cut, bone-in chops, marinated for tenderness and flavor.</p>
-            </div>
-
-          </div>
+            </li>
+          </ul>
 
 
         </div>
