@@ -11,6 +11,8 @@ function useApplicationData() {
     modal: {
       open: null,
     },
+    orders: [],
+
   };
 
   const [state, dispatch] = useReducer(reducer, inital);
@@ -26,6 +28,20 @@ function useApplicationData() {
       dispatch({ type: ACTIONS.CLOSE_MODAL, value: { open: null } }) :
       dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'register' } });
   };
+
+  const onOrderSelect = () => {
+    (state.modal.open === 'order') ?
+      dispatch({ type: ACTIONS.CLOSE_MODAL, value: { open: null } }) :
+      dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'order' } });
+  };
+
+  const addDish =(id) => {
+    dispatch({type: ACTIONS.ADD_DISH, payload: {id}})
+  }
+
+  const removeDish =(id) => {
+    dispatch({type: ACTIONS.REMOVE_DISH, payload: {id}})
+  }
 
   // Gets all user data
   useEffect(() => {
@@ -82,7 +98,11 @@ function useApplicationData() {
   return {
     state,
     onLoginSelect,
-    onRegisterSelect
+    onRegisterSelect,
+    onOrderSelect,
+    addDish,
+    removeDish,
+
   };
 }
 
@@ -92,7 +112,10 @@ export const ACTIONS = {
   SET_DISH_DATA: 'SET_DISH_DATA',
   SET_TABLE_DATA: 'SET_TABLE_DATA',
   OPEN_MODAL: 'OPEN_MODAL',
-  CLOSE_MODAL: 'CLOSE_MODAL'
+  CLOSE_MODAL: 'CLOSE_MODAL',
+  ADD_DISH: 'ADD_DISH',
+  REMOVE_DISH: 'REMOVE_DISH',
+  
 };
 
 function reducer(state, action) {
@@ -128,6 +151,10 @@ function reducer(state, action) {
         ...state,
         modal: action.value
       };
+      case ACTIONS.ADD_DISH:
+      return {
+        ...state,
+      }
 
     default:
       throw new Error(

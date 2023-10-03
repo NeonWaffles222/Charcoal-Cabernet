@@ -52,6 +52,7 @@ const DishList = (props) => {
       eggs_allergen={dish.eggs_allergen}
       gluten_allergen={dish.gluten_allergen}
       shellfish_allergen={dish.shellfish_allergen}
+      dish={dish}
     />;
   });
 

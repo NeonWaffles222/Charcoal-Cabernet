@@ -10,22 +10,30 @@ import Footer from "./components/Footer";
 import LoginModal from './components/LoginModal';
 import RegisterModal from './components/RegisterModal';
 import DishScroll from './components/DishScroll'
+import OrderModal from './components/OrderModal'
+
+
 
 function App() {
 
   const {
     state,
     onLoginSelect,
-    onRegisterSelect
+    onRegisterSelect,
+    onOrderSelect,
   } = useApplicationData();
   // console.log(state);
 
   return (
     <div className="App">
       <AuthProvider>
-        <TopNavigation onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />
+        <TopNavigation onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} onOrderSelect={onOrderSelect}/>
+
         {state.modal.open === 'login' && <LoginModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
+
         {state.modal.open === 'register' && <RegisterModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
+
+        {state.modal.open === 'order' && <OrderModal onOrderSelect={onOrderSelect} />}
       </AuthProvider>
       <UserList users={state.users} />
       {/* <Twilio/> */}
