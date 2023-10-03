@@ -9,7 +9,7 @@ import TopNavigation from "./components/TopNavigationBar";
 import Footer from "./components/Footer";
 import LoginModal from './components/LoginModal';
 import RegisterModal from './components/RegisterModal';
-
+import DishScroll2 from './components/DishScroll2'
 
 function App() {
 
@@ -29,8 +29,9 @@ function App() {
       </AuthProvider>
       <UserList users={state.users} />
       {/* <Twilio/> */}
-      <DishList dish={state}/>
       {/* <MenuList /> */}
+      {/* <DishScroll2 dish={state}/> */}
+      <DishList dish={state}/>
       <Footer />
     </div>
   );

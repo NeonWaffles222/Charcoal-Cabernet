@@ -3,7 +3,7 @@ import '../styles/DishList.scss'
 
 const DishList = (props) => {
 
-  console.log(props.dish.dishes,"----------------------------------------")
+  // console.log(props.dish.dishes,"----------------------------------------")
   const DishArray = props.dish.dishes.map((dish, index)=>{
     return <DishListItem
     key={index} 
