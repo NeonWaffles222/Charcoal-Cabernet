@@ -10,4 +10,14 @@
 
 .menu {
   font-family: Cormorant;
+  background-color: rgba(237, 237, 236, 255)
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu-title {
+  font-size: 42px;
 }
