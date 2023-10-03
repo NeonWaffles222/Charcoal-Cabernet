@@ -11,7 +11,7 @@ function useApplicationData() {
     modal: {
       open: null,
     },
-    orders: [],
+    order: [],
 
   };
 
@@ -36,12 +36,12 @@ function useApplicationData() {
   };
 
   const addDish =(id) => {
-    dispatch({type: ACTIONS.ADD_DISH, payload: {id}})
-  }
+    dispatch({type: ACTIONS.ADD_DISH, payload: { id } })
+  };
 
   const removeDish =(id) => {
     dispatch({type: ACTIONS.REMOVE_DISH, payload: {id}})
-  }
+  };
 
   // Gets all user data
   useEffect(() => {
@@ -102,7 +102,6 @@ function useApplicationData() {
     onOrderSelect,
     addDish,
     removeDish,
-
   };
 }
 
@@ -115,7 +114,7 @@ export const ACTIONS = {
   CLOSE_MODAL: 'CLOSE_MODAL',
   ADD_DISH: 'ADD_DISH',
   REMOVE_DISH: 'REMOVE_DISH',
-  
+
 };
 
 function reducer(state, action) {
@@ -152,9 +151,10 @@ function reducer(state, action) {
         modal: action.value
       };
       case ACTIONS.ADD_DISH:
-      return {
-        ...state,
-      }
+        const updatedOrder = [...state.order, action.payload];
+        return {
+          ...state, order: updatedOrder,
+        };
 
     default:
       throw new Error(

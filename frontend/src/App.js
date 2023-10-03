@@ -21,6 +21,8 @@ function App() {
     onLoginSelect,
     onRegisterSelect,
     onOrderSelect,
+    addDish,
+    removeDish
   } = useApplicationData();
   // console.log(state);
 
@@ -39,7 +41,7 @@ function App() {
       {/* <Twilio/> */}
       {/* <MenuList /> */}
       {/* <DishScroll dish={state}/> */}
-      {/* <DishList dish={state}/> */}
+      <DishList dish={state} addDish={addDish}/>
       <Footer />
     </div>
   );
