@@ -39,10 +39,75 @@
   color: black
 }
 
+.menu-2 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
+}
+
+.menu-3 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
+}
+
+.menu-4 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
+}
+
+.menu-5 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
+}
+
+.menu-6 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
+}
+
+.menu-7 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
+}
+
+.menu-8 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
+}
+
+.menu-9 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
+}
+
+
+
+
+
+
+
+
+
 
 .menu-2 {
   padding: 40px;
   column-count: 2;
+  display: flex;
   text-align: center;
   margin-top: 4em;
 
@@ -52,6 +117,7 @@
 .menu-3 {
   padding: 40px;
   column-count: 2;
+  display: flex;
   text-align: center;
   margin-top: 4em;
 
@@ -62,6 +128,8 @@
 .menu-4 {
   padding: 40px;
   column-count: 2;
+  display: flex;
+
   text-align: center;
   margin-top: 4em;
 
@@ -74,6 +142,8 @@
   column-count: 2;
   text-align: center;
   margin-top: 4em;
+  display: flex;
+
 
 
 }
@@ -84,6 +154,8 @@
   column-count: 2;
   text-align: center;
   margin-top: 4em;
+  display: flex;
+
 
 
 }
@@ -94,6 +166,8 @@
   column-count: 2;
   text-align: center;
   margin-top: 4em;
+  display: flex;
+
 
 }
 
@@ -102,6 +176,8 @@
   column-count: 2;
   text-align: center;
   margin-top: 4em;
+  display: flex;
+
 
 }
 
@@ -110,22 +186,15 @@
   column-count: 2;
   text-align: center;
   margin-top: 4em;
+  display: flex;
+
 
 }
 
-ul>li>a {
-  font-family: Bebas Neue;
-  text-transform: capitalize;
-  font-size: 45px;
-  color: black
-}
 
-ul>li {
-  font-size: 30px;
-}
 
 hr {
   margin-top: -60px;
-  margin-left: 16em;
-  margin-right: 16em;
+  margin-left: 25em;
+  margin-right: 25em;
 }
