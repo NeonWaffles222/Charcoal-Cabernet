@@ -1,31 +1,39 @@
 import * as React from 'react';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
 
-export default function StandardImageList(props) {
-  console.log(props.dish.dishes);
+export default function DishScroll(props) {
+  const [value, setValue] = React.useState(0);
 
-  const itemWidth = 164; // Adjust this value according to your needs
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  // Define a CSS class for the images
+  const imgStyle = {
+    maxWidth: '100%',
+    maxHeight: '100%',
+    objectFit: 'cover',
+  };
 
   return (
-    <div>
-      <ImageList
-        sx={{  display: 'flex', flexWrap: 'nowrap' }}
-        cols={props.dish.dishes.length}
-        rowHeight={164}
+    <Box
+      sx={{
+        maxWidth: '100%',
+        bgcolor: 'background.paper',
+      }}
+    >
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        variant="scrollable"
       >
         {props.dish.dishes.map((item) => (
-          <Tab key={item.id} style={{ flex: `0 0 ${itemWidth}px` }}>
-            <img
-              srcSet={`${item.image_url}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-              src={`${item.image_url}?w=164&h=164&fit=crop&auto=format`}
-              alt={item.name}
-              loading="lazy"
-            />
-            {/* <div>{item.name}</div> */}
-          </Tab>
+          <Tab
+            key={item.id} label={<img src={item.image_url} alt={item.name} style={imgStyle} />} />
         ))}
-      </ImageList>
-    </div>
+      </Tabs>
+    </Box>
   );
 }

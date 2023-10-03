@@ -16,6 +16,7 @@ const DishList = (props) => {
     setSelectedTab(newValue);
   };
 
+  //When you select a tab
   const FilteredDishArray = filteredDishes.map((dish, index) => {
     return <DishListItem
       key={index}

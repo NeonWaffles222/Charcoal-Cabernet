@@ -9,7 +9,7 @@ import TopNavigation from "./components/TopNavigationBar";
 import Footer from "./components/Footer";
 import LoginModal from './components/LoginModal';
 import RegisterModal from './components/RegisterModal';
-import DishScroll2 from './components/DishScroll2'
+import DishScroll from './components/DishScroll'
 
 function App() {
 
@@ -30,7 +30,7 @@ function App() {
       <UserList users={state.users} />
       {/* <Twilio/> */}
       {/* <MenuList /> */}
-      <DishScroll2 dish={state}/>
+      <DishScroll dish={state}/>
       <DishList dish={state}/>
       <Footer />
     </div>
