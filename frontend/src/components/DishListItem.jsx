@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCow, faBreadSlice, faShrimp, faEgg, faSeedling } from '@fortawesome/free-solid-svg-icons';
+import { faCow, faBreadSlice, faShrimp, faEgg, faSeedling, faHeart } from '@fortawesome/free-solid-svg-icons';
 import '../App.css';
 
 
@@ -21,7 +21,7 @@ function DishListItem(props) {
   // };
 
     let dish =props
-    console.log(props)
+    // console.log(props)
 
   return (
     <div className="border">
@@ -29,20 +29,24 @@ function DishListItem(props) {
       <div className="dish-card">
         <img src={dish.image_url} className ="img-size"/>
         <div className="dish-info">
-          <h3>"{dish.description}" - Head Chef</h3>
+          <p>"{dish.description}" - Head Chef</p>
           <div>
-            <div> There are {dish.quantity} {dish.name}'s left. Don't miss out and add to your order now.
-            </div>
+            <p> There are {dish.quantity} {dish.name}'s left. Don't miss out and add to your order now.
+            </p>
             <button>Add Item to Order</button>
           </div>
           <div>
-            <h4>This dish may contain traces of the following</h4>
-            <FontAwesomeIcon icon={faCow} size = '2x'/>
-            <FontAwesomeIcon icon={faBreadSlice} size = '2x'/>
-            <FontAwesomeIcon icon={faShrimp} size = '2x'/>
-            <FontAwesomeIcon icon={faEgg} size = '2x'/>
-            <FontAwesomeIcon icon={faSeedling} size = '2x'/>
+            <p>This dish may contain traces of the following</p>
+            {props.shellfish_allergen && <FontAwesomeIcon icon={faShrimp} size = '2x'/>}
+            {props.gluten_allergen && <FontAwesomeIcon icon={faBreadSlice} size = '2x'/>}
+            {props.dairy_allergen && <FontAwesomeIcon icon={faCow} size = '2x'/>}
+            {props.eggs_allergen && <FontAwesomeIcon icon={faEgg} size = '2x'/>}
+            
+            
+            
+            {/* <FontAwesomeIcon icon={faSeedling} size = '2x'/> */}
           </div>
+          <FontAwesomeIcon icon={faHeart} size = '2x'/>
         </div>
       </div>
     </div>

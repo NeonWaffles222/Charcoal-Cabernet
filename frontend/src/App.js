@@ -29,8 +29,8 @@ function App() {
       </AuthProvider>
       <UserList users={state.users} />
       {/* <Twilio/> */}
-      {/* <DishList dish={state}/> */}
-      <MenuList />
+      <DishList dish={state}/>
+      {/* <MenuList /> */}
       <Footer />
     </div>
   );

@@ -1,8 +1,9 @@
 import DishListItem from "./DishListItem";
+import '../styles/DishList.scss'
 
 const DishList = (props) => {
 
-  // console.log(props.dish.dishes,"----------------------------------------")
+  console.log(props.dish.dishes,"----------------------------------------")
   const DishArray = props.dish.dishes.map((dish, index)=>{
     return <DishListItem
     key={index} 
@@ -15,9 +16,9 @@ const DishList = (props) => {
     price = {dish.price}
     quantity = {dish.quantity}
     nuts_allergen = {dish.nuts_allergen}
-    dary_allergen = {dish.dary_allergen}
+    dairy_allergen = {dish.dairy_allergen}
     eggs_allergen = {dish.eggs_allergen}
-    gluen_allergen = {dish.gluen_allergen}
+    gluten_allergen = {dish.gluten_allergen}
     shellfish_allergen = {dish.shellfish_allergen}
     />
   })
