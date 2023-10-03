@@ -3,21 +3,92 @@
 
 .menu-category {
   font-weight: 600;
-  font-family: Libre Franklin;
+  font-family: Bebas Neue;
   text-transform: uppercase;
-  letter-spacing: -1px;
+  font-size: 30px;
 }
 
 .menu {
-  font-family: Cormorant;
-  background-color: rgba(237, 237, 236, 255)
+  font-family: Raleway;
+  background-color: rgba(237, 237, 236, 255);
+  font-weight: 300;
 }
 
 .menu-items {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .menu-title {
-  font-size: 42px;
+  font-family: Abril Fatface;
+  font-size: 70px;
+  margin-top: 0px;
+}
+
+.menu-1 {
+  border: 1px solid;
+  padding: 40px;
+  max-width: 20em;
+}
+
+
+.menu-2 {
+  border: 1px solid;
+  padding: 40px;
+  max-width: 20em;
+
+}
+
+.menu-3 {
+  border: 1px solid;
+  padding: 40px;
+  max-width: 20em;
+
+}
+
+
+.menu-4 {
+  border: 1px solid;
+  padding: 40px;
+  max-width: 20em;
+
+}
+
+
+.menu-5 {
+  border: 1px solid;
+  padding: 40px;
+  max-width: 20em;
+
+}
+
+
+.menu-6 {
+  border: 1px solid;
+  padding: 40px;
+  max-width: 20em;
+
+}
+
+
+.menu-7 {
+  border: 1px solid;
+  padding: 40px;
+  max-width: 20em;
+
+}
+
+.menu-8 {
+  border: 1px solid;
+  padding: 40px;
+  max-width: 20em;
+
+}
+
+.menu-9 {
+  border: 1px solid;
+  padding: 40px;
+  max-width: 20em;
+
 }

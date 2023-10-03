@@ -7,7 +7,7 @@ function MenuList() {
         ="menu-title">Menu</h2>
 
       <div className='menu-items'>
-        <div>
+        <div className='menu-1'>
 
           <h3 className
             ="menu-category">Appetizers</h3>
@@ -69,7 +69,7 @@ function MenuList() {
 
 
         </div>
-        <div>
+        <div className='menu-2'>
 
           <h3 className
             ="menu-category">Salads</h3>
@@ -100,7 +100,7 @@ function MenuList() {
 
 
         </div>
-        <div>
+        <div className='menu-3'>
 
           <h3 className
             ="menu-category">Soups</h3>
@@ -124,7 +124,7 @@ function MenuList() {
 
 
         </div>
-        <div>
+        <div className='menu-4'>
 
           <h3 className
             ="menu-category">Side Dishes</h3>
@@ -174,7 +174,7 @@ function MenuList() {
 
 
         </div>
-        <div>
+        <div className='menu-5'>
 
           <h3 className
             ="menu-category">Sandwich</h3>
@@ -191,7 +191,7 @@ function MenuList() {
 
 
         </div>
-        <div>
+        <div className='menu-6'>
 
           <h3 className
             ="menu-category">Meats</h3>
@@ -234,7 +234,7 @@ function MenuList() {
 
 
         </div>
-        <div>
+        <div className='menu-7'>
 
           <h3 className
             ="menu-category">Seafood</h3>
@@ -260,7 +260,7 @@ function MenuList() {
 
 
         </div>
-        <div>
+        <div className='menu-8'>
 
           <h3 className
             ="menu-category">Desserts</h3>
@@ -287,7 +287,7 @@ function MenuList() {
 
 
         </div>
-        <div>
+        <div className='menu-9'>
 
           <h3 className
             ="menu-category">Beverages</h3>
