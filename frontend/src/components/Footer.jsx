@@ -11,10 +11,10 @@ const Footer = () => {
         <span className="footer-bar__item">TERMS OF USE</span>
       </div>
       <div className="footer-bar__media">
-        <i class="fa-brands fa-facebook-f"></i>
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-twitter"></i>
-        <i class="fa-brands fa-youtube"></i>
+        <i className="fa-brands fa-facebook-f"></i>
+        <i className="fa-brands fa-instagram"></i>
+        <i className="fa-brands fa-twitter"></i>
+        <i className="fa-brands fa-youtube"></i>
       </div>
     </div>
   );

@@ -4,10 +4,25 @@ import axios from 'axios';
 function useApplicationData() {
 
   const inital = {
-    users: []
+    users: [],
+    modal: {
+      open: null,
+    },
   };
 
   const [state, dispatch] = useReducer(reducer, inital);
+
+  const onLoginSelect = () => {
+    (state.modal.open === 'login') ?
+      dispatch({ type: ACTIONS.CLOSE_MODAL, value: { open: null } }) :
+      dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'login' } });
+  };
+
+  const onRegisterSelect = () => {
+    (state.modal.open === 'register') ?
+      dispatch({ type: ACTIONS.CLOSE_MODAL, value: { open: null } }) :
+      dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'register' } });
+  };
 
   // Gets all user data
   useEffect(() => {
@@ -62,7 +77,9 @@ function useApplicationData() {
   }, []);
 
   return {
-    state
+    state,
+    onLoginSelect,
+    onRegisterSelect
   };
 }
 
@@ -70,7 +87,9 @@ export const ACTIONS = {
   SET_USER_DATA: 'SET_USER_DATA',
   SET_CATEGORY_DATA: 'SET_CATEGORY_DATA',
   SET_DISH_DATA: 'SET_DISH_DATA',
-  SET_TABLE_DATA: 'SET_TABLE_DATA'
+  SET_TABLE_DATA: 'SET_TABLE_DATA',
+  OPEN_MODAL: 'OPEN_MODAL',
+  CLOSE_MODAL: 'CLOSE_MODAL'
 };
 
 function reducer(state, action) {
@@ -95,6 +114,16 @@ function reducer(state, action) {
       return {
         ...state,
         tables: action.value
+      };
+    case ACTIONS.OPEN_MODAL:
+      return {
+        ...state,
+        modal: action.value
+      };
+    case ACTIONS.CLOSE_MODAL:
+      return {
+        ...state,
+        modal: action.value
       };
 
     default:

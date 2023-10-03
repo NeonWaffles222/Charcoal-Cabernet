@@ -1,17 +1,28 @@
 import './App.css';
 import useApplicationData from './hooks/useApplicationData';
-import HomeRoute from './routes/HomeRoute';
+import AuthProvider from './providers/AuthProvider';
+import TopNavigation from "./components/TopNavigationBar";
+import Footer from "./components/Footer";
+import LoginModal from './components/LoginModal';
+import RegisterModal from './components/RegisterModal';
 
 function App() {
 
   const {
-    state
+    state,
+    onLoginSelect,
+    onRegisterSelect
   } = useApplicationData();
-  console.log(state);
+  //console.log(state.modal);
 
   return (
     <div className="App">
-      <HomeRoute />
+      <AuthProvider>
+        <TopNavigation onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />
+        {state.modal.open === 'login' && <LoginModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
+        {state.modal.open === 'register' && <RegisterModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
+      </AuthProvider>
+      <Footer />
     </div>
   );
 }

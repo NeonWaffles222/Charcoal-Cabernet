@@ -7,6 +7,17 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :phone_number, presence: true
-  validates :password, length: { minimum: 8 }
+  
+  private
+
+  def self.authenticate_with_credentials(email, password)
+    user = User.where('lower(email) = ?', email.strip.downcase).first
+
+    if user && user.authenticate(password)
+      return user
+    else
+      return nil
+    end
+  end
   
 end
