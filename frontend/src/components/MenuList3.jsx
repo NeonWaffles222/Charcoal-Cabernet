@@ -20,6 +20,7 @@ function MenuList(props) {
             <h3 className="menu-category">
               {categoryName}
             </h3>
+            <hr />
             <div className="menu-items">
 
               {categoryDishes.map((dish, dishIndex) => (

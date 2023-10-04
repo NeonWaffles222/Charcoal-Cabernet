@@ -16,6 +16,7 @@ function MenuListItem({ dish }) {
         price={dish.price}
         onClose={() => setModalOpen(false)}
       />
+     
     </div>
   );
 }
