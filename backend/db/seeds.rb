@@ -1178,4 +1178,39 @@ User.create(
 
 )
 
+user = User.create(
+
+  first_name: 'Order test',
+  last_name: 'Test order',
+  username: 'usernamehere',
+  email: 'aca@gmail.com',
+  password: '12345',
+  phone_number: '333-333-3333'
+
+)
+
+Order.destroy_all
+order = Order.create(
+  user_id: 1,
+  status: 'pending',
+  total_price: 0
+)
+
+dish1 = Dish.find_by(name: 'Seasoned Steakhouse Wings')
+dish2 = Dish.find_by(name: 'Wild West Shrimp')
+
+order_item1 = OrderItem.create(
+  order: order,
+  dish: dish1,
+)
+
+order_item2 = OrderItem.create(
+  order: order,
+  dish: dish2,
+)
+
+
+
+
+
 puts "DONE!"
