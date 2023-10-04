@@ -1,16 +1,24 @@
 class Api::FavoritesController < ApplicationController
-  before_action :authenticate_user
+  # before_action :authenticate_user
+  skip_before_action :verify_authenticity_token
 
   # Index action to retrieve user's favorite dishes
   def index
-    favorites = current_user.favorite_dishes
-    render json: favorites
+    @User = User.first
+    favorites = @User.favorites
+    results= favorites.map{|favorite| Dish.find(favorite.dish_id)}
+    render json: results
   end
 
   # Create action to add a dish to user's favorites
   def create
+    puts params[:dish_id]
+
     dish = Dish.find(params[:dish_id])
-    favorite = current_user.favorites.build(dish: dish)
+    user= User.find(params[:user_id])
+    # favorite = User.first.favorites(dish_id: dish.id)
+    favorite = Favorite.create(dish_id: dish.id, user_id: user.id)
+
     if favorite.save
       render json: favorite
     else

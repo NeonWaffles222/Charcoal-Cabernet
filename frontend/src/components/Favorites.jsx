@@ -5,8 +5,9 @@ function FavoriteDishes() {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/favorites')
+    axios.get('http://localhost:3001/api/favorites')
       .then((response) => {
+        console.log("++++++++", response);
         setFavorites(response.data);
       })
       .catch((error) => {

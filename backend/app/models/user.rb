@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :phone_number, presence: true
   has_many :favorites
-  has_many :favorite_dishes, through: :favorites, source: :dish
+  # has_many :favorite_dishes, through: :favorites, source: :dish
   
   private
 

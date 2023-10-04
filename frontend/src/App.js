@@ -11,6 +11,7 @@ import LoginModal from './components/LoginModal';
 import RegisterModal from './components/RegisterModal';
 import DishScroll from './components/DishScroll'
 import { useState } from 'react';
+import FavoriteDishes from './components/Favorites';
 
 function App() {
 
@@ -21,7 +22,11 @@ function App() {
   } = useApplicationData();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+const [isFavOpen, setIsFavOpen] = useState(false)
 
+const toggleFav = () => {
+  setIsFavOpen(!isFavOpen)
+}
   // console.log(state);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -35,6 +40,8 @@ function App() {
         onLoginSelect={onLoginSelect} 
         onRegisterSelect={onRegisterSelect} 
         toggleMenu={toggleMenu}
+        toggleFav={toggleFav}
+
         />
         {state.modal.open === 'login' && <LoginModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
         {state.modal.open === 'register' && <RegisterModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
@@ -47,6 +54,7 @@ function App() {
       {/* <MenuList dishes={state.dishes} categories={state.categories}/> */}
       {/* Conditionally render the MenuList component in the main container */}
       {isMenuOpen && <MenuList dishes={state.dishes} categories={state.categories} />}
+      {isFavOpen && <FavoriteDishes />}
       <Footer />
     </div>
   );
