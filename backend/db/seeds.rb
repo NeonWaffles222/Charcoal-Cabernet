@@ -1182,7 +1182,6 @@ user = User.create(
 
   first_name: 'Order test',
   last_name: 'Test order',
-  username: 'usernamehere',
   email: 'aca@gmail.com',
   password: '12345',
   phone_number: '333-333-3333'
