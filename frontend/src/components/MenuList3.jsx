@@ -5,7 +5,10 @@ import axios from 'axios';
 import MenuListItem from './MenuListItem'; // Import your MenuListItem component here
 
 function MenuList(props) {
-  const { dishes } = props;
+
+  const { dishes, categories } = props;
+  console.log("dishes: +++", dishes);
+  console.log("categories:+++", categories);
 
   return (
     <div className="menu">
