@@ -1,5 +1,8 @@
 import React from 'react';
 import "../styles/MenuModal.scss";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons'; // Replace with the icon you want to use
+
 function Modal({ isOpen, onClose, imageUrl, title, description, price }) {
   if (!isOpen) return null;
 
@@ -11,7 +14,9 @@ function Modal({ isOpen, onClose, imageUrl, title, description, price }) {
         <p>{description}</p>
         <strong><h4>${price}</h4></strong>
 
-        <button onClick={onClose}>Close</button>
+        <button onClick={onClose}>
+          <FontAwesomeIcon icon={faTimes} /> {/* Use the FontAwesome icon */}
+        </button>
       </div>
     </div>
   );

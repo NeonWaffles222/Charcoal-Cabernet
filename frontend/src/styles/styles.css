@@ -22,6 +22,8 @@
   /* Creates a 2-column grid layout */
   gap: 20px;
   /* Provides equal spacing between each grid item */
+  padding: 100px;
+  margin: 2em 3em;
 }
 
 .menu-title {
