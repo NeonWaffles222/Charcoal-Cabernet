@@ -14,14 +14,15 @@ function OrderList(props) {
     {/* <p><%= product.description %></p> */}
   </td>
   <td>
+    <div>
+    {/* <%= quantity %> */}
+    {1}
+    </div>
+  </td>
+  <td>
     {/* <%= product.price * quantity %> */}
     {/* {props.dish.price * props.dish.quantity} */}
     ${props.dish.price}
-  </td>
-  <td>
-    <div>
-    {1}
-    </div>
   </td>
 </tr>
 

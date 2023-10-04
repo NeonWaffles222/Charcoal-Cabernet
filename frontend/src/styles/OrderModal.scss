@@ -5,7 +5,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
-  z-index: 1000; /* Adjust the z-index as needed */
+
 }
 
 .modal-content {
@@ -15,5 +15,5 @@
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 20px;
-  z-index: 1001; /* Ensure modal content is on top of modal background */
+
 }

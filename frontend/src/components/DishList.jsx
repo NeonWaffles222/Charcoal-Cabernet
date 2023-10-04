@@ -64,7 +64,7 @@ const DishList = (props) => {
 
   return (
     <div>
-      <SearchAndCheckBox />
+      {/* <SearchAndCheckBox /> */}
       <Category onTabChange={handleTabChange} />
       <ul>
         {!selectedTab  ? DishArray : FilteredDishArray}

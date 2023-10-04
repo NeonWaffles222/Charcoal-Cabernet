@@ -1,20 +1,21 @@
 import React, { useContext, useState } from "react";
 import { authContext } from "../providers/AuthProvider";
-
 import '../styles/OrderModal.scss';
 import OrderList from "./OrderList";
 
+const OrderModal = (props) => {
 
-const OrderModal = (props, { onLoginSelect, onRegisterSelect, onOrderSelect }) => {
+  const { auth, user, logout, order } = useContext(authContext);
 
-
-  const totalPrice = props.state.order.reduce((accumulator, currentValue) => {
-    const dishPrice = currentValue.price;
-    return accumulator + dishPrice;
+// console.log(props)
+  const totalPrice = props.state.order.reduce((acc, dish) => {
+    return Number(acc) + Number(dish.price);
   }, 0);
 
-
-  console.log(props)
+  function handleOrder(){
+    props.createOrder(user, props.state.order)
+  }
+console.log("order", props.state.order)
   return (
     <div className="modal">
       <div className="modal-content">
@@ -26,7 +27,7 @@ const OrderModal = (props, { onLoginSelect, onRegisterSelect, onOrderSelect }) =
             <div className="panel panel-default items">
               <table className="table table-bordered">
                 <thead>
-                  <tr>
+                  <tr>  
                     <th colSpan="2">Dish</th>
                     <th>Quantity</th>
                     <th>Price</th>
@@ -35,9 +36,8 @@ const OrderModal = (props, { onLoginSelect, onRegisterSelect, onOrderSelect }) =
                 <tbody>
                   {props.state.order.map((dish, index) => (
                     <OrderList
-                    key={index}
-                    dish={dish.id}
-                    id={props.state.order}
+                      key={index}
+                      dish={dish}
                     />
                   ))}
                 </tbody>
@@ -45,22 +45,18 @@ const OrderModal = (props, { onLoginSelect, onRegisterSelect, onOrderSelect }) =
                   <tr>
                     <th colSpan="4">TOTAL:</th>
                     <th>{totalPrice.toFixed(2)}</th>
-                    {/* {console.log(totalPrice)} */}
                   </tr>
                 </tfoot>
               </table>
             </div>
-            {/* <div className="order-summary jumbotron">
-              {currentUser ? (
-                <h4>Thank you for your order {currentUser.email}!</h4>
-              ) : (
-                <h4>Thank you for your order!</h4>
-              )}
-            </div> */}
-            <a href="/" className="btn btn-lg btn-primary">
+            <a href='/orders' onClick={handleOrder}>
+              Place Order
+              </a>
+            <br></br>
+            <a href="/">
               Back to Dishes
             </a>
-          </section>;
+          </section>
         </form>
       </div>
     </div>

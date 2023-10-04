@@ -13,4 +13,7 @@ Rails.application.routes.draw do
 
   get "/delivered_sms", to: "twilio#delivered_sms"
   
+  #For orders
+  resources :orders, only: [:create]
+
 end

@@ -12,7 +12,6 @@ function useApplicationData() {
       open: null,
     },
     order: [],
-
   };
 
   const [state, dispatch] = useReducer(reducer, inital);
@@ -35,8 +34,8 @@ function useApplicationData() {
       dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'order' } });
   };
 
-  const addDish =(id) => {
-    dispatch({type: ACTIONS.ADD_DISH, payload: { id } })
+  const addDish = (dish) => {
+    dispatch({ type: ACTIONS.ADD_DISH, payload: dish });
   };
 
   const removeDish =(id) => {
@@ -95,6 +94,27 @@ function useApplicationData() {
       });
   }, []);
 
+  //Post request for orders
+  const createOrder = (user, selectedDishes) => {
+    const orderData = {
+      order: {
+        user_id: user.id,
+        order_items_attributes: selectedDishes.map((dish) => ({ dish_id: dish.id })),
+        status: "pending",
+        total_price: 0
+      },
+    };
+  
+    axios
+      .post('http://localhost:3001/orders', orderData)
+      .then((response) => {
+        console.log('Order created:', response.data);
+      })
+      .catch((error) => {
+        console.error('Error creating order:', error);
+      });
+  };
+
   return {
     state,
     onLoginSelect,
@@ -102,6 +122,7 @@ function useApplicationData() {
     onOrderSelect,
     addDish,
     removeDish,
+    createOrder,
   };
 }
 
