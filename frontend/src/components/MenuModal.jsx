@@ -9,7 +9,7 @@ function Modal({ isOpen, onClose, imageUrl, title, description, price }) {
         <img src={imageUrl} alt="Dish" />
         <h1>{title}</h1>
         <p>{description}</p>
-        <strong><h4>{price}</h4></strong>
+        <strong><h4>${price}</h4></strong>
 
         <button onClick={onClose}>Close</button>
       </div>

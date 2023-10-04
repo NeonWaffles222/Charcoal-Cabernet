@@ -6,7 +6,7 @@ function MenuListItem({ dish }) {
 
   return (
     <div>
-      <a onClick={() => setModalOpen(true)}>{dish.name}</a> <strong>- {dish.price}</strong>
+      <a href='#' onClick={() => setModalOpen(true)}>{dish.name}</a> <strong>- ${dish.price}</strong>
       <p>Description: {dish.description}</p>
       <Modal
         isOpen={modalOpen}
