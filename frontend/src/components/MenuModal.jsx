@@ -12,7 +12,7 @@ function Modal({ isOpen, onClose, imageUrl, title, description, price }) {
         <img src={imageUrl} alt="Dish" />
         <h1>{title}</h1>
         <p>{description}</p>
-        <strong><h4>${price}</h4></strong>
+        <strong><h2>${price}</h2></strong>
 
         <button onClick={onClose}>
           <FontAwesomeIcon icon={faTimes} /> {/* Use the FontAwesome icon */}
