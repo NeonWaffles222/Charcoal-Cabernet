@@ -10,10 +10,9 @@ function DishListItem(props) {
 
   const handleClick = function() {
     console.log(props)
-    props.addDish(props.id);
+    props.addDish(props.dish);
 
   };
-
 
   return (
     <div className="border">

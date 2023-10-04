@@ -15,7 +15,7 @@ const DishList = (props) => {
   const handleTabChange = (newValue) => {
     setSelectedTab(newValue);
   };
-console.log(props)
+// console.log(props)
   //When you select a tab
   const FilteredDishArray = filteredDishes.map((dish, index) => {
     return <DishListItem
@@ -67,7 +67,7 @@ console.log(props)
       <SearchAndCheckBox />
       <Category onTabChange={handleTabChange} />
       <ul>
-        {selectedTab === 0 ? DishArray : FilteredDishArray}
+        {!selectedTab  ? DishArray : FilteredDishArray}
       </ul>
     </div>
   );

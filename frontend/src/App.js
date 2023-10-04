@@ -35,7 +35,7 @@ function App() {
 
         {state.modal.open === 'register' && <RegisterModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
 
-        {state.modal.open === 'order' && <OrderModal onOrderSelect={onOrderSelect} />}
+        {state.modal.open === 'order' && <OrderModal onOrderSelect={onOrderSelect} state={state}/>}
       </AuthProvider>
       <UserList users={state.users} />
       {/* <Twilio/> */}
