@@ -4,12 +4,11 @@ class SessionsController < ApplicationController
 
   def create
 
-    puts "PARAMS: #{params}"
-
     if user = User.authenticate_with_credentials(params[:session][:email], params[:session][:password])
       session[:user_id] = user.id
-      @user = User.where('lower(email) = ?', params[:session][:email].strip.downcase).first
-      render json: @user
+      render json: user
+    else
+      render json: user
     end
   end
 

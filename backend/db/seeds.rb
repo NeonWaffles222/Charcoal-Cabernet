@@ -1162,7 +1162,6 @@ User.create(
 
   first_name: 'Billy',
   last_name: 'Bob',
-  username: 'BBcoolguy',
   email: 'BillyB@gmail.com',
   password: 'password123',
   phone_number: '222-222-2222'
@@ -1173,7 +1172,6 @@ User.create(
 
   first_name: 'Jimmy',
   last_name: 'Jom',
-  username: 'JJlameguy',
   email: 'JimmyJ@gmail.com',
   password: 'password123',
   phone_number: '333-333-3333'
