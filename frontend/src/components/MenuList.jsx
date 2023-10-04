@@ -4,7 +4,7 @@ import "../styles/styles.css";
 import Modal from './MenuModal';
 
 
-function MenuList() {
+function MenuList(props) {
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <div className="menu">
