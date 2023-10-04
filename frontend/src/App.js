@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import LoginModal from './components/LoginModal';
 import RegisterModal from './components/RegisterModal';
 import DishScroll from './components/DishScroll'
+import { useState } from 'react';
 
 function App() {
 
@@ -18,12 +19,23 @@ function App() {
     onLoginSelect,
     onRegisterSelect
   } = useApplicationData();
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   // console.log(state);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
 
   return (
     <div className="App">
       <AuthProvider>
-        <TopNavigation onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />
+        <TopNavigation 
+        onLoginSelect={onLoginSelect} 
+        onRegisterSelect={onRegisterSelect} 
+        toggleMenu={toggleMenu}
+        />
         {state.modal.open === 'login' && <LoginModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
         {state.modal.open === 'register' && <RegisterModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
       </AuthProvider>
@@ -32,7 +44,9 @@ function App() {
       {/* <MenuList /> */}
       {/* <DishScroll dish={state}/> */}
       {/* <DishList dish={state}/> */}
-      <MenuList dishes={state.dishes} categories={state.categories}/>
+      {/* <MenuList dishes={state.dishes} categories={state.categories}/> */}
+      {/* Conditionally render the MenuList component in the main container */}
+      {isMenuOpen && <MenuList dishes={state.dishes} categories={state.categories} />}
       <Footer />
     </div>
   );
