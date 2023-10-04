@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from 'react';
 import "../styles/styles.css";
-import Modal from './MenuModal';
+import ModalMenu from './MenuModal';
 
 
 function MenuList(props) {
@@ -18,7 +18,7 @@ function MenuList(props) {
         <div className='menu-1'>
           <div className='col-1'>
             <div>
-              <Modal
+              <ModalMenu
                 isOpen={modalOpen}
                 imageUrl={"images/6_chicken_wrap.jpg"}
                 title={"Seasoned Steakhouse Wings"}

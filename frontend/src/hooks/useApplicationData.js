@@ -68,6 +68,7 @@ function useApplicationData() {
       });
   }, []);
 
+ 
   // Gets all dish data
   useEffect(() => {
     axios.get(`http://localhost:3001/dishes.json`)

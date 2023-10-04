@@ -4,7 +4,7 @@ import { authContext } from "../providers/AuthProvider";
 import '../styles/TopNavigationBar.scss';
 
 
-const TopNavigation = ({ onLoginSelect, onRegisterSelect, isMenuOpen, toggleMenu, onOrderSelect}) => {
+const TopNavigation = ({ onLoginSelect, onRegisterSelect, isMenuOpen, toggleMenu, toggleFav, onOrderSelect}) => {
   const { auth, user, logout, order } = useContext(authContext);
 // console.log(user, "user")
   return (
@@ -23,6 +23,8 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, isMenuOpen, toggleMenu
         </>}
         {auth && <>
           <span className="top-nav-bar__item" onClick={()=> onOrderSelect()}  >Order</span>
+          <span className="top-nav-bar__item" onClick={toggleFav}>Favorites</span>
+
           <span className="top-nav-bar__item">Welcome back {user.first_name}</span>
           <span className="top-nav-bar__item" onClick={logout}>Logout</span>
         </>}
