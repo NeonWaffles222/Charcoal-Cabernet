@@ -28,10 +28,17 @@ export default function DishScroll(props) {
         value={value}
         onChange={handleChange}
         variant="scrollable"
+        scrollButtons="auto"
+        aria-label="scrollable auto tabs example"
       >
         {props.dish.dishes.map((item) => (
           <Tab
-            key={item.id} label={<img src={item.image_url} alt={item.name} style={imgStyle} />} />
+            key={item.id}
+            label={
+              <img
+                src={item.image_url}
+                alt={item.name}
+                style={imgStyle} />} />
         ))}
       </Tabs>
     </Box>
