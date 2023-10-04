@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from './MenuModal';
+import ModalMenu from './MenuModal';
 import '../styles/styles.css';
 import axios from 'axios';
 import MenuListItem from './MenuListItem'; // Import your MenuListItem component here
