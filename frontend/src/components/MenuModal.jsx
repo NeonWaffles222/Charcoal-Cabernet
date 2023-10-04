@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../styles/MenuModal.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons'; // Replace with the icon you want to use
+import { faTimes, faHeart } from '@fortawesome/free-solid-svg-icons'; // Include the faHeart icon
 
-function Modal({ isOpen, onClose, imageUrl, title, description, price }) {
+function MenuModal({ isOpen, onClose, imageUrl, title, description, price }) {
+  const [isFavorite, setIsFavorite] = useState(false);
+
   if (!isOpen) return null;
+
+  const toggleFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
+
+  const heartClass = isFavorite ? 'favorite' : ''; // Add the 'favorite' class when it's favorited
 
   return (
     <div className="modal-overlay">
@@ -14,6 +22,14 @@ function Modal({ isOpen, onClose, imageUrl, title, description, price }) {
         <p>{description}</p>
         <strong><h2>${price}</h2></strong>
 
+        {/* Toggleable heart icon with conditional CSS class */}
+        <FontAwesomeIcon
+          icon={faHeart}
+          size="2x"
+          onClick={toggleFavorite}
+          className={`heart-icon ${heartClass}`}
+        />
+
         <button onClick={onClose}>
           <FontAwesomeIcon icon={faTimes} /> {/* Use the FontAwesome icon */}
         </button>
@@ -22,4 +38,4 @@ function Modal({ isOpen, onClose, imageUrl, title, description, price }) {
   );
 }
 
-export default Modal;
+export default MenuModal;

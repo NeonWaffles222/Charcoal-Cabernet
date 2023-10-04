@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Modal from './MenuModal';
+import ModalMenu from './MenuModal';
 
 function MenuListItem({ dish }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -8,7 +8,7 @@ function MenuListItem({ dish }) {
     <div>
       <a href='#' onClick={() => setModalOpen(true)}>{dish.name}</a> <strong>- ${dish.price}</strong>
       <p>Description: {dish.description}</p>
-      <Modal
+      <ModalMenu
         isOpen={modalOpen}
         imageUrl={dish.image_url}
         title={dish.title}
@@ -16,7 +16,7 @@ function MenuListItem({ dish }) {
         price={dish.price}
         onClose={() => setModalOpen(false)}
       />
-     
+
     </div>
   );
 }
