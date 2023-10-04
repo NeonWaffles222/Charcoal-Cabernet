@@ -5,90 +5,202 @@
   font-weight: 600;
   font-family: Bebas Neue;
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 70px;
+
 }
 
 .menu {
   font-family: Raleway;
   background-color: rgba(237, 237, 236, 255);
   font-weight: 300;
+  font-size: 25px;
 }
 
 .menu-items {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* Creates a 2-column grid layout */
+  gap: 20px;
+  /* Provides equal spacing between each grid item */
 }
 
 .menu-title {
   font-family: Abril Fatface;
-  font-size: 70px;
+  font-size: 120px;
   margin-top: 0px;
 }
 
 .menu-1 {
-  border: 1px solid;
   padding: 40px;
-  max-width: 20em;
+  /* column-count: 2; */
+  display: flex;
+  text-align: center;
+  margin-top: 4em;
+}
+
+.menu-1 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
+}
+
+.menu-2 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
+}
+
+.menu-3 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
+}
+
+.menu-4 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
+}
+
+.menu-5 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
+}
+
+.menu-6 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
+}
+
+.menu-7 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
+}
+
+.menu-8 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
+}
+
+.menu-9 a {
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 45px;
+  color: black
 }
 
 
+
+
+
+
+
+
+
+
 .menu-2 {
-  border: 1px solid;
   padding: 40px;
-  max-width: 20em;
+  column-count: 2;
+  display: flex;
+  text-align: center;
+  margin-top: 4em;
+
 
 }
 
 .menu-3 {
-  border: 1px solid;
   padding: 40px;
-  max-width: 20em;
+  column-count: 2;
+  display: flex;
+  text-align: center;
+  margin-top: 4em;
+
 
 }
 
 
 .menu-4 {
-  border: 1px solid;
   padding: 40px;
-  max-width: 20em;
+  column-count: 2;
+  display: flex;
+
+  text-align: center;
+  margin-top: 4em;
+
 
 }
 
 
 .menu-5 {
-  border: 1px solid;
   padding: 40px;
-  max-width: 20em;
+  column-count: 2;
+  text-align: center;
+  margin-top: 4em;
+  display: flex;
+  flex-direction: column;
+
 
 }
 
 
 .menu-6 {
-  border: 1px solid;
   padding: 40px;
-  max-width: 20em;
+  column-count: 2;
+  text-align: center;
+  margin-top: 4em;
+  display: flex;
+
+
 
 }
 
 
 .menu-7 {
-  border: 1px solid;
   padding: 40px;
-  max-width: 20em;
+  column-count: 2;
+  text-align: center;
+  margin-top: 4em;
+  display: flex;
+
 
 }
 
 .menu-8 {
-  border: 1px solid;
   padding: 40px;
-  max-width: 20em;
+  column-count: 2;
+  text-align: center;
+  margin-top: 4em;
+  display: flex;
+
 
 }
 
 .menu-9 {
-  border: 1px solid;
   padding: 40px;
-  max-width: 20em;
+  column-count: 2;
+  text-align: center;
+  margin-top: 4em;
+  display: flex;
 
+
+}
+
+
+
+hr {
+  margin-top: -60px;
+  margin-left: 25em;
+  margin-right: 25em;
 }
