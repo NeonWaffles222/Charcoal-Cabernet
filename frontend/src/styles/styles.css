@@ -13,7 +13,7 @@
   font-family: Raleway;
   background-color: rgba(237, 237, 236, 255);
   font-weight: 300;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .menu-items {
@@ -210,6 +210,6 @@ hr {
 div a {
   font-family: Bebas Neue;
   text-transform: capitalize;
-  font-size: 45px;
+  font-size: 40px;
   color: black
 }
