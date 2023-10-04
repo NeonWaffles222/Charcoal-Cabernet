@@ -9,17 +9,25 @@ export default function AuthProvider(props) {
   const [user, setUser] = useState(null);
 
   const login = (email, password) => {
-    axios.post(`http://localhost:3001/sessions`, {
-      email: 'BillyB@gmail.com',
-      password: 'password123'
-    })
-      .then(res => {
-        setAuth(true);
-        setUser(res.data);
+    return new Promise((resolve, reject) => {
+      axios.post(`http://localhost:3001/sessions`, {
+        email: email,
+        password: password
       })
-      .catch(error => {
-        console.error('error logging in', error);
-      });
+        .then(res => {
+          if (res.data) {
+            setAuth(true);
+            setUser(res.data);
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        })
+        .catch(error => {
+          console.error('error logging in', error);
+          resolve(error);
+        });
+    });
   };
 
   const logout = () => {
@@ -33,26 +41,31 @@ export default function AuthProvider(props) {
       });
   };
 
-  const register = (username, firstName, lastName, email, phone, password, confirmPassword) => {
-    console.log(username, firstName, lastName, email, phone, password, confirmPassword);
-    axios.post(`http://localhost:3001/users`, {
-      user: {
-        first_name: firstName,
-        last_name: lastName,
-        phone_number: phone,
-        username: username,
-        email: email,
-        password: password,
-        password_confirmation: confirmPassword
-      }
-    })
-      .then(res => {
-        setAuth(true);
-        setUser(res.data);
+  const register = (firstName, lastName, email, phone, password, confirmPassword) => {
+    return new Promise((resolve, reject) => {
+      axios.post(`http://localhost:3001/users`, {
+        user: {
+          first_name: firstName,
+          last_name: lastName,
+          phone_number: phone,
+          email: email,
+          password: password,
+          password_confirmation: confirmPassword
+        }
       })
-      .catch(error => {
-        console.error('error creating account', error);
-      });
+        .then(res => {
+          if (res.data) {
+            setAuth(true);
+            setUser(res.data);
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        })
+        .catch(error => {
+          console.error('error creating account', error);
+        });
+    });
   };
 
   const userData = { auth, user, login, logout, register };

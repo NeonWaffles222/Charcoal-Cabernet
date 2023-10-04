@@ -8,21 +8,30 @@ const LoginModal = ({ onLoginSelect, onRegisterSelect }) => {
   const [password, setPassword] = useState("");
   const { login } = useContext(authContext);
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
-    email && login(email, password);
-    onLoginSelect();
+    try {
+      let success = await login(email, password);
+
+      if (success) {
+        onLoginSelect();
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+    }
   };
 
 
   return (
     <div className="login-modal">
-      <form onSubmit={onSubmit}>
-        <input type="text" name="email" value={email} placeholder="Email" onChange={event => setEmail(event.target.value)} />
-        <input type="password" name="password" value={password} placeholder="Password" onChange={event => setPassword(event.target.value)} />
-        <button type="submit" name="submit">Login</button>
+      <button className="login-modal__close" onClick={() => onLoginSelect()}>X</button>
+      <span className="login-modal__header">Login</span>
+      <form className="login-modal__form" onSubmit={onSubmit}>
+        <input type="text" name="email" value={email} placeholder="Email" onChange={event => setEmail(event.target.value)} required />
+        <input type="password" name="password" value={password} placeholder="Password" onChange={event => setPassword(event.target.value)} required />
+        <button className="login-modal__submit" type="submit" name="submit">Login</button>
       </form>
-      <button onClick={() => onRegisterSelect()}>Not a member? Register here</button>
+      <button className="login-modal__submit" onClick={() => onRegisterSelect()}>Not a member? Register here</button>
     </div>
   );
 };
