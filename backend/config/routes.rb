@@ -12,5 +12,14 @@ Rails.application.routes.draw do
   get "/enroute_sms", to: "twilio#enroute_sms"
 
   get "/delivered_sms", to: "twilio#delivered_sms"
+
+  namespace :api do
+    resources :favorites, only: [:index, :create, :destroy]
+  end
   
+
+  
+  #For orders
+  resources :orders, only: [:create]
+
 end

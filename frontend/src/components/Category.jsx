@@ -12,7 +12,7 @@ export default function CenteredTabs({ onTabChange }) {
   };
 
   return (
-    <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
+    <Box sx={{ width: '100%' }}>
       <Tabs value={value} onChange={handleChange} centered>
         <Tab label="All Dishes" />
         <Tab label="Appetizers" />

@@ -16,7 +16,7 @@ const DishList = (props) => {
   const handleTabChange = (newValue) => {
     setSelectedTab(newValue);
   };
-
+// console.log(props)
   //When you select a tab
   const FilteredDishArray = filteredDishes.map((dish, index) => {
     return <DishListItem
@@ -34,6 +34,8 @@ const DishList = (props) => {
       eggs_allergen={dish.eggs_allergen}
       gluten_allergen={dish.gluten_allergen}
       shellfish_allergen={dish.shellfish_allergen}
+      dish={dish}
+      addDish={props.addDish}
     />;
   });
   //Need to have this because categories doesn't include an all category id
@@ -53,6 +55,8 @@ const DishList = (props) => {
       eggs_allergen={dish.eggs_allergen}
       gluten_allergen={dish.gluten_allergen}
       shellfish_allergen={dish.shellfish_allergen}
+      dish={dish}
+      addDish={props.addDish}
     />;
   });
 
@@ -61,10 +65,10 @@ const DishList = (props) => {
 
   return (
     <div>
-      <SearchAndCheckBox />
+      {/* <SearchAndCheckBox /> */}
       <Category onTabChange={handleTabChange} />
       <ul>
-        {selectedTab === 0 ? DishArray : FilteredDishArray}
+        {!selectedTab  ? DishArray : FilteredDishArray}
       </ul>
     </div>
   );
