@@ -3,6 +3,7 @@ import { authContext } from "../providers/AuthProvider";
 import '../styles/OrderModal.scss';
 import OrderList from "./OrderList";
 
+
 const OrderModal = (props) => {
 
   const { auth, user, logout, order } = useContext(authContext);
@@ -12,8 +13,11 @@ const OrderModal = (props) => {
     return Number(acc) + Number(dish.price);
   }, 0);
 
-  function handleOrder() {
+  function handleOrder(event) {
+    event.preventDefault();
     props.createOrder(user, props.state.order);
+    props.onOrderSelect();
+    props.emptyCart();
   }
 
   console.log("order", props);
@@ -36,6 +40,7 @@ const OrderModal = (props) => {
                     <th colSpan="2">Dish</th>
                     <th>Quantity</th>
                     <th>Price</th>
+                    <th>Remove</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -43,6 +48,7 @@ const OrderModal = (props) => {
                     <OrderList
                       key={index}
                       dish={dish}
+                      removeDish={props.removeDish}
                     />
                   ))}
                 </tbody>

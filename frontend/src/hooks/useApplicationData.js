@@ -41,6 +41,11 @@ function useApplicationData() {
     dispatch({ type: ACTIONS.REMOVE_DISH, payload: { id } });
   };
 
+  const emptyCart = () => {
+    dispatch({ type: ACTIONS.EMPTY_CART });
+  };
+
+
   // Gets all category data
   useEffect(() => {
     axios.get(`http://localhost:3001/categories.json`)
@@ -111,6 +116,7 @@ function useApplicationData() {
     addDish,
     removeDish,
     createOrder,
+    emptyCart
   };
 }
 
@@ -123,7 +129,7 @@ export const ACTIONS = {
   CLOSE_MODAL: 'CLOSE_MODAL',
   ADD_DISH: 'ADD_DISH',
   REMOVE_DISH: 'REMOVE_DISH',
-
+  EMPTY_CART: 'EMPTY_CART'
 };
 
 function reducer(state, action) {
@@ -164,7 +170,16 @@ function reducer(state, action) {
       return {
         ...state, order: updatedOrder,
       };
-
+    case ACTIONS.REMOVE_DISH:
+      const newArray = [...state.order];
+      if (newArray.includes(action.payload.id)) {
+        const index = newArray.indexOf(action.payload.id);
+        newArray.splice(index, 1);
+      }
+      return { ...state, order: newArray }; 
+    case ACTIONS.EMPTY_CART:
+      return { ...state, order: [] 
+      };
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`

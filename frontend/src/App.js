@@ -29,7 +29,8 @@ function App() {
     onOrderSelect,
     addDish,
     removeDish,
-    createOrder
+    createOrder,
+    emptyCart
   } = useApplicationData();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,11 +60,13 @@ function App() {
         onOrderSelect={onOrderSelect} 
         state={state} 
         createOrder={createOrder}
+        removeDish={removeDish}
+        emptyCart={emptyCart}
          />}
       </AuthProvider>
       {/* <Twilio/> */}
       {/* <DishScroll dish={state}/> */}
-      {/* <DishList dish={state} addDish={addDish} /> */}
+      <DishList dish={state} addDish={addDish} />
       {isFavOpen && <FavoriteDishes />}
       <Routes>
         <Route path='/' element={<Home />} />

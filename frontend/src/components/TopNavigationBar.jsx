@@ -24,12 +24,12 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
         <span className="top-nav-bar__item">Reservations</span>
 
         {!auth && <>
-          <span className="top-nav-bar__item" order={order} onClick={() => onLoginSelect()}  >Order</span>
+          <span className="top-nav-bar__item" order={order} onClick={() => onLoginSelect()}  >Cart</span>
           <span className="top-nav-bar__item" onClick={() => onLoginSelect()}>Login</span>
           <span className="top-nav-bar__item" onClick={() => onRegisterSelect()}>Register</span>
         </>}
         {auth && <>
-          <span className="top-nav-bar__item" onClick={() => onOrderSelect()}  >Order</span>
+          <span className="top-nav-bar__item" onClick={() => onOrderSelect()}  >Cart</span>
           <span className="top-nav-bar__item" onClick={toggleFav}>Favorites</span>
 
           <span className="top-nav-bar__item">Welcome back {user.first_name}</span>
