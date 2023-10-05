@@ -9,7 +9,7 @@ function MenuList(props) {
   const { dishes, categories } = props;
 
   const allMenuItems = useCategorizeDishes(dishes, categories);
-  console.log(allMenuItems);
+  //console.log(allMenuItems);
   return (
     <div className="menu">
       <h2 className="menu-title">Menu</h2>

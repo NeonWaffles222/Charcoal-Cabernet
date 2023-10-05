@@ -26,7 +26,8 @@ class UsersController < ApplicationController
 
     if @user.save!
       session[:user_id] = @user.id
-      render json: @user
+      token = JsonWebToken.encode(user_id: @user.id)
+      render json: {user: @user, token: token}
     else
       puts @user.errors.full_messages
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity

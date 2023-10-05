@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import axios from 'axios';
 
 
@@ -17,7 +17,8 @@ export default function AuthProvider(props) {
         .then(res => {
           if (res.data) {
             setAuth(true);
-            setUser(res.data);
+            setUser(res.data.user);
+            localStorage.setItem('authToken', res.data.token);
             resolve(true);
           } else {
             resolve(false);
@@ -35,6 +36,7 @@ export default function AuthProvider(props) {
       .then(res => {
         setAuth(false);
         setUser(null);
+        localStorage.removeItem('authToken');
       })
       .catch(error => {
         console.error('error logging out', error);
@@ -56,7 +58,8 @@ export default function AuthProvider(props) {
         .then(res => {
           if (res.data) {
             setAuth(true);
-            setUser(res.data);
+            setUser(res.data.user);
+            localStorage.setItem('authToken', res.data.token);
             resolve(true);
           } else {
             resolve(false);
@@ -67,6 +70,27 @@ export default function AuthProvider(props) {
         });
     });
   };
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem('authToken');
+    if (storedToken) {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`;
+      axios.get(`http://localhost:3001/sessions.json`)
+        .then(res => {
+          console.log(res);
+          if (res.data) {
+            setAuth(true);
+            setUser(res.data);
+          } else {
+            setAuth(false);
+            setUser(null);
+          }
+        })
+        .catch(error => {
+          console.error('error getting session data', error);
+        });
+    }
+  }, []);
 
   const userData = { auth, user, login, logout, register };
 
