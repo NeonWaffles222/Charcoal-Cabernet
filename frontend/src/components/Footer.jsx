@@ -1,11 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import '../styles/Footer.scss';
 
 const Footer = () => {
   return (
     <div className="footer-bar">
       <div className="footer-bar__info">
-        <span className="footer-bar__item">ABOUT US</span>
+        <Link to="/about">
+          <span className="footer-bar__item">ABOUT US</span>
+        </Link>
         <span className="footer-bar__item">FEEDBACK</span>
         <span className="footer-bar__item">CONTACT US</span>
         <span className="footer-bar__item">TERMS OF USE</span>

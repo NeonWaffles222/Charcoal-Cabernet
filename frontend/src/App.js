@@ -1,20 +1,24 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route }
+  from 'react-router-dom';
+import { useState } from 'react';
+
 import './App.css';
-import UserList from './components/UserList';
+
 import AuthProvider from './providers/AuthProvider';
 import useApplicationData from './hooks/useApplicationData';
-import Twilio from './components/Twilio';
-import MenuList from './components/MenuList3';
-import DishList from './components/DishList';
+
 import TopNavigation from "./components/TopNavigationBar";
-import Footer from "./components/Footer";
-import LoginModal from './components/LoginModal';
-import RegisterModal from './components/RegisterModal';
+import Twilio from './components/Twilio';
+import DishList from './components/DishList';
 import DishScroll from './components/DishScroll';
-import OrderModal from './components/OrderModal';
-
-
-import { useState } from 'react';
 import FavoriteDishes from './components/Favorites';
+import OrderModal from './components/OrderModal';
+import Footer from "./components/Footer";
+
+import MenuList from './pages/Menu';
+import About from './pages/About';
+import Home from './pages/Home';
 
 function App() {
 
@@ -29,11 +33,11 @@ function App() {
   } = useApplicationData();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-const [isFavOpen, setIsFavOpen] = useState(false)
+  const [isFavOpen, setIsFavOpen] = useState(false);
 
-const toggleFav = () => {
-  setIsFavOpen(!isFavOpen)
-}
+  const toggleFav = () => {
+    setIsFavOpen(!isFavOpen);
+  };
   // console.log(state);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -41,37 +45,33 @@ const toggleFav = () => {
 
 
   return (
-    <div className="App">
+    <Router className="App">
       <AuthProvider>
-        <TopNavigation 
-        onLoginSelect={onLoginSelect} 
-        onRegisterSelect={onRegisterSelect} onOrderSelect={onOrderSelect} 
-        toggleMenu={toggleMenu}
-        toggleFav={toggleFav}
+        <TopNavigation
+          onLoginSelect={onLoginSelect}
+          onRegisterSelect={onRegisterSelect} onOrderSelect={onOrderSelect}
+          toggleMenu={toggleMenu}
+          toggleFav={toggleFav}
+          open={state.modal.open}
 
         />
-
-        {state.modal.open === 'login' && <LoginModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
-
-        {state.modal.open === 'register' && <RegisterModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
-
         {state.modal.open === 'order' && <OrderModal 
         onOrderSelect={onOrderSelect} 
         state={state} 
         createOrder={createOrder}
-        />}
+         />}
       </AuthProvider>
-      {/* <UserList users={state.users} /> */}
       {/* <Twilio/> */}
-      {/* <MenuList /> */}
       {/* <DishScroll dish={state}/> */}
-      <DishList dish={state} addDish={addDish} /> 
-      <MenuList dishes={state.dishes} categories={state.categories}/>
-      {/* Conditionally render the MenuList component in the main container */}
-      {isMenuOpen && <MenuList dishes={state.dishes} categories={state.categories} />}
+      {/* <DishList dish={state} addDish={addDish} /> */}
       {isFavOpen && <FavoriteDishes />}
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
+      </Routes>
       <Footer />
-    </div>
+    </Router>
   );
 }
 

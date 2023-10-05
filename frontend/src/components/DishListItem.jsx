@@ -4,7 +4,7 @@ import { faCow, faBreadSlice, faShrimp, faEgg, faSeedling, faHeart } from '@fort
 import '../App.css';
 
 function DishListItem(props) {
-  const handleClick = function () {
+  const handleClick = function() {
     props.addDish(props.dish);
   };
 
