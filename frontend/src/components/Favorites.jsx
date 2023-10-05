@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import DishList from './DishList';
+import FavoriteList from './FavoriteList';
 function FavoriteDishes() {
   const [favorites, setFavorites] = useState([]);
 
@@ -8,7 +9,11 @@ function FavoriteDishes() {
     axios.get('http://localhost:3001/api/favorites')
       .then((response) => {
         console.log("++++++++", response);
-        setFavorites(response.data);
+        if (Array.isArray(response.data)) {
+          setFavorites(response.data);
+        } else {
+          console.error('Unexpected data structure:', response.data);
+        }
       })
       .catch((error) => {
         console.error('Error fetching favorites:', error);
@@ -17,14 +22,23 @@ function FavoriteDishes() {
 
   return (
     <div>
-      <h2>Your Favorite Dishes</h2>
+
       <ul>
-        {favorites.map((favorite) => (
-          <li key={favorite.id}>{favorite.name}</li>
-        ))}
+
+        <FavoriteList
+          favorites={favorites}
+
+        />
+
+        {/* // <li key={favorite.id}>
+          //   <img src={favorite.image_url} alt={favorite.name} />
+          //   <h3>{favorite.name}</h3>
+          //   <p>{favorite.description}</p>
+          //   <p>Price: ${favorite.price}</p>
+          // </li> */}
+
       </ul>
     </div>
   );
 }
-
 export default FavoriteDishes;

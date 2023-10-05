@@ -4,8 +4,9 @@ class Api::FavoritesController < ApplicationController
 
   # Index action to retrieve user's favorite dishes
   def index
-    @User = User.first
-    favorites = @User.favorites
+    # @User = User.first
+    # favorites = @User.favorites
+    favorites=Favorite.all
     results= favorites.map{|favorite| Dish.find(favorite.dish_id)}
     render json: results
   end
@@ -17,6 +18,8 @@ class Api::FavoritesController < ApplicationController
     dish = Dish.find(params[:dish_id])
     user= User.find(params[:user_id])
     # favorite = User.first.favorites(dish_id: dish.id)
+    user_id = decoded_token.first['user_id']
+
     favorite = Favorite.create(dish_id: dish.id, user_id: user.id)
 
     if favorite.save

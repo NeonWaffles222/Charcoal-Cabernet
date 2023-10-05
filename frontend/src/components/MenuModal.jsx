@@ -2,14 +2,58 @@ import React, { useState } from 'react';
 import "../styles/MenuModal.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faHeart } from '@fortawesome/free-solid-svg-icons'; // Include the faHeart icon
+import axios from 'axios'; // Import axios for API requests
 
-function MenuModal({ isOpen, onClose, imageUrl, title, description, price }) {
+function MenuModal({ isOpen, onClose, imageUrl, title, description, price, token, dish_id, favorite_id }) {
   const [isFavorite, setIsFavorite] = useState(false);
 
   if (!isOpen) return null;
 
   const toggleFavorite = () => {
-    setIsFavorite(!isFavorite);
+    if (isFavorite) {
+      deleteFavorite(); // If it's a favorite, trigger deleteFavorite
+    } else {
+      addFavorite(); // If it's not a favorite, trigger addFavorite
+    }
+    setIsFavorite(!isFavorite); // Toggle the favorite state
+  };
+
+  const addFavorite = () => {
+    // Make an API request to add the dish to favorites
+    console.log("dishId+++++", dish_id);
+    axios.post(
+      'http://localhost:3001/api/favorites',
+      { dish_id: dish_id },
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }
+    )
+      .then(response => {
+        // Handle the response, maybe update the UI or show a message
+      })
+      .catch(error => {
+        console.error('Error adding to favorites:', error);
+      });
+  };
+
+  const deleteFavorite = () => {
+    // Make an API request to delete the dish from favorites
+    axios.delete(
+      `http://localhost:3001/api/favorites/${favorite_id}`,
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }
+    )
+      .then(response => {
+        // Handle the response, maybe update the UI or show a message
+      })
+      .catch(error => {
+        console.error('Error deleting from favorites:', error);
+      });
   };
 
   const heartClass = isFavorite ? 'favorite' : ''; // Add the 'favorite' class when it's favorited
