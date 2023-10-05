@@ -22,7 +22,7 @@ function MenuListItem({ dish }) {
       });
 
   };
-
+  console.log('dish++++', dish);
   return (
     <div>
       <a href='#' onClick={() => setModalOpen(true)}>{dish.name}</a> <strong>- ${dish.price}</strong>
@@ -35,6 +35,7 @@ function MenuListItem({ dish }) {
         price={dish.price}
         onClose={() => setModalOpen(false)}
         token={jwtToken} // Pass the JWT token as a prop
+        dish_id={dish.id}
 
       />
 

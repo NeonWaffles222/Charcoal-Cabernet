@@ -4,9 +4,9 @@ class Api::FavoritesController < ApplicationController
 
   # Index action to retrieve user's favorite dishes
   def index
-    # @User = User.first
-    # favorites = @User.favorites
-    favorites=Favorite.all
+    @User = User.first
+    favorites = @User.favorites
+    # favorites=Favorite.all
     results= favorites.map{|favorite| Dish.find(favorite.dish_id)}
     render json: results
   end
@@ -14,17 +14,17 @@ class Api::FavoritesController < ApplicationController
   # Create action to add a dish to user's favorites
   def create
     puts params[:dish_id]
-
+    user_id = User.first.id
+    
     dish = Dish.find(params[:dish_id])
-    user= User.find(params[:user_id])
-    # favorite = User.first.favorites(dish_id: dish.id)
-    user_id = decoded_token.first['user_id']
 
-    favorite = Favorite.create(dish_id: dish.id, user_id: user.id)
+
+    favorite = Favorite.create(dish_id: dish.id, user_id: user_id)
 
     if favorite.save
       render json: favorite
     else
+      puts favorite.errors.full_messages
       render json: { error: 'Unable to add to favorites' }, status: :unprocessable_entity
     end
   end
