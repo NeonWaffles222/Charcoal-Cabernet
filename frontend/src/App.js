@@ -61,8 +61,8 @@ const toggleFav = () => {
       {/* <Twilio/> */}
       {/* <MenuList /> */}
       {/* <DishScroll dish={state}/> */}
-      <DishList dish={state} addDish={addDish} /> 
-      <MenuList dishes={state.dishes} categories={state.categories}/>
+      {/* <DishList dish={state} addDish={addDish} />  */}
+      {/* <MenuList dishes={state.dishes} categories={state.categories}/> */}
       {/* Conditionally render the MenuList component in the main container */}
       {isMenuOpen && <MenuList dishes={state.dishes} categories={state.categories} />}
       {isFavOpen && <FavoriteDishes />}

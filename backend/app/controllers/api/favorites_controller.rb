@@ -4,8 +4,9 @@ class Api::FavoritesController < ApplicationController
 
   # Index action to retrieve user's favorite dishes
   def index
-    @User = User.first
-    favorites = @User.favorites
+    # @User = User.first
+    # favorites = @User.favorites
+    favorites = Favorite.all
     results= favorites.map{|favorite| Dish.find(favorite.dish_id)}
     render json: results
   end
