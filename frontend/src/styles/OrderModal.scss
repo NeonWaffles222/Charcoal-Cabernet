@@ -17,3 +17,25 @@
   padding: 20px;
 
 }
+
+.order-modal__close {
+  background-color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 16px;
+  margin-top: 16px;
+  align-self: flex-start;
+}
+
+.exit-flex{
+  display: flex;
+  flex-direction: column;
+}
+
+.back-to-dishes{
+  cursor: pointer;
+}

@@ -7,27 +7,32 @@ const OrderModal = (props) => {
 
   const { auth, user, logout, order } = useContext(authContext);
 
-// console.log(props)
+  // console.log(props)
   const totalPrice = props.state.order.reduce((acc, dish) => {
     return Number(acc) + Number(dish.price);
   }, 0);
 
-  function handleOrder(){
-    props.createOrder(user, props.state.order)
+  function handleOrder() {
+    props.createOrder(user, props.state.order);
   }
-console.log("order", props.state.order)
+
+  console.log("order", props);
+
   return (
     <div className="modal">
       <div className="modal-content">
         <form>
           <section className="orders-show">
+            <div className="exit-flex">
+              <button className="order-modal__close" onClick={() => props.onOrderSelect()}>X</button>
             <header className="page-header">
-              <h1>Order #{props.order}</h1>
+              <h3>Order #{props.order}</h3>
             </header>
+            </div>
             <div className="panel panel-default items">
               <table className="table table-bordered">
                 <thead>
-                  <tr>  
+                  <tr>
                     <th colSpan="2">Dish</th>
                     <th>Quantity</th>
                     <th>Price</th>
@@ -51,9 +56,9 @@ console.log("order", props.state.order)
             </div>
             <a href='/orders' onClick={handleOrder}>
               Place Order
-              </a>
+            </a>
             <br></br>
-            <a href="/">
+            <a onClick={props.onOrderSelect} className="back-to-dishes">
               Back to Dishes
             </a>
           </section>

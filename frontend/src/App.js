@@ -55,7 +55,11 @@ const toggleFav = () => {
 
         {state.modal.open === 'register' && <RegisterModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
 
-        {state.modal.open === 'order' && <OrderModal onOrderSelect={onOrderSelect} state={state} createOrder={createOrder}/>}
+        {state.modal.open === 'order' && <OrderModal 
+        onOrderSelect={onOrderSelect} 
+        state={state} 
+        createOrder={createOrder}
+        />}
       </AuthProvider>
       {/* <UserList users={state.users} /> */}
       {/* <Twilio/> */}
