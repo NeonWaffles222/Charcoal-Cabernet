@@ -32,6 +32,12 @@ function useApplicationData() {
       dispatch({ type: ACTIONS.CLOSE_MODAL, value: { open: null } }) :
       dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'order' } });
   };
+
+  const onPaymentSelect = () => {
+    (state.modal.open === 'payment') ?
+      dispatch({ type: ACTIONS.CLOSE_MODAL, value: { open: null } }) :
+      dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'payment' } });
+  };
   
   const addDish = (dish) => {
     dispatch({ type: ACTIONS.ADD_DISH, payload: dish });
@@ -121,7 +127,8 @@ function useApplicationData() {
     addDish,
     removeDish,
     createOrder,
-    emptyCart
+    emptyCart,
+    onPaymentSelect,
   };
 }
 
@@ -180,6 +187,7 @@ function reducer(state, action) {
     case ACTIONS.EMPTY_CART:
       return { ...state, order: [] 
       };
+      
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`

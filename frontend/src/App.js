@@ -19,6 +19,7 @@ import Footer from "./components/Footer";
 import MenuList from './pages/Menu';
 import About from './pages/About';
 import Home from './pages/Home';
+import PaymentModal from './modals/PaymentModal'
 
 function App() {
 
@@ -27,10 +28,11 @@ function App() {
     onLoginSelect,
     onRegisterSelect,
     onOrderSelect,
+    onPaymentSelect,
     addDish,
     removeDish,
     createOrder,
-    emptyCart
+    emptyCart,
   } = useApplicationData();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,6 +57,7 @@ function App() {
           toggleFav={toggleFav}
           open={state.modal.open}
         />
+        <button onClick={onPaymentSelect}></button>
         {state.modal.open === 'order' && <OrderModal 
         onOrderSelect={onOrderSelect} 
         state={state} 
@@ -62,6 +65,14 @@ function App() {
         removeDish={removeDish}
         emptyCart={emptyCart}
          />}
+        {state.modal.open === 'payment' && <PaymentModal 
+        onPaymentSelect={onPaymentSelect}
+        state={state} 
+        createOrder={createOrder}
+        removeDish={removeDish}
+        emptyCart={emptyCart}
+         />}
+
       </AuthProvider>
       {/* <Twilio/> */}
       {/* <DishScroll dish={state}/> */}

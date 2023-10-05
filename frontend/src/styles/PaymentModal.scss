@@ -7,7 +7,6 @@
   background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
   z-index: 1; 
 }
-
 .modal-content {
   position: absolute;
   top: 50%;
@@ -28,13 +27,4 @@
   margin-left: 16px;
   margin-top: 16px;
   align-self: flex-start;
-}
-
-.exit-flex{
-  display: flex;
-  flex-direction: column;
-}
-
-.back-to-dishes{
-  cursor: pointer;
 }
