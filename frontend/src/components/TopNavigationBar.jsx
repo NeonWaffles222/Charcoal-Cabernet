@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { authContext } from "../providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 import '../styles/TopNavigationBar.scss';
 
@@ -9,7 +10,9 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, isMenuOpen, toggleMenu
 
   return (
     <div className="top-nav-bar">
-      <span className="top-nav-bar__logo">Charcoal & Cabernet</span>
+      <Link to='/'>
+        <span className="top-nav-bar__logo">Charcoal & Cabernet</span>
+      </Link>
       <div className="top-nav-bar__routes">
         <span className="top-nav-bar__item" onClick={toggleMenu}>
           Menu

@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import UserList from './components/UserList';
 import AuthProvider from './providers/AuthProvider';
 import useApplicationData from './hooks/useApplicationData';
@@ -9,8 +10,12 @@ import TopNavigation from "./components/TopNavigationBar";
 import Footer from "./components/Footer";
 import LoginModal from './components/LoginModal';
 import RegisterModal from './components/RegisterModal';
-import DishScroll from './components/DishScroll'
+import DishScroll from './components/DishScroll';
 import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route }
+  from 'react-router-dom';
+import About from './pages/About';
+import Home from './pages/Home';
 
 function App() {
 
@@ -29,12 +34,12 @@ function App() {
 
 
   return (
-    <div className="App">
+    <Router className="App">
       <AuthProvider>
-        <TopNavigation 
-        onLoginSelect={onLoginSelect} 
-        onRegisterSelect={onRegisterSelect} 
-        toggleMenu={toggleMenu}
+        <TopNavigation
+          onLoginSelect={onLoginSelect}
+          onRegisterSelect={onRegisterSelect}
+          toggleMenu={toggleMenu}
         />
         {state.modal.open === 'login' && <LoginModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
         {state.modal.open === 'register' && <RegisterModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
@@ -47,8 +52,12 @@ function App() {
       {/* <MenuList dishes={state.dishes} categories={state.categories}/> */}
       {/* Conditionally render the MenuList component in the main container */}
       {isMenuOpen && <MenuList dishes={state.dishes} categories={state.categories} />}
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+      </Routes>
       <Footer />
-    </div>
+    </Router>
   );
 }
 

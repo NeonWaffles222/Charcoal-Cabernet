@@ -1,3 +1,4 @@
+import React from "react";
 import DishListItem from "./DishListItem";
 import '../styles/DishList.scss';
 import SearchAndCheckBox from './Allergen';
