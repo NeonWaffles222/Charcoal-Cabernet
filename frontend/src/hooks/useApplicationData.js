@@ -68,7 +68,6 @@ function useApplicationData() {
       });
   }, []);
 
- 
   // Gets all dish data
   useEffect(() => {
     axios.get(`http://localhost:3001/dishes.json`)
@@ -102,7 +101,7 @@ function useApplicationData() {
         user_id: user.id,
         order_items_attributes: selectedDishes.map((dish) => ({ dish_id: dish.id })),
         status: "pending",
-        total_price: 0
+        total_price: selectedDishes.reduce((accumulator, currentValue) => accumulator + Number(currentValue.price), 0)
       },
     };
   
