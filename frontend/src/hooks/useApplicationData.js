@@ -32,13 +32,18 @@ function useApplicationData() {
       dispatch({ type: ACTIONS.CLOSE_MODAL, value: { open: null } }) :
       dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'order' } });
   };
-
+  
   const addDish = (dish) => {
     dispatch({ type: ACTIONS.ADD_DISH, payload: dish });
   };
 
   const removeDish = (id) => {
-    dispatch({ type: ACTIONS.REMOVE_DISH, payload: { id } });
+    const indexToRemove = state.order.findIndex((dish) => dish.id === id);
+    if (indexToRemove !== -1) {
+      const updatedOrder = [...state.order];
+      updatedOrder.splice(indexToRemove, 1);
+      dispatch({ type: ACTIONS.REMOVE_DISH, payload: updatedOrder });
+    }
   };
 
   const emptyCart = () => {
@@ -171,12 +176,7 @@ function reducer(state, action) {
         ...state, order: updatedOrder,
       };
     case ACTIONS.REMOVE_DISH:
-      const newArray = [...state.order];
-      if (newArray.includes(action.payload.id)) {
-        const index = newArray.indexOf(action.payload.id);
-        newArray.splice(index, 1);
-      }
-      return { ...state, order: newArray }; 
+        return { ...state, order: action.payload };
     case ACTIONS.EMPTY_CART:
       return { ...state, order: [] 
       };

@@ -8,8 +8,8 @@ const OrderModal = (props) => {
 
   const { auth, user, logout, order } = useContext(authContext);
 
-  // console.log(props)
-  const totalPrice = props.state.order.reduce((acc, dish) => {
+  console.log(props.state.order)
+  let totalPrice = props.state.order.reduce((acc, dish) => {
     return Number(acc) + Number(dish.price);
   }, 0);
 
@@ -61,7 +61,7 @@ const OrderModal = (props) => {
               </table>
             </div>
             <a href='/orders' onClick={handleOrder}>
-              Place Order
+              Confirm Order
             </a>
             <br></br>
             <a onClick={props.onOrderSelect} className="back-to-dishes">
