@@ -4,7 +4,6 @@ import axios from 'axios';
 function useApplicationData() {
 
   const inital = {
-    users: [],
     categories: [],
     dishes: [],
     tables: [],
@@ -38,22 +37,9 @@ function useApplicationData() {
     dispatch({ type: ACTIONS.ADD_DISH, payload: dish });
   };
 
-  const removeDish =(id) => {
-    dispatch({type: ACTIONS.REMOVE_DISH, payload: {id}})
+  const removeDish = (id) => {
+    dispatch({ type: ACTIONS.REMOVE_DISH, payload: { id } });
   };
-
-  // Gets all user data
-  useEffect(() => {
-    axios.get(`http://localhost:3001/users.json`)
-      .then(res => {
-        // console.log('users', res.data);
-        const users = res.data;
-        dispatch({ type: ACTIONS.SET_USER_DATA, value: users });
-      })
-      .catch(error => {
-        console.error('Error Fetching Users: ', error);
-      });
-  }, []);
 
   // Gets all category data
   useEffect(() => {
@@ -68,7 +54,7 @@ function useApplicationData() {
       });
   }, []);
 
- 
+
   // Gets all dish data
   useEffect(() => {
     axios.get(`http://localhost:3001/dishes.json`)
@@ -105,7 +91,7 @@ function useApplicationData() {
         total_price: 0
       },
     };
-  
+
     axios
       .post('http://localhost:3001/orders', orderData)
       .then((response) => {
@@ -172,11 +158,11 @@ function reducer(state, action) {
         ...state,
         modal: action.value
       };
-      case ACTIONS.ADD_DISH:
-        const updatedOrder = [...state.order, action.payload];
-        return {
-          ...state, order: updatedOrder,
-        };
+    case ACTIONS.ADD_DISH:
+      const updatedOrder = [...state.order, action.payload];
+      return {
+        ...state, order: updatedOrder,
+      };
 
     default:
       throw new Error(

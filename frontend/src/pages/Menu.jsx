@@ -1,8 +1,8 @@
 import React from 'react';
-import ModalMenu from './MenuModal';
+import ModalMenu from '../components/MenuModal';
 import '../styles/styles.css';
 import axios from 'axios';
-import MenuListItem from './MenuListItem'; // Import your MenuListItem component here
+import MenuListItem from '../components/MenuListItem'; // Import your MenuListItem component here
 import { useCategorizeDishes } from '../hooks/useCategorizedDishes';
 function MenuList(props) {
 

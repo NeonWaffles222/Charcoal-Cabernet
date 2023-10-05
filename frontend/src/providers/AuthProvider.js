@@ -77,7 +77,6 @@ export default function AuthProvider(props) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`;
       axios.get(`http://localhost:3001/sessions.json`)
         .then(res => {
-          console.log(res);
           if (res.data) {
             setAuth(true);
             setUser(res.data);
