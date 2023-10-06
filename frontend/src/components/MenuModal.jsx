@@ -39,7 +39,7 @@ function MenuModal({ isOpen, onClose, imageUrl, title, description, price, token
   };
 
   const deleteFavorite = () => {
-    console.log(favorite_id);
+    console.log("favoret_+_+_+_+", favorite_id);
     // Make an API request to delete the dish from favorites
     axios.delete(
       `http://localhost:3001/api/favorites/${favorite_id}`,

@@ -41,17 +41,50 @@ class Api::FavoritesController < ApplicationController
   end
 
   # Destroy action to remove a dish from user's favorites
+  # 
   def destroy
     current_user = getUser
+    
+    # Check if the user is present
+    unless current_user
+      render json: { error: 'User not found' }, status: :unauthorized
+      return
+    end
+  
     favorite = current_user.favorites.find(params[:id])
-    favorite.destroy
-    head :no_content
+    
+    if favorite.destroy
+      render json: { success: 'Favorite removed successfully' }
+    else
+      render json: { error: 'Unable to remove from favorites' }, status: :unprocessable_entity
+    end
   end
+  
 
 private
+  # def getUser
+  #   user=nil
+  #   token = request.headers['Authorization'].split(' ').last
+  #   begin
+  #     decoded_token = JWT.decode(token, '12345', true, algorithm: 'HS256')
+  #     puts 'decodetoken', decoded_token
+  #     user_id = decoded_token.first['user_id']
+  #     user = User.find_by_id(user_id)
+  #   rescue JWT::DecodeError
+  #     puts 'decode error'
+  #   end
+  #   user
+  # end
+
   def getUser
-    user=nil
-    token = request.headers['Authorization'].split(' ').last
+    user = nil
+  
+    token = request.headers['Authorization']&.split(' ')&.last
+    if token.nil?
+      puts 'Authorization header is missing or malformed'
+      return user
+    end
+  
     begin
       decoded_token = JWT.decode(token, '12345', true, algorithm: 'HS256')
       puts 'decodetoken', decoded_token
@@ -60,7 +93,9 @@ private
     rescue JWT::DecodeError
       puts 'decode error'
     end
+  
     user
   end
+  
   # Other actions as needed
 end

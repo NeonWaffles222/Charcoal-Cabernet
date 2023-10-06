@@ -59,7 +59,7 @@ export default function MenuList(props) {
                   return favoriteDish.id === dish.id;
                 });
                 let isFavorite = null;
-                let favorite_id = null;
+                let favorite_id = 0;
                 if (dishFoundInFavorites.length > 0) {
                   isFavorite = true;
                   favorite_id = dishFoundInFavorites[0].id;
