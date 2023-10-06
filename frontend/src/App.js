@@ -19,6 +19,7 @@ import Footer from "./components/Footer";
 import MenuList from './pages/Menu';
 import About from './pages/About';
 import Home from './pages/Home';
+import Reservation from './pages/Reservation';
 
 function App() {
 
@@ -43,7 +44,6 @@ function App() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-
   return (
     <Router className="App">
       <AuthProvider>
@@ -58,13 +58,14 @@ function App() {
         {state.modal.open === 'order' && <OrderModal onOrderSelect={onOrderSelect} state={state} createOrder={createOrder} />}
       </AuthProvider>
       {/* <Twilio/> */}
-      {/* <DishScroll dish={state}/> */}
-      {/* <DishList dish={state} addDish={addDish} /> */}
+      {/* <DishScroll dish={state} />
+      <DishList dish={state} addDish={addDish} /> */}
       {isFavOpen && <FavoriteDishes />}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
+        <Route path='/reservation' element={<Reservation />} />
       </Routes>
       <Footer />
     </Router>
