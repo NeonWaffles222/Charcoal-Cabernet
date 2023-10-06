@@ -32,7 +32,7 @@ function MenuModal({ isOpen, onClose, imageUrl, title, description, price, token
       .then(response => {
         setIsFavorite(true); // Update only on success
         alert("Added to favorites!");  // Notify user
-        getFavoriteDishes();
+        // getFavoriteDishes();
 
       })
       .catch(error => {

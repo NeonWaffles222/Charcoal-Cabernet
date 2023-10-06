@@ -51,14 +51,21 @@ class Api::FavoritesController < ApplicationController
       return
     end
   
-    favorite = current_user.favorites.find(params[:id])
-    
-    if favorite.destroy
+    favorite = current_user.favorites.find_by({dish_id: params[:id]})
+    id = favorite[:id]
+    if Favorite.destroy(id)
       render json: { success: 'Favorite removed successfully' }
     else
       render json: { error: 'Unable to remove from favorites' }, status: :unprocessable_entity
     end
   end
+
+  # def show
+  #   current_user = getUser
+  #   unless current_user
+  #     render json: { error: 'User not found' }, status: :unauthorized
+  #     return
+  #   end
   
 
 private
@@ -89,6 +96,7 @@ private
       decoded_token = JWT.decode(token, '12345', true, algorithm: 'HS256')
       puts 'decodetoken', decoded_token
       user_id = decoded_token.first['user_id']
+      puts user_id
       user = User.find_by_id(user_id)
     rescue JWT::DecodeError
       puts 'decode error'
