@@ -12,7 +12,12 @@ const PastOrderModal = (props) => {
     return Number(acc) + Number(dish.price);
   }, 0);
 
-  console.log(props)
+
+
+  const userOrders=props.state.orders.filter((order)=>{
+    return order.user_id === user.id 
+  })
+  // console.log(userOrders)
 
   return (
     <div className="modal">
@@ -26,16 +31,16 @@ const PastOrderModal = (props) => {
               <table className="table table-bordered">
                 <thead>
                   <tr>
-                    <th colSpan="2">Dish</th>
-                    <th>Quantity</th>
+                    <th colSpan="3">Dish</th>
                     <th>Price</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {props.state.order.map((dish, index) => (
+                  {userOrders.map((dish, index) => (
                     <OrderList
                       key={index}
                       dish={dish}
+                      dishes={props.state.dish}
                     />
                   ))}
                 </tbody>
