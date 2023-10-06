@@ -6,6 +6,7 @@ import { useState } from 'react';
 import './App.css';
 
 import AuthProvider from './providers/AuthProvider';
+import ReservationProvider from './providers/ReservationProvider';
 import useApplicationData from './hooks/useApplicationData';
 
 import TopNavigation from "./components/TopNavigationBar";
@@ -65,7 +66,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
-        <Route path='/reservation' element={<Reservation />} />
+        <Route path='/reservation' element={<ReservationProvider><Reservation /></ReservationProvider>} />
       </Routes>
       <Footer />
     </Router>

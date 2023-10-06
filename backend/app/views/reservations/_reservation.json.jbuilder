@@ -1,0 +1,2 @@
+json.merge! reservation.attributes
+

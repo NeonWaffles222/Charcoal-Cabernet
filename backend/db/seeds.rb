@@ -41,7 +41,7 @@ puts "Re-creating Tables ..."
 
   Table.destroy_all
 
-  Table.create(
+  table1 = Table.create(
 
     table_number: 1,
     capacity: 2,
@@ -1158,7 +1158,7 @@ puts "Re-creating Users ..."
 
 User.destroy_all
 
-User.create(
+user1 = User.create(
 
   first_name: 'Billy',
   last_name: 'Bob',
@@ -1207,7 +1207,6 @@ order_item2 = OrderItem.create(
   order: order,
   dish: dish2,
 )
-
 
 
 

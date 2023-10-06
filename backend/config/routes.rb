@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :tables, :specials, :categories, :dishes, :users, :sessions
+  resources :tables, :specials, :categories, :dishes, :users, :sessions, :reservations
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
