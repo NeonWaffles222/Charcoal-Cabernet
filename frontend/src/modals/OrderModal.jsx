@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { authContext } from "../providers/AuthProvider";
 import '../styles/OrderModal.scss';
-import OrderList from "./OrderList";
+import OrderList from "../components/OrderList";
 
 
 const OrderModal = (props) => {
