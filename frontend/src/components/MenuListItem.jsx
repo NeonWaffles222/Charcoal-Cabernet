@@ -1,28 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ModalMenu from './MenuModal';
 import axios from 'axios';
 
 
-function MenuListItem({ dish }) {
+function MenuListItem({ dish, jwtToken, isFavorite, favorite_id }) {
   const [modalOpen, setModalOpen] = useState(false);
-  const [jwtToken, setJwtToken] = useState(null);
-  const getFavoriteDishes = () => {
-    axios.get('http://localhost:3001/api/favorites', {
-      headers: {
-        'Authorization': `Bearer ${jwtToken}` // Include the JWT token in the header
-      }
-    })
-      .then(response => {
-        // Handle the response here
-        console.log('Favorite dishes:', response.data);
-        setJwtToken(response.data.token);
-      })
-      .catch(error => {
-        console.error('Error fetching favorite dishes:', error);
-      });
 
-  };
-  console.log('dish++++', dish);
+
   return (
     <div>
       <a href='#' onClick={() => setModalOpen(true)}>{dish.name}</a> <strong>- ${dish.price}</strong>
@@ -36,6 +20,8 @@ function MenuListItem({ dish }) {
         onClose={() => setModalOpen(false)}
         token={jwtToken} // Pass the JWT token as a prop
         dish_id={dish.id}
+        isFav={isFavorite}
+        favorite_id={favorite_id}
 
       />
 

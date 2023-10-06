@@ -16,7 +16,7 @@ import FavoriteDishes from './components/Favorites';
 import OrderModal from './components/OrderModal';
 import Footer from "./components/Footer";
 
-import MenuList from './pages/Menu';
+import MenuList from './components/MenuList';
 import About from './pages/About';
 import Home from './pages/Home';
 

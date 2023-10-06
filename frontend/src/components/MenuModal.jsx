@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faHeart } from '@fortawesome/free-solid-svg-icons'; // Include the faHeart icon
 import axios from 'axios'; // Import axios for API requests
 
-function MenuModal({ isOpen, onClose, imageUrl, title, description, price, token, dish_id, favorite_id }) {
-  const [isFavorite, setIsFavorite] = useState(false);
+function MenuModal({ isOpen, onClose, imageUrl, title, description, price, token, dish_id, favorite_id, isFav }) {
+  const [isFavorite, setIsFavorite] = useState(isFav);
 
   if (!isOpen) return null;
 
@@ -39,6 +39,7 @@ function MenuModal({ isOpen, onClose, imageUrl, title, description, price, token
   };
 
   const deleteFavorite = () => {
+    console.log(favorite_id);
     // Make an API request to delete the dish from favorites
     axios.delete(
       `http://localhost:3001/api/favorites/${favorite_id}`,
