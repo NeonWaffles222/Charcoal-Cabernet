@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route }
 import { useState } from 'react';
 
 import './App.css';
-
+import FavoriteProvider from './providers/FavoriteProvider';
 import AuthProvider from './providers/AuthProvider';
 import useApplicationData from './hooks/useApplicationData';
 
@@ -16,7 +16,7 @@ import FavoriteDishes from './components/Favorites';
 import OrderModal from './modals/OrderModal';
 import Footer from "./components/Footer";
 
-import MenuList from './pages/Menu';
+import MenuList from './components/MenuList';
 import About from './pages/About';
 import Home from './pages/Home';
 import PaymentModal from './modals/PaymentModal';
@@ -69,6 +69,7 @@ function App() {
 
   return (
     <Router className="App">
+      {/* <FavoriteProvider> */}
       <AuthProvider>
         {client && <Elements stripe={initStripe} options={{ clientSecret: client }}>
           <TopNavigation
@@ -101,6 +102,7 @@ function App() {
           />}
         </Elements>}
       </AuthProvider>
+    {/* </FavoriteProvider> */}
       {/* <Twilio/> */}
       <DishScroll dish={state} />
       <DishList dish={state} addDish={addDish} />
@@ -108,7 +110,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
+          <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
       </Routes>
       <Footer />
     </Router>

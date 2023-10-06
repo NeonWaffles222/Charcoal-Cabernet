@@ -2,14 +2,63 @@ import React, { useState } from 'react';
 import "../styles/MenuModal.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faHeart } from '@fortawesome/free-solid-svg-icons'; // Include the faHeart icon
+import axios from 'axios'; // Import axios for API requests
 
-function MenuModal({ isOpen, onClose, imageUrl, title, description, price }) {
-  const [isFavorite, setIsFavorite] = useState(false);
+function MenuModal({ isOpen, onClose, imageUrl, title, description, price, token, dish_id, favorite_id, isFav }) {
+  const [isFavorite, setIsFavorite] = useState(isFav);
 
   if (!isOpen) return null;
 
   const toggleFavorite = () => {
-    setIsFavorite(!isFavorite);
+    if (isFavorite) {
+      deleteFavorite();
+    } else {
+      addFavorite();
+    }
+  };
+
+  const addFavorite = () => {
+    console.log("dishId+++++", dish_id);
+    axios.post(
+      'http://localhost:3001/api/favorites',
+      { dish_id: dish_id },
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }
+    )
+
+      .then(response => {
+        setIsFavorite(true); // Update only on success
+        alert("Added to favorites!");  // Notify user
+        // getFavoriteDishes();
+
+      })
+      .catch(error => {
+        console.error('Error adding to favorites:', error);
+        alert("Error adding to favorites. Please try again.");
+      });
+  };
+
+  const deleteFavorite = () => {
+    console.log("favoret_+_+_+_+", favorite_id);
+    axios.delete(
+      `http://localhost:3001/api/favorites/${dish_id}`,
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }
+    )
+      .then(response => {
+        setIsFavorite(false); // Update only on success
+        alert("Removed from favorites!");  // Notify user
+      })
+      .catch(error => {
+        console.error('Error deleting from favorites:', error);
+        alert("Error removing from favorites. Please try again.");
+      });
   };
 
   const heartClass = isFavorite ? 'favorite' : ''; // Add the 'favorite' class when it's favorited
