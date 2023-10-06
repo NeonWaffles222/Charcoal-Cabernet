@@ -118,7 +118,7 @@ function useApplicationData() {
       .catch(error => {
         console.error('Error Fetching Orders: ', error);
       });
-  }, [state.order]);
+  }, []);
 
   //Get all order item data
   // useEffect(() => {
@@ -225,7 +225,7 @@ function reducer(state, action) {
       return { ...state, order: action.payload };
 
     case ACTIONS.SET_ORDER_DATA:
-      return { ...state, ...state.order };
+      return { ...state, orders: action.value };
 
     case ACTIONS.EMPTY_CART:
       return {
