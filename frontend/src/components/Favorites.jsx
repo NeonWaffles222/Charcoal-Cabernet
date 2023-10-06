@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DishList from './DishList';
 import FavoriteList from './FavoriteList';
+
 function FavoriteDishes() {
   const [favorites, setFavorites] = useState([]);
   const [jwtToken, setJwtToken] = useState(null);
+
   useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
     console.log("stored++++", storedToken);

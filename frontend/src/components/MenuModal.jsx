@@ -11,15 +11,13 @@ function MenuModal({ isOpen, onClose, imageUrl, title, description, price, token
 
   const toggleFavorite = () => {
     if (isFavorite) {
-      deleteFavorite(); // If it's a favorite, trigger deleteFavorite
+      deleteFavorite();
     } else {
-      addFavorite(); // If it's not a favorite, trigger addFavorite
+      addFavorite();
     }
-    setIsFavorite(!isFavorite); // Toggle the favorite state
   };
 
   const addFavorite = () => {
-    // Make an API request to add the dish to favorites
     console.log("dishId+++++", dish_id);
     axios.post(
       'http://localhost:3001/api/favorites',
@@ -30,19 +28,23 @@ function MenuModal({ isOpen, onClose, imageUrl, title, description, price, token
         }
       }
     )
+
       .then(response => {
-        // Handle the response, maybe update the UI or show a message
+        setIsFavorite(true); // Update only on success
+        alert("Added to favorites!");  // Notify user
+        getFavoriteDishes();
+
       })
       .catch(error => {
         console.error('Error adding to favorites:', error);
+        alert("Error adding to favorites. Please try again.");
       });
   };
 
   const deleteFavorite = () => {
     console.log("favoret_+_+_+_+", favorite_id);
-    // Make an API request to delete the dish from favorites
     axios.delete(
-      `http://localhost:3001/api/favorites/${favorite_id}`,
+      `http://localhost:3001/api/favorites/${dish_id}`,
       {
         headers: {
           'Authorization': `Bearer ${token}`
@@ -50,10 +52,12 @@ function MenuModal({ isOpen, onClose, imageUrl, title, description, price, token
       }
     )
       .then(response => {
-        // Handle the response, maybe update the UI or show a message
+        setIsFavorite(false); // Update only on success
+        alert("Removed from favorites!");  // Notify user
       })
       .catch(error => {
         console.error('Error deleting from favorites:', error);
+        alert("Error removing from favorites. Please try again.");
       });
   };
 

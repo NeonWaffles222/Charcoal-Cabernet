@@ -6,6 +6,7 @@ import MenuListItem from './MenuListItem'; // Import your MenuListItem component
 import { useCategorizeDishes } from '../hooks/useCategorizedDishes';
 export default function MenuList(props) {
 
+  
   const { dishes, categories } = props;
 
   const allMenuItems = useCategorizeDishes(dishes, categories);
@@ -58,8 +59,9 @@ export default function MenuList(props) {
                 const dishFoundInFavorites = favorites.filter((favoriteDish) => {
                   return favoriteDish.id === dish.id;
                 });
-                let isFavorite = null;
-                let favorite_id = 0;
+                console.log("dishFavorite++++", dishFoundInFavorites);
+                let isFavorite = !!dishFoundInFavorites;
+                let favorite_id = dishFoundInFavorites ? dishFoundInFavorites.id : null; // If dish is found in favorites, assign its id to favorite_id
                 if (dishFoundInFavorites.length > 0) {
                   isFavorite = true;
                   favorite_id = dishFoundInFavorites[0].id;

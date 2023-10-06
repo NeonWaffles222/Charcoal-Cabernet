@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route }
 import { useState } from 'react';
 
 import './App.css';
-
+import FavoriteProvider from './providers/FavoriteProvider';
 import AuthProvider from './providers/AuthProvider';
 import useApplicationData from './hooks/useApplicationData';
 
