@@ -98,6 +98,18 @@ function useApplicationData() {
       });
   }, []);
 
+  useEffect(() => {
+    axios.get(`http://localhost:3001/orders.json`)
+      .then(res => {
+        // console.log('tables', res.data);
+        const orders = res.data;
+        dispatch({ type: ACTIONS.SET_TABLE_DATA, value: orders });
+      })
+      .catch(error => {
+        console.error('Error Fetching Orders: ', error);
+      });
+  }, []);
+
   //Post request for orders
   const createOrder = (user, selectedDishes) => {
     const orderData = {
@@ -114,7 +126,7 @@ function useApplicationData() {
       .then((response) => {
         console.log('Order created:', response.data);
         //Stripe endpoint
-        
+
       })
       .catch((error) => {
         console.error('Error creating order:', error);

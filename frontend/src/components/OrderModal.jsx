@@ -19,7 +19,6 @@ const OrderModal = (props) => {
     props.createOrder(user, props.state.order);
     props.onOrderSelect();
     props.onPaymentSelect();
-    // props.emptyCart();
   }
 
   // console.log("order", props);
@@ -31,9 +30,6 @@ const OrderModal = (props) => {
           <section className="orders-show">
             <div className="exit-flex">
               <button className="order-modal__close" onClick={() => props.onOrderSelect()}>X</button>
-              <header className="page-header">
-                <h3>Order #{props.order}</h3>
-              </header>
             </div>
             <div className="panel panel-default items">
               <table className="table table-bordered">
