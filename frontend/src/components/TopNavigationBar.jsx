@@ -7,7 +7,7 @@ import RegisterModal from '../modals/RegisterModal';
 import '../styles/TopNavigationBar.scss';
 
 
-const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSelect, open }) => {
+const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSelect, onPastOrderSelect, open }) => {
   const { auth, user, logout, order } = useContext(authContext);
   // console.log(user, "user")
   return (
@@ -31,7 +31,7 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
         {auth && <>
           <span className="top-nav-bar__item" onClick={() => onOrderSelect()}  >Cart</span>
           <span className="top-nav-bar__item" onClick={toggleFav}>Favorites</span>
-
+          <span className="top-nav-bar__item" onClick={() => onPastOrderSelect()}>Past Orders</span>
           <span className="top-nav-bar__item">Welcome back {user.first_name}</span>
           <span className="top-nav-bar__item" onClick={logout}>Logout</span>
         </>}

@@ -11,7 +11,7 @@ function useApplicationData() {
       open: null,
     },
     order: [],
-    past_orders: [],
+    order_items: [],
     orders: []
 
   };
@@ -121,17 +121,17 @@ function useApplicationData() {
   }, []);
 
   //Get all order item data
-  // useEffect(() => {
-  //   axios.get(`http://localhost:3001/orders.json`)
-  //     .then(res => {
-  //       console.log('orders', res.data);
-  //       const orders = res.data;
-  //       dispatch({ type: ACTIONS.SET_TABLE_DATA, value: orders });
-  //     })
-  //     .catch(error => {
-  //       console.error('Error Fetching Orders: ', error);
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios.get(`http://localhost:3001/order_items.json`)
+      .then(res => {
+        console.log('order_items', res.data);
+        const order_items = res.data;
+        dispatch({ type: ACTIONS.SET_ORDER_ITEMS_DATA, value: order_items });
+      })
+      .catch(error => {
+        console.error('Error Fetching Orders: ', error);
+      });
+  }, []);
 
   //Post request for orders
   const createOrder = (user, selectedDishes) => {
@@ -180,7 +180,8 @@ export const ACTIONS = {
   ADD_DISH: 'ADD_DISH',
   REMOVE_DISH: 'REMOVE_DISH',
   EMPTY_CART: 'EMPTY_CART',
-  SET_ORDER_DATA: 'SET_ORDER_DATA'
+  SET_ORDER_DATA: 'SET_ORDER_DATA',
+  SET_ORDER_ITEMS_DATA: 'SET_ORDER_ITEMS_DATA'
 };
 
 function reducer(state, action) {
@@ -226,6 +227,10 @@ function reducer(state, action) {
 
     case ACTIONS.SET_ORDER_DATA:
       return { ...state, orders: action.value };
+
+    case ACTIONS.SET_ORDER_ITEMS_DATA:
+      return { ...state, order_items: action.value };
+
 
     case ACTIONS.EMPTY_CART:
       return {

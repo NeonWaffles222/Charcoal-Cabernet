@@ -4,13 +4,6 @@ function OrderList(props) {
 
   // let id =props.dish.id
 
-  function handleClick(event) {
-    event.preventDefault();
-    props.removeDish(props.dish.id);
-    console.log("Did this work");
-    console.log(props.dish.id);
-  }
-
   return (
     <tr>
       <td>
@@ -31,9 +24,6 @@ function OrderList(props) {
         {/* <%= product.price * quantity %> */}
         {/* {props.dish.price * props.dish.quantity} */}
         ${props.dish.price}
-      </td>
-      <td>
-        <button onClick={handleClick}>X</button>
       </td>
     </tr>
 

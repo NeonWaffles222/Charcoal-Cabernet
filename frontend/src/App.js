@@ -20,7 +20,7 @@ import MenuList from './pages/Menu';
 import About from './pages/About';
 import Home from './pages/Home';
 import PaymentModal from './modals/PaymentModal';
-
+import PastOrderModal from './modals/PastOrderModal';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { PaymentElement } from '@stripe/react-stripe-js';
@@ -46,6 +46,7 @@ function App() {
     onLoginSelect,
     onRegisterSelect,
     onOrderSelect,
+    onPastOrderSelect,
     onPaymentSelect,
     addDish,
     removeDish,
@@ -72,12 +73,13 @@ function App() {
         {client && <Elements stripe={initStripe} options={{ clientSecret: client }}>
           <TopNavigation
             onLoginSelect={onLoginSelect}
-            onRegisterSelect={onRegisterSelect} onOrderSelect={onOrderSelect}
+            onRegisterSelect={onRegisterSelect}
+            onOrderSelect={onOrderSelect}
+            onPastOrderSelect={onPastOrderSelect}
             toggleMenu={toggleMenu}
             toggleFav={toggleFav}
             open={state.modal.open}
           />
-          {/* <button onClick={onPaymentSelect}></button> */}
           {state.modal.open === 'order' && <OrderModal
             onOrderSelect={onOrderSelect}
             state={state}
@@ -85,6 +87,10 @@ function App() {
             removeDish={removeDish}
             emptyCart={emptyCart}
             onPaymentSelect={onPaymentSelect}
+          />}
+          {state.modal.open === 'past_order' && <PastOrderModal
+            onPastOrderSelect={onPastOrderSelect}
+            state={state}
           />}
           {state.modal.open === 'payment' && <PaymentModal
             onPaymentSelect={onPaymentSelect}
@@ -96,7 +102,7 @@ function App() {
         </Elements>}
       </AuthProvider>
       {/* <Twilio/> */}
-      <DishScroll dish={state}/>
+      <DishScroll dish={state} />
       <DishList dish={state} addDish={addDish} />
       {isFavOpen && <FavoriteDishes />}
       <Routes>
