@@ -12,6 +12,7 @@ function useApplicationData() {
     },
     order: [],
     past_orders: [],
+    orders: []
 
   };
 
@@ -33,6 +34,12 @@ function useApplicationData() {
     (state.modal.open === 'order') ?
       dispatch({ type: ACTIONS.CLOSE_MODAL, value: { open: null } }) :
       dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'order' } });
+  };
+
+  const onPastOrderSelect = () => {
+    (state.modal.open === 'past_order') ?
+      dispatch({ type: ACTIONS.CLOSE_MODAL, value: { open: null } }) :
+      dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'past_order' } });
   };
 
   const onPaymentSelect = () => {
@@ -104,14 +111,27 @@ function useApplicationData() {
   useEffect(() => {
     axios.get(`http://localhost:3001/orders.json`)
       .then(res => {
-        console.log('orders', res.data);
+        // console.log('orders', res.data);
         const orders = res.data;
-        dispatch({ type: ACTIONS.SET_TABLE_DATA, value: orders });
+        dispatch({ type: ACTIONS.SET_ORDER_DATA, value: orders });
       })
       .catch(error => {
         console.error('Error Fetching Orders: ', error);
       });
-  }, []);
+  }, [state.order]);
+
+  //Get all order item data
+  // useEffect(() => {
+  //   axios.get(`http://localhost:3001/orders.json`)
+  //     .then(res => {
+  //       console.log('orders', res.data);
+  //       const orders = res.data;
+  //       dispatch({ type: ACTIONS.SET_TABLE_DATA, value: orders });
+  //     })
+  //     .catch(error => {
+  //       console.error('Error Fetching Orders: ', error);
+  //     });
+  // }, []);
 
   //Post request for orders
   const createOrder = (user, selectedDishes) => {
@@ -141,11 +161,12 @@ function useApplicationData() {
     onLoginSelect,
     onRegisterSelect,
     onOrderSelect,
+    onPastOrderSelect,
+    onPaymentSelect,
     addDish,
     removeDish,
     createOrder,
     emptyCart,
-    onPaymentSelect,
   };
 }
 
@@ -159,7 +180,7 @@ export const ACTIONS = {
   ADD_DISH: 'ADD_DISH',
   REMOVE_DISH: 'REMOVE_DISH',
   EMPTY_CART: 'EMPTY_CART',
-  GET_ORDER_DATA: 'GET_ORDER_DATA'
+  SET_ORDER_DATA: 'SET_ORDER_DATA'
 };
 
 function reducer(state, action) {
@@ -203,8 +224,8 @@ function reducer(state, action) {
     case ACTIONS.REMOVE_DISH:
       return { ...state, order: action.payload };
 
-    case ACTIONS.GET_ORDER_DATA:
-      return { ...state.order };
+    case ACTIONS.SET_ORDER_DATA:
+      return { ...state, ...state.order };
 
     case ACTIONS.EMPTY_CART:
       return {

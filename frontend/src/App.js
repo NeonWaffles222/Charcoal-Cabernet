@@ -34,7 +34,7 @@ function App() {
   useEffect(() => {
     axios.post("/create_payment_intent")
       .then((res) => {
-        console.log("res", res);
+        // console.log("res", res);
         setClient(res.data);
       }
       );
