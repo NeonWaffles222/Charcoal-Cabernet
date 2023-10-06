@@ -22,4 +22,9 @@ Rails.application.routes.draw do
   #For orders
   resources :orders, only: [:create]
 
+  #For stripe
+  resources :checkout, only: [:create]
+
+  post "/create_payment_intent", to: "checkout#payment_intent"
+
 end

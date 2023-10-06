@@ -8,7 +8,8 @@ const OrderModal = (props) => {
 
   const { auth, user, logout, order } = useContext(authContext);
 
-  console.log(props.state.order)
+  console.log(props.state.order);
+
   let totalPrice = props.state.order.reduce((acc, dish) => {
     return Number(acc) + Number(dish.price);
   }, 0);
@@ -29,9 +30,9 @@ const OrderModal = (props) => {
           <section className="orders-show">
             <div className="exit-flex">
               <button className="order-modal__close" onClick={() => props.onOrderSelect()}>X</button>
-            <header className="page-header">
-              <h3>Order #{props.order}</h3>
-            </header>
+              <header className="page-header">
+                <h3>Order #{props.order}</h3>
+              </header>
             </div>
             <div className="panel panel-default items">
               <table className="table table-bordered">
@@ -63,6 +64,7 @@ const OrderModal = (props) => {
             <a href='/orders' onClick={handleOrder}>
               Confirm Order
             </a>
+
             <br></br>
             <a onClick={props.onOrderSelect} className="back-to-dishes">
               Back to Dishes

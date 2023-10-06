@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route }
   from 'react-router-dom';
 import { useState } from 'react';
@@ -19,9 +19,27 @@ import Footer from "./components/Footer";
 import MenuList from './pages/Menu';
 import About from './pages/About';
 import Home from './pages/Home';
-import PaymentModal from './modals/PaymentModal'
+import PaymentModal from './modals/PaymentModal';
+
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import {PaymentElement} from '@stripe/react-stripe-js'
+import axios from 'axios';
+
 
 function App() {
+
+  const [client, setClient] = useState("");
+
+  useEffect(() => {
+    axios.post("/create_payment_intent")
+      .then((res) => {
+        console.log("res", res);
+        setClient(res.data);
+      }
+      );
+  }, []);
+
 
   const {
     state,
@@ -46,33 +64,35 @@ function App() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const initStripe = loadStripe("pk_test_51NxsaQEkmoqL8ThPHw4sW42MfhHSvHcJsB0VlWq4J8rQhsx6wp2aUvlSxP94OVtTGusvOikiQ6OZXInL8VKKnVMB00KfGzEfxL")
 
   return (
     <Router className="App">
       <AuthProvider>
-        <TopNavigation
-          onLoginSelect={onLoginSelect}
-          onRegisterSelect={onRegisterSelect} onOrderSelect={onOrderSelect}
-          toggleMenu={toggleMenu}
-          toggleFav={toggleFav}
-          open={state.modal.open}
-        />
-        <button onClick={onPaymentSelect}></button>
-        {state.modal.open === 'order' && <OrderModal 
-        onOrderSelect={onOrderSelect} 
-        state={state} 
-        createOrder={createOrder}
-        removeDish={removeDish}
-        emptyCart={emptyCart}
-         />}
-        {state.modal.open === 'payment' && <PaymentModal 
-        onPaymentSelect={onPaymentSelect}
-        state={state} 
-        createOrder={createOrder}
-        removeDish={removeDish}
-        emptyCart={emptyCart}
-         />}
-
+        {client && <Elements stripe={initStripe} options={{clientSecret: client}}>
+          <TopNavigation
+            onLoginSelect={onLoginSelect}
+            onRegisterSelect={onRegisterSelect} onOrderSelect={onOrderSelect}
+            toggleMenu={toggleMenu}
+            toggleFav={toggleFav}
+            open={state.modal.open}
+          />
+          <button onClick={onPaymentSelect}></button>
+          {state.modal.open === 'order' && <OrderModal
+            onOrderSelect={onOrderSelect}
+            state={state}
+            createOrder={createOrder}
+            removeDish={removeDish}
+            emptyCart={emptyCart}
+          />}
+          {state.modal.open === 'payment' && <PaymentModal
+            onPaymentSelect={onPaymentSelect}
+            state={state}
+            createOrder={createOrder}
+            removeDish={removeDish}
+            emptyCart={emptyCart}
+          />}
+        </Elements>}
       </AuthProvider>
       {/* <Twilio/> */}
       {/* <DishScroll dish={state}/> */}

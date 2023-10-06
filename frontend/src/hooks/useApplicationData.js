@@ -113,6 +113,8 @@ function useApplicationData() {
       .post('http://localhost:3001/orders', orderData)
       .then((response) => {
         console.log('Order created:', response.data);
+        //Stripe endpoint
+        
       })
       .catch((error) => {
         console.error('Error creating order:', error);
@@ -187,7 +189,7 @@ function reducer(state, action) {
     case ACTIONS.EMPTY_CART:
       return { ...state, order: [] 
       };
-      
+
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
