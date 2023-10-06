@@ -23,7 +23,7 @@ import PaymentModal from './modals/PaymentModal';
 
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import {PaymentElement} from '@stripe/react-stripe-js'
+import { PaymentElement } from '@stripe/react-stripe-js';
 import axios from 'axios';
 
 
@@ -64,12 +64,12 @@ function App() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const initStripe = loadStripe("pk_test_51NxsaQEkmoqL8ThPHw4sW42MfhHSvHcJsB0VlWq4J8rQhsx6wp2aUvlSxP94OVtTGusvOikiQ6OZXInL8VKKnVMB00KfGzEfxL")
+  const initStripe = loadStripe("pk_test_51NxsaQEkmoqL8ThPHw4sW42MfhHSvHcJsB0VlWq4J8rQhsx6wp2aUvlSxP94OVtTGusvOikiQ6OZXInL8VKKnVMB00KfGzEfxL");
 
   return (
     <Router className="App">
       <AuthProvider>
-        {client && <Elements stripe={initStripe} options={{clientSecret: client}}>
+        {client && <Elements stripe={initStripe} options={{ clientSecret: client }}>
           <TopNavigation
             onLoginSelect={onLoginSelect}
             onRegisterSelect={onRegisterSelect} onOrderSelect={onOrderSelect}
@@ -77,13 +77,14 @@ function App() {
             toggleFav={toggleFav}
             open={state.modal.open}
           />
-          <button onClick={onPaymentSelect}></button>
+          {/* <button onClick={onPaymentSelect}></button> */}
           {state.modal.open === 'order' && <OrderModal
             onOrderSelect={onOrderSelect}
             state={state}
             createOrder={createOrder}
             removeDish={removeDish}
             emptyCart={emptyCart}
+            onPaymentSelect={onPaymentSelect}
           />}
           {state.modal.open === 'payment' && <PaymentModal
             onPaymentSelect={onPaymentSelect}

@@ -18,10 +18,11 @@ const OrderModal = (props) => {
     event.preventDefault();
     props.createOrder(user, props.state.order);
     props.onOrderSelect();
-    props.emptyCart();
+    props.onPaymentSelect();
+    // props.emptyCart();
   }
 
-  console.log("order", props);
+  // console.log("order", props);
 
   return (
     <div className="modal">
