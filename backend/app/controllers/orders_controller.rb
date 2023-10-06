@@ -1,6 +1,13 @@
 class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token
+  def index
+    @orders = Order.all
+    render json: @orders
+  end
   
+  def show
+  end
+
   def create
     @order = Order.new(order_params)
   

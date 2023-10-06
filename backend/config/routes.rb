@@ -21,10 +21,11 @@ Rails.application.routes.draw do
   
   #For orders
   resources :orders, only: [:create]
-
+  get '/orders.json', to: 'orders#index'
   #For stripe
   resources :checkout, only: [:create]
-
   post "/create_payment_intent", to: "checkout#payment_intent"
+
+
 
 end

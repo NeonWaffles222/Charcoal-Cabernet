@@ -11,6 +11,8 @@ function useApplicationData() {
       open: null,
     },
     order: [],
+    past_orders: [],
+
   };
 
   const [state, dispatch] = useReducer(reducer, inital);
@@ -38,7 +40,7 @@ function useApplicationData() {
       dispatch({ type: ACTIONS.CLOSE_MODAL, value: { open: null } }) :
       dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'payment' } });
   };
-  
+
   const addDish = (dish) => {
     dispatch({ type: ACTIONS.ADD_DISH, payload: dish });
   };
@@ -98,10 +100,11 @@ function useApplicationData() {
       });
   }, []);
 
+  //Get all order data
   useEffect(() => {
     axios.get(`http://localhost:3001/orders.json`)
       .then(res => {
-        // console.log('tables', res.data);
+        console.log('orders', res.data);
         const orders = res.data;
         dispatch({ type: ACTIONS.SET_TABLE_DATA, value: orders });
       })
@@ -122,7 +125,7 @@ function useApplicationData() {
     };
 
     axios
-      .post('http://localhost:3001/orders', orderData)
+      .post('http://localhost:3001/orders.json', orderData)
       .then((response) => {
         console.log('Order created:', response.data);
         //Stripe endpoint
@@ -155,7 +158,8 @@ export const ACTIONS = {
   CLOSE_MODAL: 'CLOSE_MODAL',
   ADD_DISH: 'ADD_DISH',
   REMOVE_DISH: 'REMOVE_DISH',
-  EMPTY_CART: 'EMPTY_CART'
+  EMPTY_CART: 'EMPTY_CART',
+  GET_ORDER_DATA: 'GET_ORDER_DATA'
 };
 
 function reducer(state, action) {
@@ -197,9 +201,14 @@ function reducer(state, action) {
         ...state, order: updatedOrder,
       };
     case ACTIONS.REMOVE_DISH:
-        return { ...state, order: action.payload };
+      return { ...state, order: action.payload };
+
+    case ACTIONS.GET_ORDER_DATA:
+      return { ...state.order };
+
     case ACTIONS.EMPTY_CART:
-      return { ...state, order: [] 
+      return {
+        ...state, order: []
       };
 
     default:
