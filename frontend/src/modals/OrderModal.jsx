@@ -8,8 +8,6 @@ const OrderModal = (props) => {
 
   const { auth, user, logout, order } = useContext(authContext);
 
-  console.log(props.state.order);
-
   let totalPrice = props.state.order.reduce((acc, dish) => {
     return Number(acc) + Number(dish.price);
   }, 0);
@@ -20,8 +18,6 @@ const OrderModal = (props) => {
     props.onOrderSelect();
     props.onPaymentSelect();
   }
-
-  // console.log("order", props);
 
   return (
     <div className="modal">

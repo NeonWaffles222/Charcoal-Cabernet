@@ -102,7 +102,7 @@ function App() {
         </Elements>}
       </AuthProvider>
       {/* <Twilio/> */}
-      <DishScroll dish={state} />
+      {/* <DishScroll dish={state} /> */}
       <DishList dish={state} addDish={addDish} />
       {isFavOpen && <FavoriteDishes />}
       <Routes>

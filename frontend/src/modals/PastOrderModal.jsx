@@ -2,22 +2,30 @@ import React, { useContext, useState } from "react";
 import { authContext } from "../providers/AuthProvider";
 import '../styles/OrderModal.scss';
 import OrderList from "../components/OrderList";
+import PastOrders from "../components/PastOrders"
+import '../styles/PastOrderModal.scss'
 
 
 const PastOrderModal = (props) => {
 
   const { auth, user, logout, order } = useContext(authContext);
 
-  let totalPrice = props.state.order.reduce((acc, dish) => {
-    return Number(acc) + Number(dish.price);
-  }, 0);
-
-
-
+  //Filter out all orders that are not associated with the logged in user
   const userOrders=props.state.orders.filter((order)=>{
     return order.user_id === user.id 
   })
-  // console.log(userOrders)
+
+  //From most recent order to least
+  userOrders.reverse();
+
+
+  const filteredOrderedDishes = props.state.orders.filter((item)=>{
+    // console.log("this is item", item)
+    // console.log("order ids", props.state.orders)
+    // return item.id === props.state.orders.id
+  })
+
+  // console.log(filteredOrderedDishes)
 
   return (
     <div className="modal">
@@ -31,25 +39,21 @@ const PastOrderModal = (props) => {
               <table className="table table-bordered">
                 <thead>
                   <tr>
-                    <th colSpan="3">Dish</th>
+                    <th colSpan="0.25">Order Number</th>
                     <th>Price</th>
+                    <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {userOrders.map((dish, index) => (
-                    <OrderList
+                  {userOrders.map((order_object, index) => (  
+                    <PastOrders
                       key={index}
-                      dish={dish}
-                      dishes={props.state.dish}
+                      order={order_object}
+                      state={props.state}
+                      onPastOrderSelect={props.onPastOrderSelect}
                     />
                   ))}
                 </tbody>
-                <tfoot>
-                  <tr>
-                    <th colSpan="4">TOTAL:</th>
-                    <th>{totalPrice.toFixed(2)}</th>
-                  </tr>
-                </tfoot>
               </table>
             </div>
             <a onClick={props.onPastOrderSelect} className="back-to-dishes">
