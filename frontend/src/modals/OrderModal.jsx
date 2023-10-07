@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { authContext } from "../providers/AuthProvider";
 import '../styles/OrderModal.scss';
 import OrderList from "../components/OrderList";
@@ -6,7 +6,7 @@ import OrderList from "../components/OrderList";
 
 const OrderModal = (props) => {
 
-  const { auth, user, logout, order } = useContext(authContext);
+  const { user } = useContext(authContext);
 
   let totalPrice = props.state.order.reduce((acc, dish) => {
     return Number(acc) + Number(dish.price);
@@ -57,7 +57,6 @@ const OrderModal = (props) => {
             <a href='/orders' onClick={handleOrder}>
               Confirm Order
             </a>
-
             <br></br>
             <a onClick={props.onOrderSelect} className="back-to-dishes">
               Back to Dishes

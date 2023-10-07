@@ -1,14 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { authContext } from "../providers/AuthProvider";
 import '../styles/OrderModal.scss';
-import OrderList from "../components/OrderList";
 import PastOrders from "../components/PastOrders"
 import '../styles/PastOrderModal.scss'
 
 
 const PastOrderModal = (props) => {
 
-  const { auth, user, logout, order } = useContext(authContext);
+  const { user } = useContext(authContext);
 
   //Filter out all orders that are not associated with the logged in user
   const userOrders=props.state.orders.filter((order)=>{
@@ -17,15 +16,6 @@ const PastOrderModal = (props) => {
 
   //From most recent order to least
   userOrders.reverse();
-
-
-  const filteredOrderedDishes = props.state.orders.filter((item)=>{
-    // console.log("this is item", item)
-    // console.log("order ids", props.state.orders)
-    // return item.id === props.state.orders.id
-  })
-
-  // console.log(filteredOrderedDishes)
 
   return (
     <div className="modal">
