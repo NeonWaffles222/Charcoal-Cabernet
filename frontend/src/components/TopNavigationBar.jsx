@@ -9,11 +9,11 @@ import { Stack, Badge } from '@mui/material';
 import '../styles/TopNavigationBar.scss';
 
 
-const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSelect, onPastOrderSelect, open, state}) => {
+const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSelect, onPastOrderSelect, open, state }) => {
   const { auth, user, logout, order } = useContext(authContext);
   // console.log(user, "user")
 
-  let itemsInCart=state.order.length
+  let itemsInCart = state.order ? state.order.length : null;
 
   return (
     <div className="top-nav-bar">
@@ -36,7 +36,7 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
         {auth && <>
           <Stack spacing={2} direction='row'>
             <Badge badgeContent={itemsInCart} color='primary'>
-          <span className="top-nav-bar__item" onClick={() => onOrderSelect()}  >Cart</span>
+              <span className="top-nav-bar__item" onClick={() => onOrderSelect()}  >Cart</span>
             </Badge>
           </Stack>
           <span className="top-nav-bar__item" onClick={toggleFav}>Favorites</span>
