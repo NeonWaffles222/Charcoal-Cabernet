@@ -80,6 +80,7 @@ function App() {
             toggleMenu={toggleMenu}
             toggleFav={toggleFav}
             open={state.modal.open}
+            state={state}
           />
           {state.modal.open === 'order' && <OrderModal
             onOrderSelect={onOrderSelect}

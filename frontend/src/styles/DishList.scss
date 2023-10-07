@@ -10,6 +10,7 @@ ul {
 .border {
   border: solid;
   margin: 2rem;
+  border-radius: 5.0%;
 }
 
 .dish-info {
@@ -18,21 +19,6 @@ ul {
 
 }
 
-.img-size {
-  width: 50%;
-  border-radius: 8px;
-  /* align-content: center; */
-  margin-left: 25%;
-}
-
-button img {
-  border-radius: 14px;
-}
-
-.border h1 {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: space-around;
-  justify-content: space-between;
-  flex-direction: column;
+.img-size{
+  width: 35%;
 }
