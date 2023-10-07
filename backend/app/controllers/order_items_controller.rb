@@ -1,7 +1,7 @@
 
 class OrderItemsController < ApplicationController
   def index
-    order_items = OrderItem.all # Assuming you have an OrderItem model
+    order_items = OrderItem.all
     render json: order_items
   end
 

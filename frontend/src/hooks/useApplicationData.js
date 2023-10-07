@@ -124,7 +124,7 @@ function useApplicationData() {
   useEffect(() => {
     axios.get(`http://localhost:3001/order_items.json`)
       .then(res => {
-        console.log('order_items', res.data);
+        // console.log('order_items', res.data);
         const order_items = res.data;
         dispatch({ type: ACTIONS.SET_ORDER_ITEMS_DATA, value: order_items });
       })

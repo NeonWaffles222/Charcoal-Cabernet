@@ -80,6 +80,7 @@ function App() {
             toggleMenu={toggleMenu}
             toggleFav={toggleFav}
             open={state.modal.open}
+            state={state}
           />
           {state.modal.open === 'order' && <OrderModal
             onOrderSelect={onOrderSelect}
@@ -104,7 +105,7 @@ function App() {
       </AuthProvider>
     {/* </FavoriteProvider> */}
       {/* <Twilio/> */}
-      <DishScroll dish={state} />
+      {/* <DishScroll dish={state} /> */}
       <DishList dish={state} addDish={addDish} />
       {isFavOpen && <FavoriteDishes />}
       <Routes>

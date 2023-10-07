@@ -3,13 +3,18 @@ import { authContext } from "../providers/AuthProvider";
 import { Link } from "react-router-dom";
 import LoginModal from '../modals/LoginModal';
 import RegisterModal from '../modals/RegisterModal';
+import { Stack, Badge } from '@mui/material';
+
 
 import '../styles/TopNavigationBar.scss';
 
 
-const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSelect, onPastOrderSelect, open }) => {
+const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSelect, onPastOrderSelect, open, state}) => {
   const { auth, user, logout, order } = useContext(authContext);
   // console.log(user, "user")
+
+  let itemsInCart=state.order.length
+
   return (
     <div className="top-nav-bar">
       {open === 'login' && <LoginModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
@@ -29,7 +34,11 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
           <span className="top-nav-bar__item" onClick={() => onRegisterSelect()}>Register</span>
         </>}
         {auth && <>
+          <Stack spacing={2} direction='row'>
+            <Badge badgeContent={itemsInCart} color='primary'>
           <span className="top-nav-bar__item" onClick={() => onOrderSelect()}  >Cart</span>
+            </Badge>
+          </Stack>
           <span className="top-nav-bar__item" onClick={toggleFav}>Favorites</span>
           <span className="top-nav-bar__item" onClick={() => onPastOrderSelect()}>Past Orders</span>
           <span className="top-nav-bar__item">Welcome back {user.first_name}</span>
