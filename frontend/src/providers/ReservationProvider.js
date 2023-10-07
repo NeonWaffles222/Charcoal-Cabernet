@@ -8,10 +8,31 @@ export default function ReservationProvider(props) {
   const [tables, setTables] = useState(null);
   const [reservations, setReservations] = useState(null);
 
+  const makeReservation = (date, time, guests, user_id) => {
+    const date_time = `${date.day}/${date.month}/${date.year} ${time.hour}:${time.minute}`;
+    return new Promise((resolve, reject) => {
+      axios.post(`http://localhost:3001/reservations`, {
+        reservation: {
+          user_id,
+          table_id: 1,
+          date_time,
+          number_of_people: guests,
+        }
+      })
+        .then(res => {
+          console.log(res);
+          resolve(res);
+        })
+        .catch(error => {
+          console.error('error making reservation', error);
+          reject(error);
+        });
+    });
+  };
+
   useEffect(() => {
     axios.get(`http://localhost:3001/tables.json`)
       .then(res => {
-        console.log(res.data);
         setTables(res.data);
       })
       .catch(error => {
@@ -30,7 +51,7 @@ export default function ReservationProvider(props) {
       });
   }, []);
 
-  const reservationData = { tables, reservations };
+  const reservationData = { tables, reservations, makeReservation };
 
   return (
     <reservationContext.Provider value={reservationData}>

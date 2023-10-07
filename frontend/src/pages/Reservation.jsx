@@ -4,6 +4,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { reservationContext } from "../providers/ReservationProvider";
+import { authContext } from "../providers/AuthProvider";
 import TablesListItem from "../components/TablesListItem";
 
 const Reservation = () => {
@@ -12,13 +13,21 @@ const Reservation = () => {
   const [date, setDate] = useState();
   const [search, setSearch] = useState(false);
 
-  const { tables } = useContext(reservationContext);
+  const { tables, makeReservation } = useContext(reservationContext);
+  const { auth, user } = useContext(authContext);
 
-  const onSubmit = (event) => {
+  //const tableList = tables.map(table => <button>{table.id}</button>);
+  const onSubmit = async (event) => {
     event.preventDefault();
-    console.log(date, time, guests);
-    setSearch(true);
-    console.log(tables);
+    console.log(date, time, guests, user.id);
+    try {
+      const success = await makeReservation(date, time, guests, user.id);
+      if (success) {
+        console.log('reservation success');
+      }
+    } catch (error) {
+      console.error('Error during reservation:', error);
+    }
   };
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -28,7 +37,7 @@ const Reservation = () => {
         <input type="text" name='guests' placeholder='Guests' onChange={event => setGuests(event.target.value)} required />
         <button type="submit" name="submit">Search</button>
       </form>
-      {search && <TablesListItem />}
+      {search && tables.map(table => <button>{table.id}</button>)}
     </LocalizationProvider>
   );
 };

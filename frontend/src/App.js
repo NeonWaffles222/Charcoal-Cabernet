@@ -57,18 +57,18 @@ function App() {
 
         />
         {state.modal.open === 'order' && <OrderModal onOrderSelect={onOrderSelect} state={state} createOrder={createOrder} />}
-      </AuthProvider>
-      {/* <Twilio/> */}
-      {/* <DishScroll dish={state} />
+        {/* <Twilio/> */}
+        {/* <DishScroll dish={state} />
       <DishList dish={state} addDish={addDish} /> */}
-      {isFavOpen && <FavoriteDishes />}
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
-        <Route path='/reservation' element={<ReservationProvider><Reservation /></ReservationProvider>} />
-      </Routes>
-      <Footer />
+        {isFavOpen && <FavoriteDishes />}
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
+          <Route path='/reservation' element={<ReservationProvider><Reservation /></ReservationProvider>} />
+        </Routes>
+        <Footer />
+      </AuthProvider>
     </Router>
   );
 }
