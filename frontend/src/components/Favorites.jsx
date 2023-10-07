@@ -14,8 +14,12 @@ function FavoriteDishes() {
       axios.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`; // Include the JWT token in the header
       setJwtToken(storedToken);
     }
+
     getFavoriteDishes();
-  }, []);
+  }, [favorites]);
+
+  // useEffect(() => {
+  // }, [favorites]);
 
   const getFavoriteDishes = () => {
     axios.get('http://localhost:3001/api/favorites')
