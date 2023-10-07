@@ -1,7 +1,7 @@
 ul {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 20px; 
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
   list-style: none;
   padding: 0;
 }
@@ -12,12 +12,27 @@ ul {
   margin: 2rem;
 }
 
-.dish-info{
+.dish-info {
   display: flex;
   flex-direction: column;
-  
+
 }
 
-.img-size{
-  width: 35%;
+.img-size {
+  width: 50%;
+  border-radius: 8px;
+  /* align-content: center; */
+  margin-left: 25%;
+}
+
+button img {
+  border-radius: 14px;
+}
+
+.border h1 {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: space-between;
+  flex-direction: column;
 }
