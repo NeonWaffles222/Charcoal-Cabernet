@@ -9,12 +9,12 @@ import { Stack, Badge } from '@mui/material';
 import '../styles/TopNavigationBar.scss';
 
 
-const TopNavigation = (props,{ onLoginSelect, onRegisterSelect, toggleFav, onOrderSelect, onPastOrderSelect, open }) => {
+const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSelect, onPastOrderSelect, open, state}) => {
   const { auth, user, logout, order } = useContext(authContext);
   // console.log(user, "user")
 
-  let itemsInCart=props.state.order.length
-  
+  let itemsInCart=state.order.length
+
   return (
     <div className="top-nav-bar">
       {open === 'login' && <LoginModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
