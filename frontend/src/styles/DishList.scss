@@ -1,7 +1,7 @@
 ul {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 20px; 
+  grid-template-columns: repeat(3, 2fr); 
+  gap: 5px; 
   list-style: none;
   padding: 0;
 }
@@ -9,20 +9,11 @@ ul {
 /* Style for each DishListItem */
 .border {
   border: solid;
-  margin: 2rem;
+  margin: 1.5rem;
   border-radius: 5.0%;
+  border-width: thin;
 }
 
-.dish-info{
-  display: flex;
-  flex-direction: column;
-  
-}
-
-.img-size{
-  width: 45%;
-  border-radius: 10%;
-}
 
 // img {
 //   border-radius: 10%;
