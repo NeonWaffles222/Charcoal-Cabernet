@@ -380,7 +380,7 @@ salads.dishes.create!(
     description: 'Diced tomatoes, cucumbers, croutons, and cheddar on fresh field greens.',
     price: 16.49,
     quantity: 100,
-    image_url: 'images/29_salad_chicken_tenders.jpg',
+    image_url: 'images/66_salad_with_salmon.jpg',
     isActive: true,
     dairy_allergen: true, 
     nuts_allergen: false,
