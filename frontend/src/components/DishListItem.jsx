@@ -7,7 +7,7 @@ function DishListItem(props) {
   const handleClick = function() {
     props.addDish(props.dish);
   };
-  console.log(props.price);
+  // console.log(props.price);
   return (
     <div >
       <div className="dish-item-border container-size">

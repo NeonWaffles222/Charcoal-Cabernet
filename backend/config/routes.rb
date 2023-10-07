@@ -28,5 +28,8 @@ Rails.application.routes.draw do
   resources :checkout, only: [:create]
   post "/create_payment_intent", to: "checkout#payment_intent"
 
+  resources :orders do
+    post 'update_status', on: :member
+  end
 
 end

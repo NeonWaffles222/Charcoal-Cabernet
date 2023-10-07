@@ -17,9 +17,9 @@ const PaymentModal = (props) => {
   function handleClick() {
     props.onPaymentSelect();
   }
-  console.log("order", props);
 
   function handleStripe(event) {
+    event.preventDefault();
     if (!stripe||!elements){
       return
     }
