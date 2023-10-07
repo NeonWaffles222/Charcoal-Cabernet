@@ -3,6 +3,7 @@ import "../styles/MenuModal.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faHeart } from '@fortawesome/free-solid-svg-icons'; // Include the faHeart icon
 import axios from 'axios'; // Import axios for API requests
+import FavoriteToggle from './FavoriteToggle';
 
 function MenuModal({ isOpen, onClose, imageUrl, title, description, price, token, dish_id, favorite_id, isFav }) {
   const [isFavorite, setIsFavorite] = useState(isFav);
@@ -72,13 +73,16 @@ function MenuModal({ isOpen, onClose, imageUrl, title, description, price, token
         <strong><h2>${price}</h2></strong>
 
         {/* Toggleable heart icon with conditional CSS class */}
-        <FontAwesomeIcon
+        {/* <FontAwesomeIcon
           icon={faHeart}
           size="2x"
           onClick={toggleFavorite}
           className={`heart-icon ${heartClass}`}
-        />
+        /> */}
+        <FavoriteToggle
+          dish_id={dish_id}
 
+        />
         <button onClick={onClose}>
           <FontAwesomeIcon icon={faTimes} /> {/* Use the FontAwesome icon */}
         </button>

@@ -1,7 +1,7 @@
 ul {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 20px; 
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
   list-style: none;
   padding: 0;
 }
@@ -13,17 +13,12 @@ ul {
   border-radius: 5.0%;
 }
 
-.dish-info{
+.dish-info {
   display: flex;
   flex-direction: column;
-  
+
 }
 
 .img-size{
-  width: 45%;
-  border-radius: 10%;
+  width: 35%;
 }
-
-// img {
-//   border-radius: 10%;
-// }

@@ -1,48 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-function FavoriteToggle({ dishId, token, isFavorite, onUpdate }) {
+function FavoriteToggle({ dish_id, onUpdate, isFav }) {
+  const [isFavorite, setIsFavorite] = useState(isFav);
+  const token = localStorage.getItem('authToken');
+
+  console.log('Token:', token);
+
   const toggleFavorite = () => {
     if (isFavorite) {
       // Delete the favorite
-      axios
-        .delete(`http://localhost:3001/api/favorites/${dishId}`, {
+      axios.delete(
+        `http://localhost:3001/api/favorites/${dish_id}`,
+        {
           headers: {
-            Authorization: `Bearer ${token}`,
-          },
+            'Authorization': `Bearer ${token}`
+          }
+        }
+      )
+        .then(response => {
+          setIsFavorite(false);
+          if (onUpdate) onUpdate();
+          alert("Removed from favorites!");
         })
-        .then(() => {
-          onUpdate(!isFavorite); // Toggle the favorite state
-        })
-        .catch((error) => {
+        .catch(error => {
           console.error('Error deleting from favorites:', error);
+          alert("Error removing from favorites. Please try again.");
         });
     } else {
       // Add the favorite
-      axios
-        .post(
-          'http://localhost:3001/api/favorites',
-          { dish_id: dishId },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+      axios.post(
+        'http://localhost:3001/api/favorites',
+        { dish_id: dish_id },
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`
           }
-        )
-        .then(() => {
-          onUpdate(!isFavorite); // Toggle the favorite state
+        }
+      )
+        .then(response => {
+          setIsFavorite(true);
+          if (onUpdate) onUpdate();
+          alert("Added to favorites!");
         })
-        .catch((error) => {
+        .catch(error => {
           console.error('Error adding to favorites:', error);
+          alert("Error adding to favorites. Please try again.");
         });
     }
   };
 
+  const heartClass = isFavorite ? 'favorite' : '';
+
   return (
     <button onClick={toggleFavorite}>
-      <FontAwesomeIcon icon={faHeart} size="1x" />
+      <FontAwesomeIcon
+        icon={faHeart}
+        size="2x"
+        className={`heart-icon ${heartClass}`}
+      />
       {isFavorite ? ' Remove from Favorites' : ' Add to Favorites'}
     </button>
   );

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCow, faBreadSlice, faShrimp, faEgg, faSeedling, faHeart } from '@fortawesome/free-solid-svg-icons';
 import '../App.css';
-
+import FavoriteToggle from "./FavoriteToggle";
 function DishListItem(props) {
   const handleClick = function() {
     props.addDish(props.dish);
@@ -27,7 +27,7 @@ function DishListItem(props) {
             {props.eggs_allergen && <FontAwesomeIcon icon={faEgg} size='2x' />}
             {props.nuts_allergen && <p><strong>NUT PLACEHOLDER</strong></p>}
           </div>
-          <FontAwesomeIcon icon={faHeart} size='2x' />
+          <FavoriteToggle dish_id={props.dish.id} />
         </div>
       </div>
     </div>
