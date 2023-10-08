@@ -16,11 +16,11 @@ function DishListItem(props) {
             <button onClick={handleClick} className="add-button"> Add </button>
             <img src={props.image_url} className="img-size" />
             <div className="side-by-side">
-            <p>${props.price}</p>
-              {props.shellfish_allergen && <FontAwesomeIcon icon={faShrimp} size='2x' />}
-              {props.gluten_allergen && <FontAwesomeIcon icon={faBreadSlice} size='2x' />}
-              {props.dairy_allergen && <FontAwesomeIcon icon={faCow} size='2x' />}
-              {props.eggs_allergen && <FontAwesomeIcon icon={faEgg} size='2x' />}
+            <strong><p>${props.price}</p></strong>
+              {props.shellfish_allergen && <FontAwesomeIcon icon={faShrimp} size='lg' />}
+              {props.gluten_allergen && <FontAwesomeIcon icon={faBreadSlice} size='lg' />}
+              {props.dairy_allergen && <FontAwesomeIcon icon={faCow} size='lg' />}
+              {props.eggs_allergen && <FontAwesomeIcon icon={faEgg} size='lg' />}
               {props.nuts_allergen && <p><strong>NUT PLACEHOLDER</strong></p>}
             </div>
           </div>

@@ -3,11 +3,26 @@ import OrderItems from "./OrderItems";
 
 function PreviousOrderStatus(props) {
   const totalPrice = parseFloat(props.order.total_price);
-  // const [orderStatus, setOrderStatus] = useState(props.order.status);
 
-  // const statusArray=["Confirmed", "Prepping", "Enroute", "Delivered"]
+  const containerStyle = {
+    color: getStatusColor(props.orderStatus),
+  };
 
-  // let counter = statusArray.indexOf(props.order.status);
+  // Function to choose text color based on orderStatus
+  function getStatusColor(orderStatus) {
+    switch (orderStatus) {
+      case "confirmed":
+        return "blue"; 
+      case "prepping":
+        return "yellow"; 
+      case "enroute":
+        return "orange"; 
+      case "delivered":
+        return "green"; 
+      default:
+        return 'black';
+    }
+  }
 
   // Filters orders by id
   const filteredLineItems = props.state.order_items.filter((item) => {
@@ -43,7 +58,7 @@ function PreviousOrderStatus(props) {
         $ {totalPrice.toFixed(2)}
       </td>
       <td>
-        <strong>{props.orderStatus}</strong>
+        <strong style={containerStyle}>{props.orderStatus}</strong>
       </td>
     </tr>
   );
