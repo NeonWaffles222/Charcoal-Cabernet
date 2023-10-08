@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
-
+import "../styles/MapContainer.css";
 class MapContainer extends Component {
   handleMarkerClick = () => {
     const lat = 49.226846; // Restaurant location latitude
@@ -19,19 +19,21 @@ class MapContainer extends Component {
     const restaurantPosition = { lat: 49.226846, lng: -123.090507 };
 
     return (
-      <Map
-        google={this.props.google}
-        zoom={14}
-        style={mapStyles}
-        initialCenter={restaurantPosition}
-      >
-        <Marker
-          title="Charcoal & Cabernet"
-          name="Charcoal & Cabernet"
-          position={restaurantPosition}
-          onClick={this.handleMarkerClick}
-        />
-      </Map>
+      <div className="map-container">
+        <Map
+          google={this.props.google}
+          zoom={14}
+          style={mapStyles}
+          initialCenter={restaurantPosition}
+        >
+          <Marker
+            title="Charcoal & Cabernet"
+            name="Charcoal & Cabernet"
+            position={restaurantPosition}
+            onClick={this.handleMarkerClick}
+          />
+        </Map>
+      </div>
     );
   }
 }
