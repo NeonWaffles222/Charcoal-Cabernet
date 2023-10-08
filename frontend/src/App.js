@@ -2,13 +2,14 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route }
   from 'react-router-dom';
 import { useState } from 'react';
-import TableFloorMap from './components/TableFloorMap';
 import './App.css';
 import FavoriteProvider from './providers/FavoriteProvider';
 import AuthProvider from './providers/AuthProvider';
 import useApplicationData from './hooks/useApplicationData';
-
 import TopNavigation from "./components/TopNavigationBar";
+import MapContainer from './components/MapContainer'; 
+
+import TableFloorMap from './components/TableFloorMap';
 import Twilio from './components/Twilio';
 import DishList from './components/DishList';
 import DishScroll from './components/DishScroll';
@@ -106,9 +107,10 @@ function App() {
     {/* </FavoriteProvider> */}
       {/* <Twilio/> */}
       <DishScroll dish={state} />
-      <DishList dish={state} addDish={addDish} />
+      {/* <DishList dish={state} addDish={addDish} /> */}
       {/* {isFavOpen && <FavoriteDishes />} */}
       {/* <TableFloorMap/> */}
+      <MapContainer/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
