@@ -18,6 +18,13 @@ class OrdersController < ApplicationController
     end
   end
 
+  def update_status
+    puts "Received Parameters: #{params.inspect}" # Debug line
+    order = Order.find(params[:id])
+    order.update(status: params[:status])
+    render json: { message: 'Order status updated successfully' }
+  end
+  
   private
 
   def order_params

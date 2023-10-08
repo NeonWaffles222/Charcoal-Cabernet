@@ -1192,7 +1192,7 @@ Order.destroy_all
 order = Order.create(
   user_id: 1,
   status: 'pending',
-  total_price: 0
+  total_price: 100
 )
 
 dish1 = Dish.find_by(name: 'Seasoned Steakhouse Wings')

@@ -1,0 +1,58 @@
+.img-button-icon{
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+
+.img-size{
+  width: 15rem;
+  border-radius: 10%;
+}
+
+.side-by-side{
+  display:flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+button{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container-size{
+  height: 50px;
+}
+
+// -------
+
+
+.side-by-side{
+  display:flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+
+.add-button{
+  position:absolute;
+  margin: 10px;
+  border-radius: 5rem; 
+}
+
+.container-size{
+  display:flex;
+}
+
+.dish-item-border {
+  border: solid;
+  margin: 1rem;
+  border-radius: 5.0%;
+  border-width: thin;
+  height:12rem;
+  padding:0.5rem;
+}
+
+.padding{
+  padding:2rem;
+}

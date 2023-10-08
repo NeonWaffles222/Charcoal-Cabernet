@@ -12,7 +12,7 @@ module TwilioHelper
         .create(
            from: ENV["TWILIO_PHONE_NUMBER"],
            body: 'Your order has been confirmed!',
-           to: "----------MY NUMBER HERE-----------"
+           to: "+14039669096"
          )
         message.body
     end
@@ -29,7 +29,7 @@ module TwilioHelper
       .create(
          from: ENV["TWILIO_PHONE_NUMBER"],
          body: 'Your dishes are currently being prepared!',
-         to: "----------MY NUMBER HERE-----------"
+         to: "+14039669096"
        )
       message.body
   end
@@ -46,7 +46,7 @@ module TwilioHelper
       .create(
          from: ENV["TWILIO_PHONE_NUMBER"],
          body: 'Your order is on the way!',
-         to: "----------MY NUMBER HERE-----------"
+         to: "+14039669096"
        )
       message.body
   end
@@ -63,7 +63,7 @@ module TwilioHelper
       .create(
          from: ENV["TWILIO_PHONE_NUMBER"],
          body: 'Your order have arrived!',
-         to: "----------MY NUMBER HERE-----------"
+         to: "+14039669096"
        )
       message.body
   end

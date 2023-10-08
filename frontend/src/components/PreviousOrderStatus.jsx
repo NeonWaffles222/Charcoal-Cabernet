@@ -1,19 +1,36 @@
 import { useState, useEffect } from "react";
 import OrderItems from "./OrderItems";
 
-function PastOrders(props) {
+function PreviousOrderStatus(props) {
   const totalPrice = parseFloat(props.order.total_price);
-  const [orderStatus, setOrderStatus] = useState(props.order.status);
+
+  const containerStyle = {
+    color: getStatusColor(props.orderStatus),
+  };
+
+  // Function to choose text color based on orderStatus
+  function getStatusColor(orderStatus) {
+    switch (orderStatus) {
+      case "confirmed":
+        return "blue"; 
+      case "prepping":
+        return "purple"; 
+      case "enroute":
+        return "orange"; 
+      case "delivered":
+        return "green"; 
+      default:
+        return 'black';
+    }
+  }
 
   // Filters orders by id
   const filteredLineItems = props.state.order_items.filter((item) => {
     return item.order_id === props.order.id;
   });
 
-  // Effect to update the orderStatus when props.order.status changes
-  useEffect(() => {
-    setOrderStatus(props.order.status);
-  }, [props.order.status]);
+// console.log(props.state.orders[props.state.orders.length-1].status)
+// console.log(props)
 
   return (
     <tr>
@@ -41,10 +58,10 @@ function PastOrders(props) {
         $ {totalPrice.toFixed(2)}
       </td>
       <td>
-        {props.order.status}
+        <strong style={containerStyle}>{props.orderStatus}</strong>
       </td>
     </tr>
   );
 }
 
-export default PastOrders;
+export default PreviousOrderStatus;
