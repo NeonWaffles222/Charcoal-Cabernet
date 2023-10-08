@@ -25,11 +25,12 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { PaymentElement } from '@stripe/react-stripe-js';
 import axios from 'axios';
-
+import OrderStatusModal from './modals/OrderStatusModal'
 
 function App() {
 
   const [client, setClient] = useState("");
+  const [orderStatus, setOrderStatus]=useState("confirmed")
 
   useEffect(() => {
     axios.post("/create_payment_intent")
@@ -48,6 +49,7 @@ function App() {
     onOrderSelect,
     onPastOrderSelect,
     onPaymentSelect,
+    onOrderStatusSelect,
     addDish,
     removeDish,
     createOrder,
@@ -77,10 +79,13 @@ function App() {
             onRegisterSelect={onRegisterSelect}
             onOrderSelect={onOrderSelect}
             onPastOrderSelect={onPastOrderSelect}
+            onOrderStatusSelect={onOrderStatusSelect}
             toggleMenu={toggleMenu}
             toggleFav={toggleFav}
             open={state.modal.open}
             state={state}
+            orderStatus={orderStatus}
+            setOrderStatus={setOrderStatus}
           />
           {state.modal.open === 'order' && <OrderModal
             onOrderSelect={onOrderSelect}
@@ -101,11 +106,17 @@ function App() {
             removeDish={removeDish}
             emptyCart={emptyCart}
           />}
+          {state.modal.open === 'order_status' && <OrderStatusModal
+            onOrderStatusSelect={onOrderStatusSelect}
+            state={state}
+            orderStatus={orderStatus}
+            setOrderStatus={setOrderStatus}
+          />}
         </Elements>}
       </AuthProvider>
     {/* </FavoriteProvider> */}
-      {/* <Twilio state={state}/> */}
-      <DishScroll dish={state} />
+
+      {/* <DishScroll dish={state} /> */}
       <DishList dish={state} addDish={addDish} />
       {isFavOpen && <FavoriteDishes />}
       <Routes>

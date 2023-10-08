@@ -12,7 +12,7 @@ function useApplicationData() {
     },
     order: [],
     order_items: [],
-    orders: []
+    orders: [],
 
   };
 
@@ -46,6 +46,12 @@ function useApplicationData() {
     (state.modal.open === 'payment') ?
       dispatch({ type: ACTIONS.CLOSE_MODAL, value: { open: null } }) :
       dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'payment' } });
+  };
+
+  const onOrderStatusSelect = () => {
+    (state.modal.open === 'order_status') ?
+      dispatch({ type: ACTIONS.CLOSE_MODAL, value: { open: null } }) :
+      dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'order_status' } });
   };
 
   const addDish = (dish) => {
@@ -163,6 +169,7 @@ function useApplicationData() {
     onOrderSelect,
     onPastOrderSelect,
     onPaymentSelect,
+    onOrderStatusSelect,
     addDish,
     removeDish,
     createOrder,

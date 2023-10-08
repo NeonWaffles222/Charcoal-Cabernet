@@ -10,7 +10,7 @@ const dishName = props.dishes.filter((dish)=>{
   return dish.id === props.order_item.dish_id
 })
 
-console.log(props)
+// console.log(props)
 
   return (
     <tr>

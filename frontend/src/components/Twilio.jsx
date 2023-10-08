@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 
 function Twilio(props) {
+  const [orderStatus, setOrderStatus]=useState("confirmed")
+
 
   const handleConfirm = (e) => {
     e.preventDefault();
@@ -13,6 +15,7 @@ function Twilio(props) {
         .then((response) => {
           console.log(response);
           updateOrderStatus(status);
+          setOrderStatus(status);
         });
     };
 
@@ -28,7 +31,7 @@ function Twilio(props) {
 
     // Function to iterate through the URLs with a 2 second delay
     const sendMessage = (index = 0) => {
-      console.log(index);
+      // console.log(index);
       if (index < urls.length) {
         messageGET(urls[index], orderStatus[index]);
         setTimeout(() => {
@@ -65,6 +68,7 @@ function Twilio(props) {
   return (
     <div>
       <h1>Testing Twilio</h1>
+      <p>{orderStatus}</p>
       <div>
         <button onClick={handleConfirm}>Send Texting</button>
       </div>
