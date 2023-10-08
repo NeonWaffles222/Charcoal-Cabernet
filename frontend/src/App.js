@@ -8,7 +8,7 @@ import AuthProvider from './providers/AuthProvider';
 import useApplicationData from './hooks/useApplicationData';
 import TopNavigation from "./components/TopNavigationBar";
 import MapContainer from './components/MapContainer'; 
-
+import Home from './pages/Home';
 import TableFloorMap from './components/TableFloorMap';
 import Twilio from './components/Twilio';
 import DishList from './components/DishList';
@@ -19,7 +19,6 @@ import Footer from "./components/Footer";
 
 import MenuList from './components/MenuList';
 import About from './pages/About';
-import Home from './pages/Home';
 import PaymentModal from './modals/PaymentModal';
 import PastOrderModal from './modals/PastOrderModal';
 import { Elements } from '@stripe/react-stripe-js';
@@ -71,9 +70,9 @@ function App() {
   const initStripe = loadStripe("pk_test_51NxsaQEkmoqL8ThPHw4sW42MfhHSvHcJsB0VlWq4J8rQhsx6wp2aUvlSxP94OVtTGusvOikiQ6OZXInL8VKKnVMB00KfGzEfxL");
 
   return (
+      <AuthProvider>
     <Router className="App">
       {/* <FavoriteProvider> */}
-      <AuthProvider>
         {client && <Elements stripe={initStripe} options={{ clientSecret: client }}>
           <TopNavigation
             onLoginSelect={onLoginSelect}
@@ -114,14 +113,17 @@ function App() {
             setOrderStatus={setOrderStatus}
           />}
         </Elements>}
-      </AuthProvider>
+      
+      {/* <Home/> */}
+
+     
     {/* </FavoriteProvider> */}
       {/* <Twilio/> */}
       <DishScroll dish={state} />
       {/* <DishList dish={state} addDish={addDish} /> */}
       {/* {isFavOpen && <FavoriteDishes />} */}
       {/* <TableFloorMap/> */}
-      <MapContainer/>
+      {/* <MapContainer/> */}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
@@ -131,6 +133,7 @@ function App() {
       </Routes>
       <Footer />
     </Router>
+    </AuthProvider>
   );
 }
 

@@ -12,8 +12,8 @@ import '../styles/TopNavigationBar.scss';
 const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSelect, onPastOrderSelect, open, state, onOrderStatusSelect, setOrderStatus, orderStatus }) => {
   const { auth, user, logout, order } = useContext(authContext);
 
-  let itemsInCart = state.order ? state.order.length : null;
-  
+  const itemsInCart = state && state.orders ? state.orders.length : 0;
+
 
   const handleConfirm = (e) => {
     // e.preventDefault();
@@ -57,17 +57,17 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
           ? state.orders[state.orders.length - 1].id
           : null;
 
-      if (order_id) { 
+      if (order_id) {
         // console.log(order_id)
-      axios.post(`http://localhost:3001/orders/${order_id}/update_status`, { status })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        axios.post(`http://localhost:3001/orders/${order_id}/update_status`, { status })
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       } else {
-        console.log("There was an error")
+        console.log("There was an error");
       }
     };
     //Starts send message function
@@ -106,7 +106,7 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
             <span className="top-nav-bar__item">Favorites</span>
 
           </Link>
-          <span className="top-nav-bar__item" onClick={() => {onOrderStatusSelect(); handleConfirm()}} orderStatus={orderStatus}state={state}>Order Status</span>
+          <span className="top-nav-bar__item" onClick={() => { onOrderStatusSelect(); handleConfirm(); }} orderStatus={orderStatus} state={state}>Order Status</span>
           <span className="top-nav-bar__item" onClick={() => onPastOrderSelect()}>Past Orders</span>
           <span className="top-nav-bar__item">Welcome back {user.first_name}</span>
           <span className="top-nav-bar__item" onClick={logout}>Logout</span>
