@@ -29,8 +29,8 @@ function Home() {
         <MapContainer />
 
       </div>
-      <div className="box-container">
-        <img src="images/69_Business-Hours-Template.jpg" alt="Inside Restaurant" />
+      <div className="box-container3">
+        <img src="images/70_Business-Hours-Template.jpg" alt="Inside Restaurant" />
 
       </div>
 
