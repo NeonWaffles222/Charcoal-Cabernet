@@ -14,7 +14,7 @@ function PreviousOrderStatus(props) {
       case "confirmed":
         return "blue"; 
       case "prepping":
-        return "yellow"; 
+        return "purple"; 
       case "enroute":
         return "orange"; 
       case "delivered":
