@@ -1,0 +1,41 @@
+.btn-valid {
+  margin: 8px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  background-color: rgba(0, 0, 255, 0.500);
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 150ms ease;
+  border: none;
+}
+
+.btn-disabled {
+  margin: 8px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  background-color: grey;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 150ms ease;
+  border: none;
+}
+
+.btn-taken {
+  margin: 8px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  background-color: red;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 150ms ease;
+  border: none;
+}

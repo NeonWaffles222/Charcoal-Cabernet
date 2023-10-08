@@ -8,13 +8,19 @@ export default function ReservationProvider(props) {
   const [tables, setTables] = useState(null);
   const [reservations, setReservations] = useState(null);
 
-  const makeReservation = (date, time, guests, user_id) => {
-    const date_time = `${date.day}/${date.month}/${date.year} ${time.hour}:${time.minute}`;
+  const makeReservation = (date, time, guests, user_id, table_id) => {
+    const date_time = new Date(
+      date.year,
+      date.month,
+      date.day,
+      time.hour,
+      time.minute
+    );
     return new Promise((resolve, reject) => {
       axios.post(`http://localhost:3001/reservations`, {
         reservation: {
           user_id,
-          table_id: 1,
+          table_id,
           date_time,
           number_of_people: guests,
         }
@@ -28,6 +34,34 @@ export default function ReservationProvider(props) {
           reject(error);
         });
     });
+  };
+
+  const searchReservations = (date, time) => {
+    const searchDate = new Date(
+      date.year,
+      date.month,
+      date.day,
+      time.hour,
+      time.minute
+    );
+    let tableList = [];
+    for (let table of tables) {
+      let taken = false;
+      for (let reservation of reservations) {
+        if (table.id == reservation.table_id) {
+          const reservationDate = new Date(reservation.date_time);
+          if (reservationDate > searchDate) {
+
+          } else if (reservationDate < searchDate) {
+
+          } else {
+            taken = true;
+          }
+        }
+      }
+      tableList.push({ table: table, taken });
+    }
+    return tableList;
   };
 
   useEffect(() => {
@@ -51,7 +85,7 @@ export default function ReservationProvider(props) {
       });
   }, []);
 
-  const reservationData = { tables, reservations, makeReservation };
+  const reservationData = { tables, reservations, makeReservation, searchReservations };
 
   return (
     <reservationContext.Provider value={reservationData}>

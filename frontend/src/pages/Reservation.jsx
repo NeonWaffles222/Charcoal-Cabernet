@@ -12,22 +12,17 @@ const Reservation = () => {
   const [time, setTime] = useState();
   const [date, setDate] = useState();
   const [search, setSearch] = useState(false);
+  const [tableList, setTableList] = useState([]);
 
-  const { tables, makeReservation } = useContext(reservationContext);
+  const { tables, makeReservation, searchReservations } = useContext(reservationContext);
   const { auth, user } = useContext(authContext);
 
   //const tableList = tables.map(table => <button>{table.id}</button>);
   const onSubmit = async (event) => {
     event.preventDefault();
-    console.log(date, time, guests, user.id);
-    try {
-      const success = await makeReservation(date, time, guests, user.id);
-      if (success) {
-        console.log('reservation success');
-      }
-    } catch (error) {
-      console.error('Error during reservation:', error);
-    }
+    setTableList(searchReservations(date, time));
+    console.log(tableList);
+    setSearch(true);
   };
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -37,7 +32,7 @@ const Reservation = () => {
         <input type="text" name='guests' placeholder='Guests' onChange={event => setGuests(event.target.value)} required />
         <button type="submit" name="submit">Search</button>
       </form>
-      {search && tables.map(table => <button>{table.id}</button>)}
+      {search && tableList.map((table, index) => <TablesListItem key={index} tableObj={table} guests={guests} date={date} time={time} />)}
     </LocalizationProvider>
   );
 };
