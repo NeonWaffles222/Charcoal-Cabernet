@@ -26,8 +26,10 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
         <Link to='/menu'>
           <span className="top-nav-bar__item">Menu</span>
         </Link>
-        <span className="top-nav-bar__item">Reservations</span>
+        <Link to='/reservations'>
 
+          <span className="top-nav-bar__item">Reservations</span>
+        </Link>
         {!auth && <>
           <span className="top-nav-bar__item" order={order} onClick={() => onLoginSelect()}  >Cart</span>
           <span className="top-nav-bar__item" onClick={() => onLoginSelect()}>Login</span>

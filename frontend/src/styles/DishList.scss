@@ -16,9 +16,19 @@ ul {
 .dish-info {
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
+  /* Center vertically */
+  align-items: center;
+  /* Center horizontally */
 }
 
-.img-size{
-  width: 35%;
+.img-size {
+  width: 75%;
+  border-radius: 15px;
+  margin-left: 13%;
+}
+
+.border h1 {
+  margin-left: 30%;
+
 }

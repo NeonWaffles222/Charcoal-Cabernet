@@ -105,15 +105,16 @@ function App() {
       </AuthProvider>
     {/* </FavoriteProvider> */}
       {/* <Twilio/> */}
-      {/* <DishScroll dish={state} />
-      <DishList dish={state} addDish={addDish} /> */}
+      <DishScroll dish={state} />
+      <DishList dish={state} addDish={addDish} />
       {/* {isFavOpen && <FavoriteDishes />} */}
-      <TableFloorMap/>
+      {/* <TableFloorMap/> */}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
         <Route path='/favorites' element={<FavoriteDishes/>}/>
+        <Route path="/reservations" element={<TableFloorMap/>}/>
       </Routes>
       <Footer />
     </Router>
