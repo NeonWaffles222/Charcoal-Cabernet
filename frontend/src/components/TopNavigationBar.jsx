@@ -39,7 +39,11 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
               <span className="top-nav-bar__item" onClick={() => onOrderSelect()}  >Cart</span>
             </Badge>
           </Stack>
-          <span className="top-nav-bar__item" onClick={toggleFav}>Favorites</span>
+          {/* <span className="top-nav-bar__item" onClick={toggleFav}>Favorites</span> */}
+          <Link to='/favorites'>
+            <span className="top-nav-bar__item">Favorites</span>
+
+          </Link>
           <span className="top-nav-bar__item" onClick={() => onPastOrderSelect()}>Past Orders</span>
           <span className="top-nav-bar__item">Welcome back {user.first_name}</span>
           <span className="top-nav-bar__item" onClick={logout}>Logout</span>

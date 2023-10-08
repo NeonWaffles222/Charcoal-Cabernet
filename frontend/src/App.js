@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route }
   from 'react-router-dom';
 import { useState } from 'react';
-
+import TableFloorMap from './components/TableFloorMap';
 import './App.css';
 import FavoriteProvider from './providers/FavoriteProvider';
 import AuthProvider from './providers/AuthProvider';
@@ -107,11 +107,13 @@ function App() {
       {/* <Twilio/> */}
       {/* <DishScroll dish={state} />
       <DishList dish={state} addDish={addDish} /> */}
-      {isFavOpen && <FavoriteDishes />}
+      {/* {isFavOpen && <FavoriteDishes />} */}
+      <TableFloorMap/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-          <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
+        <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
+        <Route path='/favorites' element={<FavoriteDishes/>}/>
       </Routes>
       <Footer />
     </Router>

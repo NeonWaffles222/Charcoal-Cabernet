@@ -16,7 +16,7 @@ function FavoriteDishes() {
     }
 
     getFavoriteDishes();
-  }, [favorites]);
+  }, []);
 
   // useEffect(() => {
   // }, [favorites]);
