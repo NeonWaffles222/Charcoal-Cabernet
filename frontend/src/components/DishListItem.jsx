@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCow, faBreadSlice, faShrimp, faEgg, faSeedling, faHeart } from '@fortawesome/free-solid-svg-icons';
 import '../App.css';
-import '../styles/DishListItem.scss';
+import '../styles/DishListItem.scss';import FavoriteToggle from "./FavoriteToggle";
 function DishListItem(props) {
   const handleClick = function() {
     props.addDish(props.dish);

@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ModalMenu from './MenuModal';
+import axios from 'axios';
 
-function MenuListItem({ dish }) {
+
+function MenuListItem({ dish, jwtToken, isFavorite, favorite_id }) {
   const [modalOpen, setModalOpen] = useState(false);
+
 
   return (
     <div>
@@ -15,6 +18,11 @@ function MenuListItem({ dish }) {
         description={dish.description}
         price={dish.price}
         onClose={() => setModalOpen(false)}
+        token={jwtToken} // Pass the JWT token as a prop
+        dish_id={dish.id}
+        isFav={isFavorite}
+        favorite_id={favorite_id}
+
       />
 
     </div>

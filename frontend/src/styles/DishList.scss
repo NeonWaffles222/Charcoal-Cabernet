@@ -14,7 +14,12 @@ ul {
   border-width: thin;
 }
 
+.dish-info {
+  display: flex;
+  flex-direction: column;
 
-// img {
-//   border-radius: 10%;
-// }
+}
+
+.img-size{
+  width: 35%;
+}
