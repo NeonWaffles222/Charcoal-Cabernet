@@ -16,7 +16,7 @@ import DishScroll from './components/DishScroll';
 import FavoriteDishes from './components/Favorites';
 import OrderModal from './modals/OrderModal';
 import Footer from "./components/Footer";
-
+import Testimonials from './components/Testimonials';
 import MenuList from './components/MenuList';
 import About from './pages/About';
 import PaymentModal from './modals/PaymentModal';

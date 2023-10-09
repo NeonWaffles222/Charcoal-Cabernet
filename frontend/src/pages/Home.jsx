@@ -4,6 +4,7 @@ import MapContainer from "../components/MapContainer";
 import DishScroll from "../components/DishScroll";
 import { authContext } from "../providers/AuthProvider";
 import myImage from "../assets/images/20231007_020713.jpg";
+import Testimonials from "../components/Testimonials";
 import '../styles/Home.css';
 function Home() {
   return (
@@ -33,7 +34,7 @@ function Home() {
         <img src="images/70_Business-Hours-Template.jpg" alt="Inside Restaurant" />
 
       </div>
-
+      <Testimonials />
     </div >
   );
 };
