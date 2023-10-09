@@ -58,6 +58,9 @@ function PreviousOrderStatus(props) {
         </strong>
       </td>
       <td>
+        <strong></strong>
+      </td>
+      <td>
         <strong style={containerStyle}>{props.orderStatus}</strong>
       </td>
     </tr>
