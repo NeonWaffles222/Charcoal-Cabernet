@@ -3,10 +3,7 @@ import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { Select } from '@mui/base/Select';
-import { Option } from '@mui/base/Option';
 import { reservationContext } from "../providers/ReservationProvider";
-import { authContext } from "../providers/AuthProvider";
 import TablesListItem from "../components/TablesListItem";
 
 const Reservation = () => {
@@ -16,8 +13,7 @@ const Reservation = () => {
   const [search, setSearch] = useState(false);
   const [tableList, setTableList] = useState([]);
 
-  const { tables, makeReservation, searchReservations } = useContext(reservationContext);
-  const { auth, user } = useContext(authContext);
+  const { searchReservations } = useContext(reservationContext);
 
   //const tableList = tables.map(table => <button>{table.id}</button>);
   const onSubmit = async (event) => {
