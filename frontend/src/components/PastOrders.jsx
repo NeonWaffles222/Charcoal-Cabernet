@@ -3,6 +3,7 @@ import OrderItems from "./OrderItems";
 
 function PastOrders(props) {
   const totalPrice = parseFloat(props.order.total_price);
+  
   const [orderStatus, setOrderStatus] = useState(props.order.status);
 
   // Filters orders by id
@@ -15,6 +16,8 @@ function PastOrders(props) {
     setOrderStatus(props.order.status);
   }, [props.order.status]);
 
+
+  
   return (
     <tr>
       <td>
@@ -22,7 +25,6 @@ function PastOrders(props) {
           <thead>
             <tr>
               <th colSpan="0.5">Order # {props.order.id}</th>
-              <th>Price</th>
             </tr>
           </thead>
           <tbody >
@@ -30,7 +32,7 @@ function PastOrders(props) {
               <OrderItems
                 key={index}
                 order_item={dish}
-                order_id ={dish.order_id}
+                order_id={dish.order_id}
                 dishes={props.state.dishes}
               />
             ))}
@@ -38,7 +40,9 @@ function PastOrders(props) {
         </table>
       </td>
       <td>
-        $ {totalPrice.toFixed(2)}
+        <strong>
+          $ {totalPrice.toFixed(2)}
+        </strong>
       </td>
       <td>
         {props.order.status}

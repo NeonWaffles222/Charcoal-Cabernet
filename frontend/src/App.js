@@ -126,7 +126,7 @@ function App() {
     {/* </FavoriteProvider> */}
       {/* <Twilio/> */}
       {/* <DishScroll2 dish={state} /> */}
-      {/* <DishList dish={state} addDish={addDish} /> */}
+      <DishList dish={state} addDish={addDish} />
       {/* {isFavOpen && <FavoriteDishes />} */}
       {/* <TableFloorMap/> */}
       {/* <MapContainer/> */}

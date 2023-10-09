@@ -27,13 +27,6 @@ const PastOrderModal = (props) => {
             </div>
             <div className="panel panel-default items">
               <table className="table">
-                <thead>
-                  <tr>
-                    <th colSpan="0.25">Order Number</th>
-                    <th>Price</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
                 <tbody>
                   {userOrders.map((order_object, index) => (  
                     <PastOrders
@@ -46,9 +39,6 @@ const PastOrderModal = (props) => {
                 </tbody>
               </table>
             </div>
-            <a onClick={props.onPastOrderSelect} className="back-to-dishes">
-              Back to Dishes
-            </a>
           </section>
         </form>
       </div>
