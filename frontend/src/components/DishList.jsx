@@ -69,7 +69,7 @@ const DishList = (props) => {
     <div>
       {/* <SearchAndCheckBox /> */}
       <Category onTabChange={handleTabChange} />
-      <h3 className="allergen-warning">Dishes with these icons contain the allergen</h3>
+      <h3 className="allergen-warning">Dishes with these icons may contain the following allergens</h3>
       <Allergen />
       <ul>
         {!selectedTab ? DishArray : FilteredDishArray}

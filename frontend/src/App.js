@@ -126,7 +126,6 @@ function App() {
     {/* </FavoriteProvider> */}
       {/* <Twilio/> */}
       {/* <DishScroll2 dish={state} /> */}
-      <DishList dish={state} addDish={addDish} />
       {/* {isFavOpen && <FavoriteDishes />} */}
       {/* <TableFloorMap/> */}
       {/* <MapContainer/> */}
@@ -136,6 +135,7 @@ function App() {
         <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
         <Route path='/favorites' element={<FavoriteDishes/>}/>
         <Route path="/reservations" element={<TableFloorMap/>}/>
+        <Route path="/order-now" element={<DishList dish={state} addDish={addDish} />} />
       </Routes>
       <Footer />
     </Router>

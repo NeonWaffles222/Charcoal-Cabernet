@@ -28,7 +28,7 @@ function DishListItem(props) {
           </div>
           <div>
             <h4>{props.name}</h4>
-            <p>"{props.description}" - Head Chef</p>
+            <p>{props.description}</p>
           </div>
         </div>
       </div>
