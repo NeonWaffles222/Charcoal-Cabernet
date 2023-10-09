@@ -1,0 +1,22 @@
+.footer-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-bar__info {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-bar__media {
+  margin-top: 10px;
+  /* Add margin for spacing between text and icons */
+}
+
+/* Center each individual social media icon */
+.footer-bar__media i {
+  margin: 0 10px;
+  /* Adjust margin for spacing between icons */
+}

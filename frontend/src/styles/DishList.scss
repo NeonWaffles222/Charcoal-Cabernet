@@ -17,7 +17,10 @@ ul {
 .dish-info {
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
+  /* Center vertically */
+  align-items: center;
+  /* Center horizontally */
 }
 
 // .img-size{
