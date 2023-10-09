@@ -11,7 +11,9 @@ const Footer = () => {
         </Link>
         <span className="footer-bar__item">FEEDBACK</span>
         <span className="footer-bar__item">CONTACT US</span>
-        <span className="footer-bar__item">TERMS OF USE</span>
+        <Link to="/terms-of-use">
+          <span className="footer-bar__item">TERMS OF USE</span>
+        </Link>
       </div>
       <div className="footer-bar__media">
         <i className="fa-brands fa-facebook-f"></i>
