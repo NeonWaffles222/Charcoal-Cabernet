@@ -122,9 +122,9 @@ function App() {
         {/* </FavoriteProvider> */}
         {/* <DishScroll dish={state} /> */}
 
-        {/* <DishScroll2 dish={state} /> */}
+        <DishScroll2 dish={state} />
 
-        <DishList dish={state} addDish={addDish} />
+        {/* <DishList dish={state} addDish={addDish} /> */}
         {isFavOpen && <FavoriteDishes />}
         <Routes>
           <Route path='/' element={<Home />} />
