@@ -33,7 +33,7 @@ function App() {
 
   const [client, setClient] = useState("");
   const [orderStatus, setOrderStatus] = useState("confirmed");
-
+  const [favorites, setFavorites] = useState([])
   useEffect(() => {
     axios.post("/create_payment_intent")
       .then((res) => {
@@ -42,6 +42,14 @@ function App() {
       }
       );
   }, []);
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/api/favorites')
+.then((res) => {
+  const favorites = res.data.map((foodItem) => foodItem.id)
+  setFavorites(favorites)
+})
+  }, [])
 
 
   const {
@@ -129,7 +137,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
+        <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} favorites={favorites}/>} />
         <Route path='/favorites' element={<FavoriteDishes/>}/>
         <Route path="/reservations" element={<TableFloorMap/>}/>
       </Routes>

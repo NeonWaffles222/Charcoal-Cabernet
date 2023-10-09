@@ -7,7 +7,7 @@ import FavoriteToggle from './FavoriteToggle';
 
 function MenuModal({ isOpen, onClose, imageUrl, title, description, price, token, dish_id, favorite_id, isFav }) {
   const [isFavorite, setIsFavorite] = useState(isFav);
-
+  console.log("fav+++++++", isFav);
   if (!isOpen) return null;
 
   const toggleFavorite = () => {
