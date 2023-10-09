@@ -30,16 +30,15 @@ function PreviousOrderStatus(props) {
     return item.order_id === props.order.id;
   });
 
-  // console.log(props.state.orders[props.state.orders.length-1].status)
-  // console.log(props)
-
   return (
     <tr>
       <td>
         <table>
-
-          <div><strong >Order # {props.order.id}</strong></div>
-
+          <div>
+            <strong>
+              Order # {props.order.id}
+            </strong>
+          </div>
           <tbody >
             {filteredLineItems.map((dish, index) => (
               <OrderItems

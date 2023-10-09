@@ -15,7 +15,7 @@ function DishListItem(props) {
       <div className="dish-item-border container-size">
         <div className="side-by-side">
           <div >
-            <button onClick={handleClick} className="add-button"> Add </button>
+            <button onClick={handleClick} className="add-button"> <strong>Add</strong></button>
             <img src={props.image_url} className="img-size" />
             <div className="side-by-side"> 
               <strong><p>${props.price}</p></strong>
