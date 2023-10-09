@@ -11,6 +11,9 @@ function useApplicationData() {
       open: null,
     },
     order: [],
+    order_items: [],
+    orders: [],
+
   };
 
   const [state, dispatch] = useReducer(reducer, inital);
@@ -33,13 +36,41 @@ function useApplicationData() {
       dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'order' } });
   };
 
+  const onPastOrderSelect = () => {
+    (state.modal.open === 'past_order') ?
+      dispatch({ type: ACTIONS.CLOSE_MODAL, value: { open: null } }) :
+      dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'past_order' } });
+  };
+
+  const onPaymentSelect = () => {
+    (state.modal.open === 'payment') ?
+      dispatch({ type: ACTIONS.CLOSE_MODAL, value: { open: null } }) :
+      dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'payment' } });
+  };
+
+  const onOrderStatusSelect = () => {
+    (state.modal.open === 'order_status') ?
+      dispatch({ type: ACTIONS.CLOSE_MODAL, value: { open: null } }) :
+      dispatch({ type: ACTIONS.OPEN_MODAL, value: { open: 'order_status' } });
+  };
+
   const addDish = (dish) => {
     dispatch({ type: ACTIONS.ADD_DISH, payload: dish });
   };
 
   const removeDish = (id) => {
-    dispatch({ type: ACTIONS.REMOVE_DISH, payload: { id } });
+    const indexToRemove = state.order.findIndex((dish) => dish.id === id);
+    if (indexToRemove !== -1) {
+      const updatedOrder = [...state.order];
+      updatedOrder.splice(indexToRemove, 1);
+      dispatch({ type: ACTIONS.REMOVE_DISH, payload: updatedOrder });
+    }
   };
+
+  const emptyCart = () => {
+    dispatch({ type: ACTIONS.EMPTY_CART });
+  };
+
 
   // Gets all category data
   useEffect(() => {
@@ -53,6 +84,7 @@ function useApplicationData() {
         console.error('Error Fetching Categories: ', error);
       });
   }, []);
+
 
 
   // Gets all dish data
@@ -81,6 +113,32 @@ function useApplicationData() {
       });
   }, []);
 
+  //Get all order data
+  useEffect(() => {
+    axios.get(`http://localhost:3001/orders.json`)
+      .then(res => {
+        // console.log('orders', res.data);
+        const orders = res.data;
+        dispatch({ type: ACTIONS.SET_ORDER_DATA, value: orders });
+      })
+      .catch(error => {
+        console.error('Error Fetching Orders: ', error);
+      });
+  }, []);
+
+  //Get all order item data
+  useEffect(() => {
+    axios.get(`http://localhost:3001/order_items.json`)
+      .then(res => {
+        // console.log('order_items', res.data);
+        const order_items = res.data;
+        dispatch({ type: ACTIONS.SET_ORDER_ITEMS_DATA, value: order_items });
+      })
+      .catch(error => {
+        console.error('Error Fetching Orders: ', error);
+      });
+  }, []);
+
   //Post request for orders
   const createOrder = (user, selectedDishes) => {
     const orderData = {
@@ -88,14 +146,16 @@ function useApplicationData() {
         user_id: user.id,
         order_items_attributes: selectedDishes.map((dish) => ({ dish_id: dish.id })),
         status: "pending",
-        total_price: 0
+        total_price: selectedDishes.reduce((accumulator, currentValue) => accumulator + Number(currentValue.price), 0)
       },
     };
 
     axios
-      .post('http://localhost:3001/orders', orderData)
+      .post('http://localhost:3001/orders.json', orderData)
       .then((response) => {
         console.log('Order created:', response.data);
+        //Stripe endpoint
+
       })
       .catch((error) => {
         console.error('Error creating order:', error);
@@ -107,9 +167,13 @@ function useApplicationData() {
     onLoginSelect,
     onRegisterSelect,
     onOrderSelect,
+    onPastOrderSelect,
+    onPaymentSelect,
+    onOrderStatusSelect,
     addDish,
     removeDish,
     createOrder,
+    emptyCart,
   };
 }
 
@@ -122,7 +186,9 @@ export const ACTIONS = {
   CLOSE_MODAL: 'CLOSE_MODAL',
   ADD_DISH: 'ADD_DISH',
   REMOVE_DISH: 'REMOVE_DISH',
-
+  EMPTY_CART: 'EMPTY_CART',
+  SET_ORDER_DATA: 'SET_ORDER_DATA',
+  SET_ORDER_ITEMS_DATA: 'SET_ORDER_ITEMS_DATA'
 };
 
 function reducer(state, action) {
@@ -162,6 +228,20 @@ function reducer(state, action) {
       const updatedOrder = [...state.order, action.payload];
       return {
         ...state, order: updatedOrder,
+      };
+    case ACTIONS.REMOVE_DISH:
+      return { ...state, order: action.payload };
+
+    case ACTIONS.SET_ORDER_DATA:
+      return { ...state, orders: action.value };
+
+    case ACTIONS.SET_ORDER_ITEMS_DATA:
+      return { ...state, order_items: action.value };
+
+
+    case ACTIONS.EMPTY_CART:
+      return {
+        ...state, order: []
       };
 
     default:

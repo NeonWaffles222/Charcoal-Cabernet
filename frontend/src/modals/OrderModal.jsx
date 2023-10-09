@@ -1,36 +1,40 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { authContext } from "../providers/AuthProvider";
 import '../styles/OrderModal.scss';
-import OrderList from "./OrderList";
+import OrderList from "../components/OrderList";
+
 
 const OrderModal = (props) => {
 
-  const { auth, user, logout, order } = useContext(authContext);
+  const { user } = useContext(authContext);
 
-// console.log(props)
-  const totalPrice = props.state.order.reduce((acc, dish) => {
+  let totalPrice = props.state.order.reduce((acc, dish) => {
     return Number(acc) + Number(dish.price);
   }, 0);
 
-  function handleOrder(){
-    props.createOrder(user, props.state.order)
+  function handleOrder(event) {
+    event.preventDefault();
+    props.createOrder(user, props.state.order);
+    props.onOrderSelect();
+    props.onPaymentSelect();
   }
-console.log("order", props.state.order)
+
   return (
     <div className="modal">
       <div className="modal-content">
         <form>
           <section className="orders-show">
-            <header className="page-header">
-              <h1>Order #{props.order}</h1>
-            </header>
+            <div className="exit-flex">
+              <button className="order-modal__close" onClick={() => props.onOrderSelect()}>X</button>
+            </div>
             <div className="panel panel-default items">
               <table className="table table-bordered">
                 <thead>
-                  <tr>  
+                  <tr>
                     <th colSpan="2">Dish</th>
                     <th>Quantity</th>
                     <th>Price</th>
+                    <th>Remove</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -38,6 +42,7 @@ console.log("order", props.state.order)
                     <OrderList
                       key={index}
                       dish={dish}
+                      removeDish={props.removeDish}
                     />
                   ))}
                 </tbody>
@@ -50,10 +55,10 @@ console.log("order", props.state.order)
               </table>
             </div>
             <a href='/orders' onClick={handleOrder}>
-              Place Order
-              </a>
+              Confirm Order
+            </a>
             <br></br>
-            <a href="/">
+            <a onClick={props.onOrderSelect} className="back-to-dishes">
               Back to Dishes
             </a>
           </section>

@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   require 'jwt'
   skip_before_action :verify_authenticity_token
-
+  
   def index
     token = request.headers['Authorization'].split(' ').last
     begin
@@ -32,3 +32,5 @@ class SessionsController < ApplicationController
   end
 
 end
+
+

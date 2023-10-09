@@ -36,6 +36,9 @@ gem "jbuilder"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
+#Added Stripe gem
+gem 'stripe'
+
 #Added twilio for texting
 gem 'twilio-ruby', '~> 6.7.0'
 

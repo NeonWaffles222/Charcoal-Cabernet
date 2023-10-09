@@ -1,6 +1,13 @@
 class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token
+  def index
+    @orders = Order.all
+    render json: @orders
+  end
   
+  def show
+  end
+
   def create
     @order = Order.new(order_params)
   
@@ -11,6 +18,13 @@ class OrdersController < ApplicationController
     end
   end
 
+  def update_status
+    puts "Received Parameters: #{params.inspect}" # Debug line
+    order = Order.find(params[:id])
+    order.update(status: params[:status])
+    render json: { message: 'Order status updated successfully' }
+  end
+  
   private
 
   def order_params
