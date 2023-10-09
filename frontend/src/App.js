@@ -121,9 +121,9 @@ function App() {
         </Elements>}
         {/* </FavoriteProvider> */}
         {/* <DishScroll dish={state} /> */}
-      <div className="carousel-container">
+
       <DishScroll2 dish={state} />
-      </div>
+
         {/* <DishList dish={state} addDish={addDish} /> */}
         {isFavOpen && <FavoriteDishes />}
         <Routes>

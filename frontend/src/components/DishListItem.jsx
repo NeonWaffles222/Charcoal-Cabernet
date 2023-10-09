@@ -23,7 +23,7 @@ function DishListItem(props) {
               {props.gluten_allergen && <FontAwesomeIcon icon={faBreadSlice} size='lg' />}
               {props.dairy_allergen && <FontAwesomeIcon icon={faCow} size='lg' />}
               {props.eggs_allergen && <FontAwesomeIcon icon={faEgg} size='lg' />}
-              {props.nuts_allergen && <p><strong><GiPeanut />NUT PLACEHOLDER</strong></p>}
+              {props.nuts_allergen && <p><strong><GiPeanut /></strong></p>}
             </div>
           </div>
           <div>

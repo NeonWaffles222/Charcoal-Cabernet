@@ -2,7 +2,8 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import '../styles/DishScroll2.scss';
+
+import '../styles/DishScroll2.scss'
 
 
 export default function AutoRotatingCarousel(props) {
@@ -20,6 +21,7 @@ export default function AutoRotatingCarousel(props) {
 
 
   return (
+    <div className="carousel-container">
     <Slider {...settings}>
       {props.dish.dishes.map((image, index) => (
         <div key={index} className="location-gallery__image-container">
@@ -36,6 +38,7 @@ export default function AutoRotatingCarousel(props) {
         </div>
       ))}
     </Slider>
+    </div>
   );
 }
 
