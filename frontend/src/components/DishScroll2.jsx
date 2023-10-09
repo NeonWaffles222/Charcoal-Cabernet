@@ -7,13 +7,13 @@ import '../styles/DishScroll2.scss';
 
 export default function AutoRotatingCarousel(props) {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 2,
     centerMode: true, // To make the center item larger and centered
-    autoplay: true, // Set to true for auto-rotation
+    autoplay: true,
     autoplaySpeed: 2000,
     variableWidth: true
   };
@@ -31,7 +31,8 @@ export default function AutoRotatingCarousel(props) {
               alt=""
               width="620"
               height="400"
-              className="location-gallery__image"
+              className="location-gallery__image img-styling"
+              
             />
           </div>
         </div>
