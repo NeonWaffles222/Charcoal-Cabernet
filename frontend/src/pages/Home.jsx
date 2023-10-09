@@ -5,7 +5,7 @@ import DishScroll from "../components/DishScroll";
 import { authContext } from "../providers/AuthProvider";
 import myImage from "../assets/images/20231007_020713.jpg";
 import '../styles/Home.css';
-import Testimonial from "../components/Testimonials";
+import AutoRotatingCarousel from "../components/Testimonials";
 function Home() {
   return (
     <div className="home-container">
@@ -26,19 +26,37 @@ function Home() {
         <img src="images/67_restaurant.jpg" alt="Inside Restaurant" />
 
       </div>
-      <div className="box-container2">
-        <MapContainer />
+      <div className="side-by-side-container">
+        <div className="box-container4">
+          <img src="images/71_chef.png" alt="chef" />
+          <h3>Mickeal Suller, Head-Chef</h3>
+        </div>
+        <div className="box-container2">
+          <MapContainer />
+        </div>
 
       </div>
-      <div className="box-container4">
-        <img src="images/71_chef.png" alt="chef" />
-      </div>
+
 
       <div className="box-container3">
         <img src="images/70_Business-Hours-Template.jpg" alt="Inside Restaurant" />
 
       </div>
-      {/* <Testimonial /> */}
+      <AutoRotatingCarousel images={[
+        "images/1_test_1.jpg",
+        "images/2_test_2.jpg",
+        "images/3_test_3.jpg",
+        "images/4_test_4.jpg",
+        "images/5_test_5.jpg",
+
+
+
+
+
+
+      ]}
+
+      />
     </div >
   );
 };

@@ -60,7 +60,6 @@
 }
 
 .box-container2 {
-  flex: 1 1;
   max-width: 50%;
   max-height: -moz-fit-content;
   max-height: fit-content;
@@ -90,12 +89,33 @@
 }
 
 .box-container4 {
-  flex: 1 1;
   max-width: 50%;
   max-height: -moz-fit-content;
   max-height: fit-content;
   min-height: 308px;
-  min-width: 1076px;
+  min-width: 400px;
   padding: 25px;
   border: 1px solid;
+}
+
+.box-container4 img {
+  max-height: 450px;
+}
+
+.side-by-side-container {
+  display: flex;
+  justify-content: space-between;
+  /* adjust as needed */
+}
+
+.box-container2,
+.box-container4 {
+  flex: 1;
+  /* each container will take up half the width */
+  margin: 0 10px;
+  /* adjust as needed for spacing between the containers */
+}
+
+.box-container4 h3 {
+  text-transform: capitalize;
 }
