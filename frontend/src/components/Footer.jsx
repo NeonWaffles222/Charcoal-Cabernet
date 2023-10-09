@@ -9,8 +9,12 @@ const Footer = () => {
         <Link to="/about">
           <span className="footer-bar__item">ABOUT US</span>
         </Link>
-        <span className="footer-bar__item">FEEDBACK</span>
-        <span className="footer-bar__item">CONTACT US</span>
+        <Link to="/feedback">
+          <span className="footer-bar__item">FEEDBACK</span>
+        </Link>
+        <Link to="/contact">
+          <span className="footer-bar__item">CONTACT US</span>
+        </Link>
         <Link to="/terms-of-use">
           <span className="footer-bar__item">TERMS OF USE</span>
         </Link>

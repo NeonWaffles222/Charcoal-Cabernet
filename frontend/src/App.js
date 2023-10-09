@@ -20,6 +20,8 @@ import Footer from "./components/Footer";
 import MenuList from './components/MenuList';
 import About from './pages/About';
 import Home from './pages/Home';
+import Feedback from './pages/Feedback';
+import Contact from './pages/Contact';
 import TermsOfUse from './pages/TermsOfUse';
 import Reservation from './pages/Reservation';
 import PaymentModal from './modals/PaymentModal';
@@ -127,6 +129,8 @@ function App() {
           <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
           <Route path='/reservation' element={<ReservationProvider><Reservation /></ReservationProvider>} />
           <Route path='/terms-of-use' element={<TermsOfUse />} />
+          <Route path='/feedback' element={<Feedback />} />
+          <Route path='/contact' element={<Contact />} />
         </Routes>
         <Footer />
       </AuthProvider>
