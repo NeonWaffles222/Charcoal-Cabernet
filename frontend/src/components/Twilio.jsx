@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 function Twilio(props) {
-  const [orderStatus, setOrderStatus]=useState("confirmed")
+  const [orderStatus, setOrderStatus] = useState("confirmed");
 
 
   const handleConfirm = (e) => {
@@ -47,17 +47,17 @@ function Twilio(props) {
           ? props.state.orders[props.state.orders.length - 1].id
           : null;
 
-      if (order_id) { 
-        console.log(order_id)
-      axios.post(`http://localhost:3001/orders/${order_id}/update_status`, { status })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      if (order_id) {
+        console.log(order_id);
+        axios.post(`http://localhost:3001/orders/${order_id}/update_status`, { status })
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       } else {
-        console.log("There was an error")
+        console.log("There was an error");
       }
     };
 

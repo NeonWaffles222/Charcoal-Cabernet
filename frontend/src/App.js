@@ -6,6 +6,7 @@ import { useState } from 'react';
 import './App.css';
 import FavoriteProvider from './providers/FavoriteProvider';
 import AuthProvider from './providers/AuthProvider';
+import ReservationProvider from './providers/ReservationProvider';
 import useApplicationData from './hooks/useApplicationData';
 
 import TopNavigation from "./components/TopNavigationBar";
@@ -19,13 +20,14 @@ import Footer from "./components/Footer";
 import MenuList from './components/MenuList';
 import About from './pages/About';
 import Home from './pages/Home';
+import Reservation from './pages/Reservation';
 import PaymentModal from './modals/PaymentModal';
 import PastOrderModal from './modals/PastOrderModal';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { PaymentElement } from '@stripe/react-stripe-js';
 import axios from 'axios';
-import OrderStatusModal from './modals/OrderStatusModal'
+import OrderStatusModal from './modals/OrderStatusModal';
 import DishScroll2 from './components/DishScroll2';
 import './styles/DishScroll2.scss'
 import Allergen from './components/Allergen'
@@ -34,7 +36,7 @@ import Allergen from './components/Allergen'
 function App() {
 
   const [client, setClient] = useState("");
-  const [orderStatus, setOrderStatus]=useState("confirmed")
+  const [orderStatus, setOrderStatus] = useState("confirmed");
 
   useEffect(() => {
     axios.post("/create_payment_intent")
@@ -117,20 +119,21 @@ function App() {
             setOrderStatus={setOrderStatus}
           />}
         </Elements>}
-      </AuthProvider>
-    {/* </FavoriteProvider> */}
-      {/* <DishScroll dish={state} /> */}
+        {/* </FavoriteProvider> */}
+        {/* <DishScroll dish={state} /> */}
       <div className="carousel-container">
       <DishScroll2 dish={state} />
       </div>
-      <DishList dish={state} addDish={addDish} />
-      {isFavOpen && <FavoriteDishes />}
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
+        {/* <DishList dish={state} addDish={addDish} /> */}
+        {isFavOpen && <FavoriteDishes />}
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
           <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
-      </Routes>
-      <Footer />
+          <Route path='/reservation' element={<ReservationProvider><Reservation /></ReservationProvider>} />
+        </Routes>
+        <Footer />
+      </AuthProvider>
     </Router>
   );
 }

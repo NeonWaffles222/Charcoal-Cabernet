@@ -12,13 +12,13 @@ function PreviousOrderStatus(props) {
   function getStatusColor(orderStatus) {
     switch (orderStatus) {
       case "confirmed":
-        return "blue"; 
+        return "blue";
       case "prepping":
-        return "purple"; 
+        return "purple";
       case "enroute":
-        return "orange"; 
+        return "orange";
       case "delivered":
-        return "green"; 
+        return "green";
       default:
         return 'black';
     }
@@ -29,8 +29,8 @@ function PreviousOrderStatus(props) {
     return item.order_id === props.order.id;
   });
 
-// console.log(props.state.orders[props.state.orders.length-1].status)
-// console.log(props)
+  // console.log(props.state.orders[props.state.orders.length-1].status)
+  // console.log(props)
 
   return (
     <tr>
@@ -47,7 +47,7 @@ function PreviousOrderStatus(props) {
               <OrderItems
                 key={index}
                 order_item={dish}
-                order_id ={dish.order_id}
+                order_id={dish.order_id}
                 dishes={props.state.dishes}
               />
             ))}

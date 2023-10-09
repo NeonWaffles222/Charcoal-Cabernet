@@ -6,7 +6,7 @@ import MenuListItem from './MenuListItem'; // Import your MenuListItem component
 import { useCategorizeDishes } from '../hooks/useCategorizedDishes';
 export default function MenuList(props) {
 
-  
+
   const { dishes, categories } = props;
 
   const allMenuItems = useCategorizeDishes(dishes, categories);

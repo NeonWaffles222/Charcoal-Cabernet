@@ -60,7 +60,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_061100) do
     t.integer "user_id"
     t.string "status"
     t.decimal "total_price"
-    t.string "stripe_charge_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  require 'jwt'
   skip_before_action :verify_authenticity_token
   before_action :set_user, only: %i[ show edit update destroy ]
 
@@ -26,7 +27,7 @@ class UsersController < ApplicationController
 
     if @user.save!
       session[:user_id] = @user.id
-      token = JsonWebToken.encode(user_id: @user.id)
+      token = JWT.encode(user_id: @user.id)
       render json: {user: @user, token: token}
     else
       puts @user.errors.full_messages
