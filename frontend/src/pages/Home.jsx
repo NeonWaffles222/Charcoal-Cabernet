@@ -5,6 +5,7 @@ import DishScroll from "../components/DishScroll";
 import { authContext } from "../providers/AuthProvider";
 import myImage from "../assets/images/20231007_020713.jpg";
 import '../styles/Home.css';
+import Testimonial from "../components/Testimonials";
 function Home() {
   return (
     <div className="home-container">
@@ -29,11 +30,14 @@ function Home() {
         <MapContainer />
 
       </div>
+      <div className="box-container4">
+        <img src="frontend/src/assets/images/Screenshot 2023-10-09 135559.png" alt="chef" />
+      </div>
       <div className="box-container3">
         <img src="images/70_Business-Hours-Template.jpg" alt="Inside Restaurant" />
 
       </div>
-
+      {/* <Testimonial /> */}
     </div >
   );
 };
