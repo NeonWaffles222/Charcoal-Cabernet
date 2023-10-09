@@ -28,7 +28,7 @@ import axios from 'axios';
 import OrderStatusModal from './modals/OrderStatusModal'
 import DishScroll2 from './components/DishScroll2';
 import './styles/DishScroll2.scss'
-
+import Allergen from './components/Allergen'
 
 
 function App() {
@@ -123,7 +123,7 @@ function App() {
       <div className="carousel-container">
       <DishScroll2 dish={state} />
       </div>
-      {/* <DishList dish={state} addDish={addDish} /> */}
+      <DishList dish={state} addDish={addDish} />
       {isFavOpen && <FavoriteDishes />}
       <Routes>
         <Route path='/' element={<Home />} />

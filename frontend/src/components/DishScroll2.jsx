@@ -17,9 +17,7 @@ export default function AutoRotatingCarousel(props) {
     autoplaySpeed: 2000,
     variableWidth: true
   };
-  // const carouselItemStyle = {
-  //   margin: '0', // Remove default margin
-  // };
+
 
   return (
     <Slider {...settings}>

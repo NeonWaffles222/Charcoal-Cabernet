@@ -4,6 +4,8 @@ import '../styles/DishList.scss';
 import SearchAndCheckBox from './Allergen';
 import Category from './Category';
 import { useState } from "react";
+import Allergen from "./Allergen";
+import '../styles/Allergen.scss'
 
 const DishList = (props) => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -16,7 +18,7 @@ const DishList = (props) => {
   const handleTabChange = (newValue) => {
     setSelectedTab(newValue);
   };
-// console.log(props)
+  // console.log(props)
   //When you select a tab
   const FilteredDishArray = filteredDishes.map((dish, index) => {
     return <DishListItem
@@ -67,8 +69,10 @@ const DishList = (props) => {
     <div>
       {/* <SearchAndCheckBox /> */}
       <Category onTabChange={handleTabChange} />
+      <h3 className="allergen-warning">Dishes with these icons contain the allergen</h3>
+      <Allergen />
       <ul>
-        {!selectedTab  ? DishArray : FilteredDishArray}
+        {!selectedTab ? DishArray : FilteredDishArray}
       </ul>
     </div>
   );
