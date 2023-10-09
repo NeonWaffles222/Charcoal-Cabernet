@@ -2,14 +2,15 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route }
   from 'react-router-dom';
 import { useState } from 'react';
-
 import './App.css';
 import FavoriteProvider from './providers/FavoriteProvider';
 import AuthProvider from './providers/AuthProvider';
 import ReservationProvider from './providers/ReservationProvider';
 import useApplicationData from './hooks/useApplicationData';
-
 import TopNavigation from "./components/TopNavigationBar";
+import MapContainer from './components/MapContainer';
+import Home from './pages/Home';
+import TableFloorMap from './components/TableFloorMap';
 import Twilio from './components/Twilio';
 import DishList from './components/DishList';
 import DishScroll from './components/DishScroll';
@@ -19,7 +20,6 @@ import Footer from "./components/Footer";
 
 import MenuList from './components/MenuList';
 import About from './pages/About';
-import Home from './pages/Home';
 import Feedback from './pages/Feedback';
 import Contact from './pages/Contact';
 import TermsOfUse from './pages/TermsOfUse';
@@ -31,11 +31,15 @@ import { loadStripe } from '@stripe/stripe-js';
 import { PaymentElement } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import OrderStatusModal from './modals/OrderStatusModal';
+import DishScroll2 from './components/DishScroll2';
+import './styles/DishScroll2.scss';
+import Allergen from './components/Allergen';
+
 
 function App() {
 
   const [client, setClient] = useState("");
-  const [orderStatus, setOrderStatus] = useState("confirmed");
+  const [orderStatus, setOrderStatus] = useState("Confirmed");
 
   useEffect(() => {
     axios.post("/create_payment_intent")
@@ -75,9 +79,9 @@ function App() {
   const initStripe = loadStripe("pk_test_51NxsaQEkmoqL8ThPHw4sW42MfhHSvHcJsB0VlWq4J8rQhsx6wp2aUvlSxP94OVtTGusvOikiQ6OZXInL8VKKnVMB00KfGzEfxL");
 
   return (
-    <Router className="App">
-      {/* <FavoriteProvider> */}
-      <AuthProvider>
+    <AuthProvider>
+      <Router className="App">
+        {/* <FavoriteProvider> */}
         {client && <Elements stripe={initStripe} options={{ clientSecret: client }}>
           <TopNavigation
             onLoginSelect={onLoginSelect}
@@ -118,23 +122,30 @@ function App() {
             setOrderStatus={setOrderStatus}
           />}
         </Elements>}
-        {/* </FavoriteProvider> */}
 
-        {/* <DishScroll dish={state} /> */}
-        {/* <DishList dish={state} addDish={addDish} /> */}
-        {isFavOpen && <FavoriteDishes />}
+        {/* <Home/> */}
+
+
+        {/* </FavoriteProvider> */}
+        {/* <Twilio/> */}
+        {/* <DishScroll2 dish={state} /> */}
+        {/* {isFavOpen && <FavoriteDishes />} */}
+        {/* <TableFloorMap/> */}
+        {/* <MapContainer/> */}
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
-          <Route path='/reservation' element={<ReservationProvider><Reservation /></ReservationProvider>} />
+          <Route path='/favorites' element={<FavoriteDishes />} />
+          <Route path="/reservations" element={<TableFloorMap />} />
+          <Route path="/order-now" element={<DishList dish={state} addDish={addDish} />} />
           <Route path='/terms-of-use' element={<TermsOfUse />} />
           <Route path='/feedback' element={<Feedback />} />
           <Route path='/contact' element={<Contact />} />
         </Routes>
         <Footer />
-      </AuthProvider>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 }
 

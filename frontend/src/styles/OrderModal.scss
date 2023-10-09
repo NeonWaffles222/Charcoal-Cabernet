@@ -31,8 +31,8 @@
 }
 
 .exit-flex{
-  display: flex;
-  flex-direction: column;
+  display: block;
+  flex-direction: row-reverse;
 }
 
 .back-to-dishes{

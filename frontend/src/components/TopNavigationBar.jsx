@@ -12,8 +12,8 @@ import '../styles/TopNavigationBar.scss';
 const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSelect, onPastOrderSelect, open, state, onOrderStatusSelect, setOrderStatus, orderStatus }) => {
   const { auth, user, logout, order } = useContext(authContext);
 
-  let itemsInCart = state.order ? state.order.length : null;
-  
+  const itemsInCart = state && state.order ? state.order.length : 0;
+
 
   const handleConfirm = (e) => {
     // e.preventDefault();
@@ -37,7 +37,7 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
       "http://localhost:3001/delivered_sms",
     ];
     //Array for order status
-    const orderStatusArray = ["confirmed", "prepping", "enroute", "delivered"];
+    const orderStatusArray = ["Confirmed", "Prepping", "Enroute", "Delivered"];
 
     // Function to iterate through the URLs with a 2 second delay
     const sendMessage = (index = 0) => {
@@ -57,17 +57,17 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
           ? state.orders[state.orders.length - 1].id
           : null;
 
-      if (order_id) { 
+      if (order_id) {
         // console.log(order_id)
-      axios.post(`http://localhost:3001/orders/${order_id}/update_status`, { status })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        axios.post(`http://localhost:3001/orders/${order_id}/update_status`, { status })
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       } else {
-        console.log("There was an error")
+        console.log("There was an error");
       }
     };
     //Starts send message function
@@ -86,23 +86,29 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
         <Link to='/menu'>
           <span className="top-nav-bar__item">Menu</span>
         </Link>
-        <Link to='/reservation'>
+        <Link to='/reservations'>
           <span className="top-nav-bar__item">Reservations</span>
         </Link>
-
+        <Link to='/order-now'>
+          <span className="top-nav-bar__item">Order Now</span>
+        </Link>
         {!auth && <>
           <span className="top-nav-bar__item" order={order} onClick={() => onLoginSelect()} >Cart</span>
           <span className="top-nav-bar__item" onClick={() => onLoginSelect()}>Login</span>
           <span className="top-nav-bar__item" onClick={() => onRegisterSelect()}>Register</span>
         </>}
         {auth && <>
+          <Link to='/favorites'>
+            <span className="top-nav-bar__item">Favorites</span>
+
+          </Link>
           <Stack spacing={2} direction='row'>
             <Badge badgeContent={itemsInCart} color='primary'>
               <span className="top-nav-bar__item" onClick={() => onOrderSelect()} >Cart</span>
             </Badge>
           </Stack>
-          <span className="top-nav-bar__item" onClick={toggleFav}>Favorites</span>
-          <span className="top-nav-bar__item" onClick={() => {onOrderStatusSelect(); handleConfirm()}} orderStatus={orderStatus}state={state}>Order Status</span>
+          {/* <span className="top-nav-bar__item" onClick={toggleFav}>Favorites</span> */}
+          <span className="top-nav-bar__item" onClick={() => { onOrderStatusSelect(); handleConfirm(); }} orderStatus={orderStatus} state={state}>Order Status</span>
           <span className="top-nav-bar__item" onClick={() => onPastOrderSelect()}>Past Orders</span>
           <span className="top-nav-bar__item">Welcome back {user.first_name}</span>
           <span className="top-nav-bar__item" onClick={logout}>Logout</span>

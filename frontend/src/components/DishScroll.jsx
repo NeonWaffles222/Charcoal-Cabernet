@@ -2,7 +2,7 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-
+import "../styles/DishScroll.css";
 export default function DishScroll(props) {
   const [value, setValue] = React.useState(0);
 
@@ -16,7 +16,21 @@ export default function DishScroll(props) {
     maxHeight: '100%',
     objectFit: 'cover',
   };
+  
+  const autoRotate = () => {
+    const newValue = (value + 1) % props.dish.dishes.length;
+    setValue(newValue);
+  };
 
+  // Start auto-rotation when the component mounts
+  React.useEffect(() => {
+    const interval = setInterval(autoRotate, 3000); // Rotate every 3 seconds (adjust as needed)
+
+    // Clean up the interval when the component unmounts
+    return () => {
+      clearInterval(interval);
+    };
+  }, [value]); // Depend on 'value' to reset the interval when the user manually changes tabs
   return (
     <Box
       sx={{
@@ -31,7 +45,7 @@ export default function DishScroll(props) {
         scrollButtons="auto"
         aria-label="scrollable auto tabs example"
       >
-        {props.dish.dishes.map((item) => (
+        {props.dish?.dishes?.map((item) => (
           <Tab
             key={item.id}
             label={

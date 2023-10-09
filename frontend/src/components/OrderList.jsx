@@ -1,17 +1,15 @@
-
+import '../styles/OrderList.scss'
 
 function OrderList(props) {
 
-  // let id =props.dish.id
 
   function handleClick(event) {
     event.preventDefault();
     props.removeDish(props.dish.id);
-    console.log("Did this work");
-    console.log(props.dish.id);
   }
 
   return (
+    <div className='line-item-padding'>
     <tr>
       <td>
         {/* <%= image_tag product.image.tiny.url %>{props.} */}
@@ -21,13 +19,8 @@ function OrderList(props) {
         {props.dish.name}
         {/* <p><%= product.description %></p> */}
       </td>
-      <td>
-        <div>
-          {/* <%= quantity %> */}
-          {1}
-        </div>
-      </td>
-      <td>
+
+      <td>  
         {/* <%= product.price * quantity %> */}
         {/* {props.dish.price * props.dish.quantity} */}
         ${props.dish.price}
@@ -36,7 +29,7 @@ function OrderList(props) {
         <button onClick={handleClick}>X</button>
       </td>
     </tr>
-
+    </div>
   );
 }
 
