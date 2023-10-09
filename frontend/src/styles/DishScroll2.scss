@@ -1,0 +1,14 @@
+.carousel-image {
+    // max-width: 1000px;  // Adjust the width as needed
+    // max-height: 1000px; // Adjust the height as needed
+  // object-fit: cover; // Maintain aspect ratio and cover container
+}
+
+.carousel-item {
+  margin: 0;
+  padding: 10px;
+}
+.carousel-container {
+  overflow: hidden; /* Hide horizontal overflow */
+  width: 100%; /* Ensure the container takes the full width of its parent */
+}

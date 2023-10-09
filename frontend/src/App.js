@@ -26,6 +26,10 @@ import { loadStripe } from '@stripe/stripe-js';
 import { PaymentElement } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import OrderStatusModal from './modals/OrderStatusModal'
+import DishScroll2 from './components/DishScroll2';
+import './styles/DishScroll2.scss'
+
+
 
 function App() {
 
@@ -115,9 +119,11 @@ function App() {
         </Elements>}
       </AuthProvider>
     {/* </FavoriteProvider> */}
-
       {/* <DishScroll dish={state} /> */}
-      <DishList dish={state} addDish={addDish} />
+      <div className="carousel-container">
+      <DishScroll2 dish={state} />
+      </div>
+      {/* <DishList dish={state} addDish={addDish} /> */}
       {isFavOpen && <FavoriteDishes />}
       <Routes>
         <Route path='/' element={<Home />} />
