@@ -17,7 +17,7 @@ import '../styles/Allergen.scss';
 export default function FormControlLabelPosition() {
   return (
     <div className="center-icons">
-      <FormControl component="fieldset" >
+      <FormControl component="fieldset"  >
         {/* <FormLabel component="legend">Label placement</FormLabel> */}
         <FormGroup aria-label="position" row>
           <FormControlLabel
@@ -25,30 +25,35 @@ export default function FormControlLabelPosition() {
             control={<FontAwesomeIcon icon={faShrimp} size="lg" />}
             label="Shellfish"
             labelPlacement="top"
+            className="remove-pointer"
           />
           <FormControlLabel
             value="top"
             control={<FontAwesomeIcon icon={faBreadSlice} size="lg" />}
             label="Gluten"
             labelPlacement="top"
+            className="remove-pointer"
           />
           <FormControlLabel
             value="top"
             control={<FontAwesomeIcon icon={faCow} size="lg" />}
             label="Dairy"
             labelPlacement="top"
+            className="remove-pointer"
           />
           <FormControlLabel
             value="top"
             control={<FontAwesomeIcon icon={faEgg} size="lg" />}
             label="Egg"
             labelPlacement="top"
+            className="remove-pointer"
           />
           <FormControlLabel
             value="top"
             control={<GiPeanut size="20px" />}
             label="Nuts"
             labelPlacement="top"
+            className="remove-pointer"
           />
         </FormGroup>
       </FormControl>

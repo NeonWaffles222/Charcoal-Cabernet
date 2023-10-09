@@ -21,12 +21,7 @@ function OrderList(props) {
         {props.dish.name}
         {/* <p><%= product.description %></p> */}
       </td>
-      <td>
-        <div>
-          {/* <%= quantity %> */}
-          {1}
-        </div>
-      </td>
+
       <td>
         {/* <%= product.price * quantity %> */}
         {/* {props.dish.price * props.dish.quantity} */}

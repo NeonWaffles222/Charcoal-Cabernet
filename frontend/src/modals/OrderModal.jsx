@@ -29,14 +29,7 @@ const OrderModal = (props) => {
             </div>
             <div className="panel panel-default items">
               <table className="table table-bordered">
-                <thead>
-                  <tr>
-                    <th colSpan="2">Dish</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Remove</th>
-                  </tr>
-                </thead>
+                <h3>Your Order</h3>
                 <tbody>
                   {props.state.order.map((dish, index) => (
                     <OrderList
@@ -49,7 +42,7 @@ const OrderModal = (props) => {
                 <tfoot>
                   <tr>
                     <th colSpan="4">TOTAL:</th>
-                    <th>{totalPrice.toFixed(2)}</th>
+                    <th>${totalPrice.toFixed(2)}</th>
                   </tr>
                 </tfoot>
               </table>
