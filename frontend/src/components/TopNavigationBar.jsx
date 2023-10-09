@@ -37,7 +37,7 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
       "http://localhost:3001/delivered_sms",
     ];
     //Array for order status
-    const orderStatusArray = ["confirmed", "prepping", "enroute", "delivered"];
+    const orderStatusArray = ["Confirmed", "Prepping", "Enroute", "Delivered"];
 
     // Function to iterate through the URLs with a 2 second delay
     const sendMessage = (index = 0) => {

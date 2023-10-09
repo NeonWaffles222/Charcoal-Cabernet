@@ -28,9 +28,9 @@ const OrderModal = (props) => {
               <button className="order-modal__close" onClick={() => props.onOrderSelect()}>X</button>
             </div>
             <div className="panel panel-default items">
-              <table className="table table-bordered">
-                <h3>Your Order</h3>
-                <tbody>
+              <table className="table">
+                <div><strong>Your Order</strong></div>
+                <tbody className="column-spacing">
                   {props.state.order.map((dish, index) => (
                     <OrderList
                       key={index}
@@ -49,10 +49,6 @@ const OrderModal = (props) => {
             </div>
             <a href='/orders' onClick={handleOrder}>
               Confirm Order
-            </a>
-            <br></br>
-            <a onClick={props.onOrderSelect} className="back-to-dishes">
-              Back to Dishes
             </a>
           </section>
         </form>

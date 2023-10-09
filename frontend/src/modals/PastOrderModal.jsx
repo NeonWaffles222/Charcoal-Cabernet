@@ -26,7 +26,7 @@ const PastOrderModal = (props) => {
               <button className="order-modal__close" onClick={() => props.onPastOrderSelect()}>X</button>
             </div>
             <div className="panel panel-default items">
-              <table className="table table-bordered">
+              <table className="table">
                 <thead>
                   <tr>
                     <th colSpan="0.25">Order Number</th>

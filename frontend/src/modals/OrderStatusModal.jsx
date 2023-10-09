@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { authContext } from "../providers/AuthProvider";
 import '../styles/LoginModal.scss';
 import PreviousOrderStatus from "../components/PreviousOrderStatus";
+import '../styles/OrderStatusModal.scss'
+
 
 const OrderStatusModal = (props) => {
 
@@ -17,15 +19,9 @@ const OrderStatusModal = (props) => {
               <button className="order-modal__close" onClick={() => props.onOrderStatusSelect()}>X</button>
             </div>
             <div className="panel panel-default items">
-              <table className="table table-bordered">
-                <thead>
-                  <tr>
-                    <th colSpan="0.25">Order Number</th>
-                    <th>Price</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
+              <table className="table">
+                <div><strong className="title">Your Order Status</strong></div>
+                <tbody className="title-padding">
                   {userOrders.map((order_object, index) => (
                     <PreviousOrderStatus
                       key={index}
@@ -38,9 +34,6 @@ const OrderStatusModal = (props) => {
                 </tbody>
               </table>
             </div>
-            <a onClick={props.onPastOrderSelect} className="back-to-dishes">
-              Back to Dishes
-            </a>
           </section>
         </form>
       </div>

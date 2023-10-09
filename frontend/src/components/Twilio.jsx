@@ -27,7 +27,7 @@ function Twilio(props) {
       "http://localhost:3001/delivered_sms",
     ];
     //Array for order status
-    const orderStatus = ["confirmed", "prepping", "enroute", "delivered"];
+    const orderStatus = ["Confirmed", "Prepping", "Enroute", "Delivered"];
 
     // Function to iterate through the URLs with a 2 second delay
     const sendMessage = (index = 0) => {

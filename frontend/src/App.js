@@ -36,7 +36,7 @@ import Allergen from './components/Allergen';
 function App() {
 
   const [client, setClient] = useState("");
-  const [orderStatus, setOrderStatus] = useState("confirmed");
+  const [orderStatus, setOrderStatus] = useState("Confirmed");
 
   useEffect(() => {
     axios.post("/create_payment_intent")
