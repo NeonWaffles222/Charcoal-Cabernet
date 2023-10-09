@@ -39,3 +39,10 @@
   transition: all 150ms ease;
   border: none;
 }
+
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

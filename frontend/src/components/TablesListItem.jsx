@@ -22,18 +22,17 @@ const TablesListItem = ({ tableObj, guests, date, time }) => {
       alert("Please log in to make a reservation");
     }
   };
-
   let tableButton = <button className="btn-valid" onClick={onSubmit}>Table {table.id}</button>;
-  if (guests > table.capacity) {
+  if (guests > table.capacity || table.capacity > Number(guests) + 1) {
     tableButton = <button className="btn-disabled" disabled>Table {table.id}</button>;
   } else if (taken) {
     tableButton = <button className="btn-taken" disabled>Table {table.id}</button>;
   }
 
   return (
-    <div>
+    <li>
       {tableButton}
-    </div>
+    </li>
   );
 };
 

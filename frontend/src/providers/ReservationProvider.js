@@ -26,7 +26,6 @@ export default function ReservationProvider(props) {
         }
       })
         .then(res => {
-          console.log(res);
           resolve(res);
         })
         .catch(error => {
@@ -50,12 +49,11 @@ export default function ReservationProvider(props) {
       for (let reservation of reservations) {
         if (table.id == reservation.table_id) {
           const reservationDate = new Date(reservation.date_time);
-          if (reservationDate > searchDate) {
-
-          } else if (reservationDate < searchDate) {
-
-          } else {
-            taken = true;
+          if (reservationDate.getDay() === searchDate.getDay()) {
+            const timeDifference = reservationDate.getTime() - searchDate.getTime();
+            if (Math.abs(timeDifference) < 7200000) {
+              taken = true;
+            }
           }
         }
       }
@@ -77,7 +75,6 @@ export default function ReservationProvider(props) {
   useEffect(() => {
     axios.get(`http://localhost:3001/reservations.json`)
       .then(res => {
-        console.log(res.data);
         setReservations(res.data);
       })
       .catch(error => {
