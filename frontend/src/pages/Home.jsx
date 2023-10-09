@@ -10,7 +10,7 @@ function Home() {
   return (
     <div className="home-container">
       <h1>Charcoal And Cabernet</h1>
-      <DishScroll />
+      {/* <DishScroll /> */}
       <div className="content-container">
         <div className="image-box">
           <img src={myImage} alt="Description of the image" />

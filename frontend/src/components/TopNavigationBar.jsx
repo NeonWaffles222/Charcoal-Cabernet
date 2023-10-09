@@ -12,7 +12,7 @@ import '../styles/TopNavigationBar.scss';
 const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSelect, onPastOrderSelect, open, state, onOrderStatusSelect, setOrderStatus, orderStatus }) => {
   const { auth, user, logout, order } = useContext(authContext);
 
-  const itemsInCart = state && state.orders ? state.orders.length : 0;
+  const itemsInCart = state && state.order ? state.order.length : 0;
 
 
   const handleConfirm = (e) => {
