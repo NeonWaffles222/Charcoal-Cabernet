@@ -31,7 +31,7 @@ function Home() {
 
       </div>
       <div className="box-container4">
-        <img src="images/Screenshot 2023-10-09 135559.png" alt="chef" />
+        <img src="images/71_chef.png" alt="chef" />
       </div>
 
       <div className="box-container3">
