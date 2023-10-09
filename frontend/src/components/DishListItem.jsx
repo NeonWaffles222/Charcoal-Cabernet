@@ -33,8 +33,8 @@ function DishListItem(props) {
         </div>
       </div>
     </div>
+
   );
 }
-
 export default DishListItem;
 {/* <FontAwesomeIcon icon={faHeart} size='2x' /> */ }

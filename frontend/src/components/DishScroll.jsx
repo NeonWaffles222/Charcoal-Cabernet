@@ -2,7 +2,7 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-
+import "../styles/DishScroll.css";
 export default function DishScroll(props) {
   const [value, setValue] = React.useState(0);
 
@@ -45,7 +45,7 @@ export default function DishScroll(props) {
         scrollButtons="auto"
         aria-label="scrollable auto tabs example"
       >
-        {props.dish.dishes.map((item) => (
+        {props.dish?.dishes?.map((item) => (
           <Tab
             key={item.id}
             label={
