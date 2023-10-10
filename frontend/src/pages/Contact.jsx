@@ -15,7 +15,7 @@ const Contact = () => {
             <p>We continually strive to deliver the best possible experience for you, our valued guests, and we welcome your feedback, perspectives and ideas.</p>
           </div>
           <Link to="/feedback">
-            <button>Feedback</button>
+            <button className="contact-button">Feedback</button>
           </Link>
         </section>
 
@@ -25,7 +25,7 @@ const Contact = () => {
             <p>Please make a reservation online for the location you would like to visit.</p>
           </div>
           <Link to="/reservations">
-            <button>Reservations</button>
+            <button className="contact-button">Reservations</button>
           </Link>
         </section>
 
@@ -35,7 +35,7 @@ const Contact = () => {
             <p>Are you interested in sharing a media or advertising opportunity with us? Please email your contact information for our Marketing and Communications team to consider.</p>
           </div>
           <Link to="/">
-            <button>Email Us</button>
+            <button className="contact-button">Email Us</button>
           </Link>
         </section>
       </div>
