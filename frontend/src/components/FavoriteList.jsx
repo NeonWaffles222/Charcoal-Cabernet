@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import DishListItem from "./DishListItem";
 import '../styles/DishList.scss';
 import FavoriteDishItem from "./FavoriteDishItem";
-function FavoriteList({ favorites }) {
+function FavoriteList({ favorites, addDish }) {
+  console.log(addDish)
   return (
     <div>
       <h2>Your Favorite Dishes</h2>
@@ -23,6 +24,7 @@ function FavoriteList({ favorites }) {
             gluten_allergen={favorite.gluten_allergen}
             shellfish_allergen={favorite.shellfish_allergen}
             dish={favorite} // Pass the favorite dish as a prop
+            addDish={addDish}
           />
         ))}
       </ul>

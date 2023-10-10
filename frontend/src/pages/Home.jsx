@@ -6,11 +6,12 @@ import { authContext } from "../providers/AuthProvider";
 import myImage from "../assets/images/20231007_020713.jpg";
 import '../styles/Home.css';
 import AutoRotatingCarousel from "../components/Testimonials";
-function Home() {
+import DishScroll2 from "../components/DishScroll2"
+function Home(props) {
   return (
     <div className="home-container">
       <h1>Charcoal And Cabernet</h1>
-      {/* <DishScroll /> */}
+      <DishScroll2 dish={props.dish}/>
       <div className="content-container">
         <div className="image-box">
           <img src={myImage} alt="Description of the image" />

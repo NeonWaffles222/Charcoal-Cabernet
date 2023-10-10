@@ -6,6 +6,7 @@ import '../App.css';
 import '../styles/DishListItem.scss';
 
 function FavoriteDishItem(props) {
+  console.log(props)
   const handleClick = function() {
     props.addDish(props.dish);
   };

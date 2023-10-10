@@ -138,10 +138,10 @@ function App() {
       {/* <TableFloorMap/> */}
       {/* <MapContainer/> */}
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Home dish={state}/>} />
         <Route path='/about' element={<About />} />
         <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} favorites={favorites}/>} />
-        <Route path='/favorites' element={<FavoriteDishes/>}/>
+        <Route path='/favorites' element={<FavoriteDishes addDish={addDish}/>}/>
         <Route path="/reservations" element={<TableFloorMap/>}/>
         <Route path="/order-now" element={<DishList dish={state} addDish={addDish} />} />
       </Routes>
