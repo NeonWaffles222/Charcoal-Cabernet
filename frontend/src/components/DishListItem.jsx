@@ -8,7 +8,7 @@ import '../styles/DishListItem.scss';
 import FavoriteToggle from './FavoriteToggle';
 
 function DishListItem(props) {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(props.isFav);
   const token = localStorage.getItem('authToken');
 
   // useEffect(() => {
@@ -50,8 +50,10 @@ function DishListItem(props) {
             <img src={props.image_url} className="img-size" />
             <FavoriteToggle
               dish_id={props.dish.id} // Pass the dish ID as a prop
-              isFav={isFavorite} // Pass whether it's favorited or not
+              isFav={props.isFav} // Pass whether it's favorited or not
               onUpdate={updateFavoriteStatus} // Pass a function to update favorite status
+              isFavorite={isFavorite}
+              setIsFavorite={setIsFavorite}
             />
             <div className="side-by-side">
               <strong><p>${props.price}</p></strong>
