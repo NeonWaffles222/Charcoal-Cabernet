@@ -4,9 +4,9 @@ import { faCow, faBreadSlice, faShrimp, faEgg, faSeedling, faHeart } from '@fort
 import { GiPeanut } from 'react-icons/gi';
 import '../App.css';
 import '../styles/DishListItem.scss';
-import FavoriteToggle from "./FavoriteToggle";
 
-function DishListItem(props) {
+function FavoriteDishItem(props) {
+  console.log(props)
   const handleClick = function() {
     props.addDish(props.dish);
   };
@@ -33,9 +33,8 @@ function DishListItem(props) {
           </div>
         </div>
       </div>
-      <FavoriteToggle />
     </div>
 
   );
 }
-export default DishListItem;
+export default FavoriteDishItem;

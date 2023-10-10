@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function MenuListItem({ dish, jwtToken, isFavorite, favorite_id }) {
   const [modalOpen, setModalOpen] = useState(false);
-
+  console.log("IsFavrote-----", isFavorite);
 
   return (
     <div>

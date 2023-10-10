@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DishList from './DishList';
 import FavoriteList from './FavoriteList';
-
-function FavoriteDishes() {
+import "../styles/Favorite.css";
+function FavoriteDishes(props) {
   const [favorites, setFavorites] = useState([]);
   const [jwtToken, setJwtToken] = useState(null);
-
+console.log(props,"props")
   useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
     console.log("stored++++", storedToken);
@@ -47,7 +47,7 @@ function FavoriteDishes() {
 
         <FavoriteList
           favorites={favorites}
-
+          addDish={props.addDish}
         />
 
         {/* // <li key={favorite.id}>

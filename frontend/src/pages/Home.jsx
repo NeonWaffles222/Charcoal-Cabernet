@@ -5,12 +5,13 @@ import DishScroll from "../components/DishScroll";
 import { authContext } from "../providers/AuthProvider";
 import myImage from "../assets/images/20231007_020713.jpg";
 import '../styles/Home.css';
-import Testimonial from "../components/Testimonials";
-function Home() {
+import AutoRotatingCarousel from "../components/Testimonials";
+import DishScroll2 from "../components/DishScroll2"
+function Home(props) {
   return (
     <div className="home-container">
       <h1>Charcoal And Cabernet</h1>
-      {/* <DishScroll /> */}
+      <DishScroll2 dish={props.dish}/>
       <div className="content-container">
         <div className="image-box">
           <img src={myImage} alt="Description of the image" />
@@ -26,19 +27,41 @@ function Home() {
         <img src="images/67_restaurant.jpg" alt="Inside Restaurant" />
 
       </div>
-      <div className="box-container2">
-        <MapContainer />
+      <div className="side-by-side-container">
+        <div className="box-container4">
+          <img src="images/71_chef.png" alt="chef" />
+          <h3>Mickeal Suller, Head-Chef</h3>
+        </div>
+        <div className="box-container2">
+          <MapContainer />
+        </div>
 
       </div>
-      <div className="box-container4">
-        <img src="images/Screenshot 2023-10-09 135559.png" alt="chef" />
-      </div>
+
 
       <div className="box-container3">
         <img src="images/70_Business-Hours-Template.jpg" alt="Inside Restaurant" />
 
       </div>
-      {/* <Testimonial /> */}
+      <AutoRotatingCarousel images={[
+        "images/6_test_6.jpg",
+        "images/7_test_7.jpg",
+        "images/8_test_8.jpg",
+        "images/9_test_9.jpg",
+        "images/10_test_10.jpg",
+        "images/11_test_11.jpg",
+        "images/12_test_12.jpg"
+
+
+
+
+
+
+
+      ]}
+
+      />
+      <br></br>
     </div >
   );
 };

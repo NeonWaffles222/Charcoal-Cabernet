@@ -56,24 +56,24 @@ export default function MenuList(props) {
 
               {categoryDishes.map((dish, dishIndex) => {
                 //check if dish is in favorites
-                const dishFoundInFavorites = favorites.filter((favoriteDish) => {
-                  return favoriteDish.id === dish.id;
-                });
-                console.log("dishFavorite++++", dishFoundInFavorites);
-                let isFavorite = !!dishFoundInFavorites;
-                let favorite_id = dishFoundInFavorites ? dishFoundInFavorites.id : null; // If dish is found in favorites, assign its id to favorite_id
-                if (dishFoundInFavorites.length > 0) {
-                  isFavorite = true;
-                  favorite_id = dishFoundInFavorites[0].id;
-                } else {
-                  isFavorite = false;
-                }
+                // const dishFoundInFavorites = favorites.filter((favoriteDish) => {
+                //   return favoriteDish.id === dish.id;
+                // });
+                // console.log("dishFavorite++++", dishFoundInFavorites);
+                // let isFavorite = !!dishFoundInFavorites;
+                // let favorite_id = dishFoundInFavorites ? dishFoundInFavorites.id : null; // If dish is found in favorites, assign its id to favorite_id
+                // if (dishFoundInFavorites.length > 0) {
+                //   isFavorite = true;
+                //   favorite_id = dishFoundInFavorites[0].id;
+                // } else {
+                //   isFavorite = false;
+                // }
+                const isFavorite = props.favorites.includes(dish.id);
                 return <MenuListItem
                   key={dishIndex + dish.id}
                   dish={dish}
                   jwtToken={jwtToken}
                   isFavorite={isFavorite}
-                  favorite_id={favorite_id}
                 />;
               })}
 

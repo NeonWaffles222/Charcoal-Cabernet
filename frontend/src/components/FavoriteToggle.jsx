@@ -5,6 +5,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 function FavoriteToggle({ dish_id, onUpdate, isFav }) {
   const [isFavorite, setIsFavorite] = useState(isFav);
+  console.log('+_+_+_+', isFav === isFavorite);
   const token = localStorage.getItem('authToken');
 
   console.log('Token:', token);
@@ -42,7 +43,6 @@ function FavoriteToggle({ dish_id, onUpdate, isFav }) {
       )
         .then(response => {
           setIsFavorite(true);
-          if (onUpdate) onUpdate();
           alert("Added to favorites!");
         })
         .catch(error => {

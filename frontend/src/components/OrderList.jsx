@@ -12,17 +12,11 @@ function OrderList(props) {
     <div className='line-item-padding'>
     <tr>
       <td>
-        {/* <%= image_tag product.image.tiny.url %>{props.} */}
       </td>
       <td>
-        {/* <h4><%= product.name %></h4> */}
         {props.dish.name}
-        {/* <p><%= product.description %></p> */}
       </td>
-
       <td>  
-        {/* <%= product.price * quantity %> */}
-        {/* {props.dish.price * props.dish.quantity} */}
         ${props.dish.price}
       </td>
       <td>

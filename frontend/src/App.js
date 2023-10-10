@@ -39,8 +39,8 @@ import Allergen from './components/Allergen';
 function App() {
 
   const [client, setClient] = useState("");
-  const [orderStatus, setOrderStatus] = useState("Confirmed");
-
+  const [orderStatus, setOrderStatus] = useState("confirmed");
+  const [favorites, setFavorites] = useState([]);
   useEffect(() => {
     axios.post("/create_payment_intent")
       .then((res) => {
@@ -48,6 +48,14 @@ function App() {
         setClient(res.data);
       }
       );
+  }, []);
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/api/favorites')
+      .then((res) => {
+        const favorites = res.data.map((foodItem) => foodItem.id);
+        setFavorites(favorites);
+      });
   }, []);
 
 
@@ -133,10 +141,10 @@ function App() {
         {/* <TableFloorMap/> */}
         {/* <MapContainer/> */}
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home dish={state} />} />
           <Route path='/about' element={<About />} />
-          <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
-          <Route path='/favorites' element={<FavoriteDishes />} />
+          <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} favorites={favorites} />} />
+          <Route path='/favorites' element={<FavoriteDishes addDish={addDish} />} />
           <Route path="/reservations" element={<ReservationProvider><Reservation /></ReservationProvider>} />
           <Route path="/order-now" element={<DishList dish={state} addDish={addDish} />} />
           <Route path='/terms-of-use' element={<TermsOfUse />} />
