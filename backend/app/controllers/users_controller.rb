@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
     if @user.save!
       session[:user_id] = @user.id
-      token = JWT.encode(user_id: @user.id)
+      token = JWT.encode({user_id: @user.id}, '12345', 'HS256')
       render json: {user: @user, token: token}
     else
       puts @user.errors.full_messages
