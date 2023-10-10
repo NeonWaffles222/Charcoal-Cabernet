@@ -48,7 +48,6 @@
   min-height: 308px;
   min-width: 941px;
   padding: 25px;
-  border: 1px solid;
   /* Adjust the padding and border as needed */
 }
 
@@ -66,7 +65,6 @@
   min-height: 491px;
   min-width: 689px;
   padding: 25px;
-  border: 1px solid;
 }
 
 .box-container3 {
@@ -77,7 +75,6 @@
   min-height: 308px;
   min-width: 1076px;
   padding: 25px;
-  border: 1px solid;
 }
 
 .map-and-box-wrapper {
@@ -95,7 +92,6 @@
   min-height: 308px;
   min-width: 400px;
   padding: 25px;
-  border: 1px solid;
 }
 
 .box-container4 img {
