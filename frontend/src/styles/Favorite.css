@@ -1,0 +1,21 @@
+.dish-item-border {
+  border: solid;
+  margin: 1rem;
+  border-radius: 5%;
+  border-width: thin;
+  height: 19rem;
+  padding: 0.5rem;
+  width: 25rem;
+}
+
+img {
+  border-radius: 15px;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  gap: 42px;
+  list-style: none;
+  padding: 0;
+}

@@ -30,7 +30,7 @@ function PastOrders(props) {
               <OrderItems
                 key={index}
                 order_item={dish}
-                order_id ={dish.order_id}
+                order_id={dish.order_id}
                 dishes={props.state.dishes}
               />
             ))}
@@ -41,7 +41,9 @@ function PastOrders(props) {
         $ {totalPrice.toFixed(2)}
       </td>
       <td>
-        {props.order.status}
+        <strong>
+          {props.order.status}
+        </strong>
       </td>
     </tr>
   );

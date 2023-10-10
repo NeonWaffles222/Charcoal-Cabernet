@@ -28,6 +28,10 @@ import { loadStripe } from '@stripe/stripe-js';
 import { PaymentElement } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import OrderStatusModal from './modals/OrderStatusModal';
+import DishScroll2 from './components/DishScroll2';
+import './styles/DishScroll2.scss';
+import Allergen from './components/Allergen';
+
 
 function App() {
 
@@ -126,11 +130,10 @@ function App() {
       
       {/* <Home/> */}
 
-     
+
     {/* </FavoriteProvider> */}
       {/* <Twilio/> */}
-      <DishScroll dish={state} />
-      {/* <DishList dish={state} addDish={addDish} /> */}
+      {/* <DishScroll2 dish={state} /> */}
       {/* {isFavOpen && <FavoriteDishes />} */}
       {/* <TableFloorMap/> */}
       {/* <MapContainer/> */}
@@ -140,6 +143,7 @@ function App() {
         <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} favorites={favorites}/>} />
         <Route path='/favorites' element={<FavoriteDishes/>}/>
         <Route path="/reservations" element={<TableFloorMap/>}/>
+        <Route path="/order-now" element={<DishList dish={state} addDish={addDish} />} />
       </Routes>
       <Footer />
     </Router>

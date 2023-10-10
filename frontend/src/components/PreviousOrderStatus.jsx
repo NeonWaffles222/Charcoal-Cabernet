@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import OrderItems from "./OrderItems";
+import '../styles/OrderStatusModal.scss';
 
 function PreviousOrderStatus(props) {
   const totalPrice = parseFloat(props.order.total_price);
@@ -11,13 +12,13 @@ function PreviousOrderStatus(props) {
   // Function to choose text color based on orderStatus
   function getStatusColor(orderStatus) {
     switch (orderStatus) {
-      case "confirmed":
+      case "Confirmed":
         return "blue";
-      case "prepping":
+      case "Prepping":
         return "purple";
-      case "enroute":
+      case "Enroute":
         return "orange";
-      case "delivered":
+      case "Delivered":
         return "green";
       default:
         return 'black';
@@ -29,19 +30,15 @@ function PreviousOrderStatus(props) {
     return item.order_id === props.order.id;
   });
 
-  // console.log(props.state.orders[props.state.orders.length-1].status)
-  // console.log(props)
-
   return (
     <tr>
       <td>
-        <table className="border">
-          <thead>
-            <tr>
-              <th colSpan="0.5">Order # {props.order.id}</th>
-              <th>Price</th>
-            </tr>
-          </thead>
+        <table>
+          <div>
+            <strong>
+              Order # {props.order.id}
+            </strong>
+          </div>
           <tbody >
             {filteredLineItems.map((dish, index) => (
               <OrderItems
@@ -55,7 +52,12 @@ function PreviousOrderStatus(props) {
         </table>
       </td>
       <td>
-        $ {totalPrice.toFixed(2)}
+        <strong>
+          $ {totalPrice.toFixed(2)}
+        </strong>
+      </td>
+      <td>
+        <strong></strong>
       </td>
       <td>
         <strong style={containerStyle}>{props.orderStatus}</strong>

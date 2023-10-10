@@ -26,14 +26,7 @@ const PastOrderModal = (props) => {
               <button className="order-modal__close" onClick={() => props.onPastOrderSelect()}>X</button>
             </div>
             <div className="panel panel-default items">
-              <table className="table table-bordered">
-                <thead>
-                  <tr>
-                    <th colSpan="0.25">Order Number</th>
-                    <th>Price</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
+              <table className="table">
                 <tbody>
                   {userOrders.map((order_object, index) => (  
                     <PastOrders
@@ -46,9 +39,6 @@ const PastOrderModal = (props) => {
                 </tbody>
               </table>
             </div>
-            <a onClick={props.onPastOrderSelect} className="back-to-dishes">
-              Back to Dishes
-            </a>
           </section>
         </form>
       </div>

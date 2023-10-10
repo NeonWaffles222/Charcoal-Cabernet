@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DishList from './DishList';
 import FavoriteList from './FavoriteList';
-
+import "../styles/Favorite.css";
 function FavoriteDishes() {
   const [favorites, setFavorites] = useState([]);
   const [jwtToken, setJwtToken] = useState(null);

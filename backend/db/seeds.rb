@@ -1191,7 +1191,7 @@ user = User.create(
 Order.destroy_all
 order = Order.create(
   user_id: 1,
-  status: 'pending',
+  status: 'Pending',
   total_price: 100
 )
 
