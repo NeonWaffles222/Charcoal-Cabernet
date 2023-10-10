@@ -71,7 +71,7 @@ const DishList = (props) => {
       <Category onTabChange={handleTabChange} />
       <h3 className="allergen-warning">Dishes with these icons may contain the following allergens</h3>
       <Allergen />
-      <ul>
+      <ul className="dish-list-grid">
         {!selectedTab ? DishArray : FilteredDishArray}
       </ul>
     </div>
