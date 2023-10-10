@@ -8,14 +8,8 @@ export default function ReservationProvider(props) {
   const [tables, setTables] = useState(null);
   const [reservations, setReservations] = useState(null);
 
-  const makeReservation = (date, time, guests, user_id, table_id) => {
-    const date_time = new Date(
-      date.year,
-      date.month,
-      date.day,
-      time.hour,
-      time.minute
-    );
+  const makeReservation = (date, guests, user_id, table_id) => {
+    const date_time = date;
     return new Promise((resolve, reject) => {
       axios.post(`http://localhost:3001/reservations`, {
         reservation: {
@@ -35,14 +29,9 @@ export default function ReservationProvider(props) {
     });
   };
 
-  const searchReservations = (date, time) => {
-    const searchDate = new Date(
-      date.year,
-      date.month,
-      date.day,
-      time.hour,
-      time.minute
-    );
+  const searchReservations = (date) => {
+    const searchDate = date;
+
     let tableList = [];
     for (let table of tables) {
       let taken = false;

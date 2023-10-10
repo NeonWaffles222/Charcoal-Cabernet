@@ -1,14 +1,13 @@
 import React, { useContext, useState } from "react";
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { reservationContext } from "../providers/ReservationProvider";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import TablesListItem from "../components/TablesListItem";
+import "../styles/TableFloorMap.css";
+import "../styles/TableListItem.scss";
 
 const Reservation = () => {
   const [guests, setGuests] = useState(0);
-  const [time, setTime] = useState();
   const [date, setDate] = useState();
   const [search, setSearch] = useState(false);
   const [tableList, setTableList] = useState([]);
@@ -18,25 +17,46 @@ const Reservation = () => {
   //const tableList = tables.map(table => <button>{table.id}</button>);
   const onSubmit = async (event) => {
     event.preventDefault();
-    setTableList(searchReservations(date, time));
+    setTableList(searchReservations(date));
     console.log(tableList);
     setSearch(true);
   };
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
+    <div className="reservation">
+      <h1>Make a Reservation</h1>
       <form onSubmit={onSubmit} className="reservation-form">
-        <DatePicker label="Basic date picker" onChange={event => setDate({ day: event.$D, month: event.$M, year: event.$y })} required />
-        <TimePicker
-          label="Basic time picker"
-          onChange={event => setTime({ hour: event.$H, minute: event.$m })}
-          required />
-        <input type="text" name='guests' placeholder='Guests' onChange={event => setGuests(event.target.value)} required />
-        <button type="submit" name="submit">Search</button>
+        <DatePicker
+          className="reservation-form-item datepicker"
+          placeholderText="Select Date and Time"
+          selected={date}
+          onChange={event => setDate(event)}
+          showTimeSelect
+          timeFormat="HH:mm"
+          timeIntervals={15}
+          dateFormat="MMMM d, yyyy h:mm aa"
+          timeCaption="Time"
+          minTime={new Date().setHours(11, 0)}
+          maxTime={new Date().setHours(23, 0)}
+          showTime={{ user12hours: true }}
+        />
+        <div className="select">
+          <select id="guests" value={guests} onChange={event => setGuests(event.target.value)}>
+            <option value={0}>Select number of guests:</option>
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
+            <option value={6}>6</option>
+          </select>
+        </div>
+        <button className="search-submit reservation-form-item" type="submit" name="submit">Search Reservations</button>
       </form>
-      <ul>
-        {search && tableList.map((table, index) => <TablesListItem key={index} tableObj={table} guests={guests} date={date} time={time} />)}
-      </ul>
-    </LocalizationProvider>
+      {search &&
+        <div className="imageContainer">
+          {tableList.map((table, index) => <TablesListItem key={index} tableObj={table} guests={guests} date={date} />)}
+        </div>}
+    </div>
   );
 };
 

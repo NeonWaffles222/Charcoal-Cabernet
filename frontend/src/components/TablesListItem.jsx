@@ -11,9 +11,11 @@ const TablesListItem = ({ tableObj, guests, date, time }) => {
     event.preventDefault();
     if (auth) {
       try {
-        const success = await makeReservation(date, time, guests, user.id, table.id);
+        const success = await makeReservation(date, guests, user.id, table.id);
         if (success) {
           console.log('reservation success');
+          alert(`Reservation made for ${date} at table ${table.id}`);
+          window.location.reload(true);
         }
       } catch (error) {
         console.error('Error during reservation:', error);
@@ -22,17 +24,17 @@ const TablesListItem = ({ tableObj, guests, date, time }) => {
       alert("Please log in to make a reservation");
     }
   };
-  let tableButton = <button className="btn-valid" onClick={onSubmit}>Table {table.id}</button>;
+  let tableButton = <button className={`btn-valid but-${table.id}`} onClick={onSubmit}>Table {table.id}</button>;
   if (guests > table.capacity || table.capacity > Number(guests) + 1) {
-    tableButton = <button className="btn-disabled" disabled>Table {table.id}</button>;
+    tableButton = <button className={`btn-disabled but-${table.id}`} disabled>Table {table.id}</button>;
   } else if (taken) {
-    tableButton = <button className="btn-taken" disabled>Table {table.id}</button>;
+    tableButton = <button className={`btn-taken but-${table.id}`} disabled>Table {table.id}</button>;
   }
 
   return (
-    <li>
+    <>
       {tableButton}
-    </li>
+    </>
   );
 };
 

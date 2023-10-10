@@ -137,7 +137,7 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} />} />
           <Route path='/favorites' element={<FavoriteDishes />} />
-          <Route path="/reservations" element={<TableFloorMap />} />
+          <Route path="/reservations" element={<ReservationProvider><Reservation /></ReservationProvider>} />
           <Route path="/order-now" element={<DishList dish={state} addDish={addDish} />} />
           <Route path='/terms-of-use' element={<TermsOfUse />} />
           <Route path='/feedback' element={<Feedback />} />

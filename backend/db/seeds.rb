@@ -42,27 +42,111 @@ puts "Re-creating Tables ..."
   Table.destroy_all
 
   table1 = Table.create(
-
     table_number: 1,
     capacity: 2,
-    location: 'Front'
-  
-)
-
-  Table.create(
-
-    table_number: 2,
-    capacity: 4,
     location: 'Back'
-  
 )
 
   Table.create(
+    table_number: 2,
+    capacity: 2,
+    location: 'Back'
+)
 
+  Table.create(
     table_number: 3,
+    capacity: 2,
+    location: 'Back'
+)
+
+Table.create(
+    table_number: 4,
+    capacity: 2,
+    location: 'Back'
+)
+
+Table.create(
+    table_number: 5,
+    capacity: 4,
+    location: 'Middle'
+)
+
+Table.create(
+    table_number: 6,
+    capacity: 4,
+    location: 'Middle'
+)
+
+Table.create(
+    table_number: 7,
+    capacity: 4,
+    location: 'Middle'
+)
+
+Table.create(
+    table_number: 8,
+    capacity: 4,
+    location: 'Middle'
+)
+
+Table.create(
+    table_number: 9,
+    capacity: 4,
+    location: 'Middle'
+)
+
+Table.create(
+    table_number: 10,
+    capacity: 4,
+    location: 'Middle'
+)
+
+Table.create(
+    table_number: 11,
+    capacity: 4,
+    location: 'Middle'
+)
+
+Table.create(
+    table_number: 12,
+    capacity: 4,
+    location: 'Middle'
+)
+
+Table.create(
+    table_number: 13,
+    capacity: 4,
+    location: 'Middle'
+)
+
+Table.create(
+    table_number: 14,
+    capacity: 4,
+    location: 'Middle'
+)
+
+Table.create(
+    table_number: 15,
     capacity: 6,
-    location: 'Outside'
-  
+    location: 'Front'
+)
+
+Table.create(
+    table_number: 16,
+    capacity: 6,
+    location: 'Front'
+)
+
+Table.create(
+    table_number: 17,
+    capacity: 6,
+    location: 'Front'
+)
+
+Table.create(
+    table_number: 18,
+    capacity: 6,
+    location: 'Front'
 )
 
 puts "Re-creating Dishes ..."
