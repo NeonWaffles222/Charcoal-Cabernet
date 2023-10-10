@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import "../styles/MenuModal.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faHeart } from '@fortawesome/free-solid-svg-icons'; // Include the faHeart icon
-import axios from 'axios'; // Import axios for API requests
 import FavoriteToggle from './FavoriteToggle';
+import axios from 'axios';
+function MenuModal({ isOpen, onClose, imageUrl, title, description, dish_id, favorite_id, price, token }) {
+  const [isFavorite, setIsFavorite] = useState(false);
 
-function MenuModal({ isOpen, onClose, imageUrl, title, description, price, token, dish_id, favorite_id, isFav }) {
-  const [isFavorite, setIsFavorite] = useState(isFav);
-  console.log("fav+++++++", isFav);
   if (!isOpen) return null;
 
   const toggleFavorite = () => {
@@ -61,34 +60,50 @@ function MenuModal({ isOpen, onClose, imageUrl, title, description, price, token
         alert("Error removing from favorites. Please try again.");
       });
   };
+  const getFavoriteDishes = () => {
+    axios.get('http://localhost:3001/api/favorites')
+      .then(response => {
+        // Handle the response here
+        console.log('Favorite dishes:', response.data);
+        if (Array.isArray(response.data)) {
+          setIsFavorite(response.data);
+        } else {
+          console.error('Unexpected data structure:', response.data);
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching favorite dishes:', error);
+      });
+
+  };
 
   const heartClass = isFavorite ? 'favorite' : ''; // Add the 'favorite' class when it's favorited
 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <img src={imageUrl} alt="Dish" />
-        <h1>{title}</h1>
-        <p>{description}</p>
-        <strong><h2>${price}</h2></strong>
+        <div className="modal-image-container">
+          <img src={imageUrl} alt="Dish" />
+          <h1>{title}</h1>
+        </div>
 
-        {/* Toggleable heart icon with conditional CSS class */}
-        {/* <FontAwesomeIcon
-          icon={faHeart}
-          size="2x"
-          onClick={toggleFavorite}
-          className={`heart-icon ${heartClass}`}
-        /> */}
-        <FavoriteToggle
-          dish_id={dish_id}
+        <div className="modal-description-container">
+          <p>{description}</p>
+          <strong><h2>${price}</h2></strong>
+          <FavoriteToggle
+            dish_id={dish_id} // Pass the dish_id
+            onUpdate={getFavoriteDishes}
+            isFav={isFavorite} // Pass whether it's favorited or not
+          />
+        </div>
 
-        />
         <button onClick={onClose}>
           <FontAwesomeIcon icon={faTimes} /> {/* Use the FontAwesome icon */}
         </button>
       </div>
     </div>
   );
+
 }
 
 export default MenuModal;

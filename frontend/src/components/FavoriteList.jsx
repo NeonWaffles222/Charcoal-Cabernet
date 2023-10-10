@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import DishListItem from "./DishListItem";
 import '../styles/DishList.scss';
-
+import FavoriteDishItem from "./FavoriteDishItem";
 function FavoriteList({ favorites }) {
   return (
     <div>
       <h2>Your Favorite Dishes</h2>
       <ul>
         {favorites.map((favorite) => (
-          <DishListItem
+          <FavoriteDishItem
             key={favorite.id}
             name={favorite.name}
             category_id={favorite.category_id}
