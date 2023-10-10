@@ -47,7 +47,7 @@ const OrderModal = (props) => {
                 </tfoot>
               </table>
             </div>
-            <a href='/orders' onClick={handleOrder}>
+            <a href='/orders' className="link-font" onClick={handleOrder}>
               Confirm Order
             </a>
           </section>

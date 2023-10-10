@@ -38,11 +38,8 @@ function PastOrders(props) {
         </table>
       </td>
       <td>
-        $ {totalPrice.toFixed(2)}
-      </td>
-      <td>
         <strong>
-          {props.order.status}
+          $ {totalPrice.toFixed(2)}
         </strong>
       </td>
     </tr>
