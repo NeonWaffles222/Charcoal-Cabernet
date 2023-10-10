@@ -8,7 +8,6 @@ function FavoriteToggle({ dish_id, onUpdate, isFav }) {
   console.log('+_+_+_+', isFav === isFavorite);
   const token = localStorage.getItem('authToken');
 
-  console.log('Token:', token);
 
   const toggleFavorite = () => {
     if (isFavorite) {

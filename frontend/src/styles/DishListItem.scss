@@ -1,51 +1,51 @@
-.img-button-icon{
+.img-button-icon {
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-end;
 }
 
-.img-size{
+.img-size {
   width: 15rem;
   border-radius: 10%;
   padding-left: 5px;
   margin-top: 20px;
 }
 
-.side-by-side{
-  display:flex;
+.side-by-side {
+  display: flex;
   flex-direction: row-reverse;
   align-items: center;
 }
 
-button{
-  display:flex;
+button {
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.container-size{
+.container-size {
   height: 50px;
 }
 
 // -------
 
 
-.side-by-side{
-  display:flex;
+.side-by-side {
+  display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
 }
 
-.add-button{
-  position:absolute;
+.add-button {
+  position: absolute;
   margin: 10px;
-  border-radius: 5rem; 
+  border-radius: 5rem;
   margin-top: 25px;
 }
 
-.container-size{
-  display:flex;
+.container-size {
+  display: flex;
 }
 
 .dish-item-border {
@@ -53,14 +53,19 @@ button{
   margin: 1rem;
   border-radius: 5.0%;
   border-width: thin;
-  height:12rem;
-  padding:0.5rem;
+  height: 12rem;
+  padding: 0.5rem;
 }
 
-.padding{
-  padding:2rem;
+.padding {
+  padding: 2rem;
 }
 
-.favorite-button{
+.favorite-button {
   width: 100%
+}
+
+.heart-icon.favorite {
+  color: red;
+  /* Change the color to red when favorited */
 }

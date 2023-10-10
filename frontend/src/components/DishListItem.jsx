@@ -1,15 +1,46 @@
-import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCow, faBreadSlice, faShrimp, faEgg, faSeedling, faHeart } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCow, faBreadSlice, faShrimp, faEgg } from '@fortawesome/free-solid-svg-icons';
 import { GiPeanut } from 'react-icons/gi';
 import '../App.css';
 import '../styles/DishListItem.scss';
-import FavoriteToggle from "./FavoriteToggle";
+import FavoriteToggle from './FavoriteToggle';
 
 function DishListItem(props) {
-  const handleClick = function() {
+  const [isFavorite, setIsFavorite] = useState(false);
+  const token = localStorage.getItem('authToken');
+
+  useEffect(() => {
+    // Check if the dish is favorited when the component mounts
+    if (props.dish && props.dish.id) { // Check if props.dish is defined and has an 'id'
+      axios
+        .get(`http://localhost:3001/api/favorites/${props.dish.id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          setIsFavorite(response.data.length > 0); // Set isFavorite based on the response
+        })
+        .catch((error) => {
+          console.error('Error checking favorite status:', error);
+        });
+    }
+  }, [props.dish, token]); // Run this effect whenever props.dish or token changes
+
+  const handleClick = () => {
     props.addDish(props.dish);
   };
+
+  const updateFavoriteStatus = (status) => {
+    setIsFavorite(status);
+  };
+
+  // Check if props.dish is defined before rendering
+  if (!props.dish || !props.dish.id) {
+    return null;
+  }
 
   return (
     <div >
@@ -18,7 +49,11 @@ function DishListItem(props) {
           <div >
             <button onClick={handleClick} className="add-button"> <strong>Add</strong></button>
             <img src={props.image_url} className="img-size" />
-            <FavoriteToggle className="favorite-button"/>
+            <FavoriteToggle
+              dish_id={props.dish.id} // Pass the dish ID as a prop
+              isFav={isFavorite} // Pass whether it's favorited or not
+              onUpdate={updateFavoriteStatus} // Pass a function to update favorite status
+            />
             <div className="side-by-side">
               <strong><p>${props.price}</p></strong>
               {props.shellfish_allergen && <FontAwesomeIcon icon={faShrimp} size='lg' />}
