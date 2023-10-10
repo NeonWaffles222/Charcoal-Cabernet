@@ -38,7 +38,7 @@ const PaymentModal = (props) => {
           <button className="order-modal__close" onClick={() => props.onPaymentSelect()}>X</button>
           <h2>Total: ${totalPrice.toFixed(2)}</h2>
           <PaymentElement/>
-          <button onClick={handleStripe} type="submit" id="checkout-button">Checkout</button>
+          <button onClick={handleStripe} type="submit" id="checkout-button">Pay Now</button>
           <button onClick={handleClick}>Close Modal</button>
         </div>
       </div>

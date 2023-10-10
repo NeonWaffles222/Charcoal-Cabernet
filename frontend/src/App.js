@@ -50,13 +50,13 @@ function App() {
       );
   }, []);
 
-  useEffect(() => {
-    axios.get('http://localhost:3001/api/favorites')
-      .then((res) => {
-        const favorites = res.data.map((foodItem) => foodItem.id);
-        setFavorites(favorites);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios.get('http://localhost:3001/api/favorites')
+  //     .then((res) => {
+  //       const favorites = res.data.map((foodItem) => foodItem.id);
+  //       setFavorites(favorites);
+  //     });
+  // }, []);
 
 
   const {
