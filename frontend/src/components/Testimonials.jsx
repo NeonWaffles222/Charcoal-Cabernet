@@ -25,8 +25,8 @@ export default function AutoRotatingCarousel(props) {
               <img
                 src={image}  // Using image directly since it's an array of URLs now
                 alt={`Image ${index + 1}`}
-                width="620"
-                height="500"
+                width="440"
+                height="400"
                 className="location-galleryimage img-styling"
               />
             </div>

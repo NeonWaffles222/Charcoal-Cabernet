@@ -43,11 +43,14 @@ function Home() {
 
       </div>
       <AutoRotatingCarousel images={[
-        "images/1_test_1.jpg",
-        "images/2_test_2.jpg",
-        "images/3_test_3.jpg",
-        "images/4_test_4.jpg",
-        "images/5_test_5.jpg",
+        "images/6_test_6.jpg",
+        "images/7_test_7.jpg",
+        "images/8_test_8.jpg",
+        "images/9_test_9.jpg",
+        "images/10_test_10.jpg",
+        "images/11_test_11.jpg",
+        "images/12_test_12.jpg"
+
 
 
 
@@ -57,6 +60,7 @@ function Home() {
       ]}
 
       />
+      <br></br>
     </div >
   );
 };
