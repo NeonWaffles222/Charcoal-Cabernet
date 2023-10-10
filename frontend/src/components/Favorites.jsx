@@ -3,10 +3,13 @@ import axios from 'axios';
 import DishList from './DishList';
 import FavoriteList from './FavoriteList';
 import "../styles/Favorite.css";
+
 function FavoriteDishes(props) {
   const [favorites, setFavorites] = useState([]);
   const [jwtToken, setJwtToken] = useState(null);
 console.log(props,"props")
+
+
   useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
     console.log("stored++++", storedToken);

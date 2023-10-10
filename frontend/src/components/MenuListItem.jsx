@@ -5,12 +5,12 @@ import axios from 'axios';
 
 function MenuListItem({ dish, jwtToken, isFavorite, favorite_id }) {
   const [modalOpen, setModalOpen] = useState(false);
-  console.log("IsFavrote-----", isFavorite);
 
   return (
     <div>
       <a href='#' className="link-font" onClick={() => setModalOpen(true)}>{dish.name}</a> <strong>- ${dish.price}</strong>
       <p>Description: {dish.description}</p>
+      <p>Favorite:{isFavorite}</p>
       <ModalMenu
         isOpen={modalOpen}
         imageUrl={dish.image_url}

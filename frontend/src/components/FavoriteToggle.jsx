@@ -3,8 +3,8 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-function FavoriteToggle({ dish_id, onUpdate, isFav }) {
-  const [isFavorite, setIsFavorite] = useState(isFav);
+function FavoriteToggle({ dish_id, onUpdate, isFav, isFavorite, setIsFavorite }) {
+  // const [isFavorite, setIsFavorite] = useState(isFav);
   console.log('+_+_+_+', isFav === isFavorite);
   const token = localStorage.getItem('authToken');
 
@@ -51,7 +51,7 @@ function FavoriteToggle({ dish_id, onUpdate, isFav }) {
     }
   };
 
-  const heartClass = isFavorite ? 'favorite' : '';
+  const heartClass = isFavorite || isFav === 1 ? 'favorite' : '';
 
   return (
     <button onClick={toggleFavorite}>
@@ -60,7 +60,7 @@ function FavoriteToggle({ dish_id, onUpdate, isFav }) {
         size="2x"
         className={`heart-icon ${heartClass}`}
       />
-      {isFavorite ? ' Remove from Favorites' : ' Add to Favorites'}
+      {isFavorite || isFav === 1 ? 'Remove from Favorites' : ' Add to Favorites'}
     </button>
   );
 }

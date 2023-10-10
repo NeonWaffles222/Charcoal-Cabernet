@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faHeart } from '@fortawesome/free-solid-svg-icons'; // Include the faHeart icon
 import FavoriteToggle from './FavoriteToggle';
 import axios from 'axios';
-function MenuModal({ isOpen, onClose, imageUrl, title, description, dish_id, favorite_id, price, token }) {
-  const [isFavorite, setIsFavorite] = useState(false);
+function MenuModal({ isOpen, onClose, imageUrl, title, description, dish_id, favorite_id, price, token, isFav }) {
+  const [isFavorite, setIsFavorite] = useState(isFav);
 
   if (!isOpen) return null;
 
@@ -93,7 +93,9 @@ function MenuModal({ isOpen, onClose, imageUrl, title, description, dish_id, fav
           <FavoriteToggle
             dish_id={dish_id} // Pass the dish_id
             onUpdate={getFavoriteDishes}
-            isFav={isFavorite} // Pass whether it's favorited or not
+            isFav={isFav} // Pass whether it's favorited or not
+            isFavorite={isFavorite}
+            setIsFavorite={setIsFavorite}
           />
         </div>
 

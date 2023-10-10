@@ -4,6 +4,7 @@ import '../styles/styles.css';
 import axios from 'axios';
 import MenuListItem from './MenuListItem'; // Import your MenuListItem component here
 import { useCategorizeDishes } from '../hooks/useCategorizedDishes';
+
 export default function MenuList(props) {
 
 
@@ -12,7 +13,7 @@ export default function MenuList(props) {
   const allMenuItems = useCategorizeDishes(dishes, categories);
   const [jwtToken, setJwtToken] = useState(null);
   const [favorites, setFavorites] = useState([]);
-
+  console.log("Menu++++++", allMenuItems);
   useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
     if (storedToken) {
@@ -68,7 +69,10 @@ export default function MenuList(props) {
                 // } else {
                 //   isFavorite = false;
                 // }
-                const isFavorite = props.favorites.includes(dish.id);
+                const results = favorites.find((favorite) => favorite.id === dish.id);
+                const isFavorite = results ? 1 : 0;
+                console.log("ID------", dish.id);
+                console.log("isFavorite", isFavorite);
                 return <MenuListItem
                   key={dishIndex + dish.id}
                   dish={dish}
