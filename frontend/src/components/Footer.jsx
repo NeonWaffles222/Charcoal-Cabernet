@@ -6,16 +6,16 @@ const Footer = () => {
   return (
     <div className="footer-bar">
       <div className="footer-bar__info">
-        <Link to="/about">
+        <Link to="/about" className="link-font">
           <span className="footer-bar__item">ABOUT US</span>
         </Link>
-        <Link to="/feedback">
+        <Link to="/feedback" className="link-font">
           <span className="footer-bar__item">FEEDBACK</span>
         </Link>
-        <Link to="/contact">
+        <Link to="/contact" className="link-font">
           <span className="footer-bar__item">CONTACT US</span>
         </Link>
-        <Link to="/terms-of-use">
+        <Link to="/terms-of-use" className="link-font">
           <span className="footer-bar__item">TERMS OF USE</span>
         </Link>
       </div>

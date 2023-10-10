@@ -79,17 +79,17 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
     <div className="top-nav-bar">
       {open === 'login' && <LoginModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
       {open === 'register' && <RegisterModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
-      <Link to='/'>
+      <Link to='/' >
         <span className="top-nav-bar__logo">Charcoal & Cabernet</span>
       </Link>
       <div className="top-nav-bar__routes">
-        <Link to='/menu'>
+        <Link to='/menu' className="nav-link">
           <span className="top-nav-bar__item">Menu</span>
         </Link>
-        <Link to='/reservations'>
+        <Link to='/reservations' className="nav-link">
           <span className="top-nav-bar__item">Reservations</span>
         </Link>
-        <Link to='/order-now'>
+        <Link to='/order-now' className="nav-link">
           <span className="top-nav-bar__item">Order Now</span>
         </Link>
         {!auth && <>
@@ -98,7 +98,7 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
           <span className="top-nav-bar__item" onClick={() => onRegisterSelect()}>Register</span>
         </>}
         {auth && <>
-          <Link to='/favorites'>
+          <Link to='/favorites' className="nav-link">
             <span className="top-nav-bar__item">Favorites</span>
 
           </Link>

@@ -18,6 +18,7 @@ function DishListItem(props) {
           <div >
             <button onClick={handleClick} className="add-button"> <strong>Add</strong></button>
             <img src={props.image_url} className="img-size" />
+            <FavoriteToggle className="favorite-button"/>
             <div className="side-by-side">
               <strong><p>${props.price}</p></strong>
               {props.shellfish_allergen && <FontAwesomeIcon icon={faShrimp} size='lg' />}
@@ -33,7 +34,6 @@ function DishListItem(props) {
           </div>
         </div>
       </div>
-      <FavoriteToggle />
     </div>
 
   );

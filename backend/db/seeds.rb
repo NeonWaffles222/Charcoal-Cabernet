@@ -1264,8 +1264,8 @@ User.create(
 
 user = User.create(
 
-  first_name: 'Order test',
-  last_name: 'Test order',
+  first_name: 'Colin',
+  last_name: 'Colin',
   email: 'aca@gmail.com',
   password: '12345',
   phone_number: '333-333-3333'
@@ -1275,7 +1275,7 @@ user = User.create(
 Order.destroy_all
 order = Order.create(
   user_id: 1,
-  status: 'Pending',
+  status: 'Delivered',
   total_price: 100
 )
 

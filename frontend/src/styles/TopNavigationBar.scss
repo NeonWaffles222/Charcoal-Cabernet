@@ -12,16 +12,18 @@
 
 .top-nav-bar__logo {
   font-weight: 500;
-  font-size: 24px;
+  font-size: 40px;
   color: #111;
   text-underline-position: auto;
   margin-left: 24px;
+  font-family: Bebas Neue;
+  text-transform: capitalize;
 }
 
 .top-nav-bar__item {
   line-height: 24px;
   margin-left: 24px;
-  font-size: 18px;
+  font-size: 20px;
   text-decoration: none;
   font-weight: 500;
   color: #2b2b2b;
@@ -33,4 +35,16 @@
   justify-content: space-between;
   align-items: center;
   margin-right: 24px;
+}
+
+.nav-text {
+  color: #333; 
+  font-size: 18px; 
+}
+
+
+.nav-link {
+  color: #333;
+  font-size: 20px;
+  text-decoration: none;
 }

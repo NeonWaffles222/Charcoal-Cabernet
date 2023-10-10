@@ -81,13 +81,13 @@ function MenuModal({ isOpen, onClose, imageUrl, title, description, dish_id, fav
 
   return (
     <div className="modal-overlay">
-      <div className="modal-content">
+      <div >
         <div className="modal-image-container">
           <img src={imageUrl} alt="Dish" />
           <h1>{title}</h1>
         </div>
 
-        <div className="modal-description-container">
+        <div className="modal-description-container ">
           <p>{description}</p>
           <strong><h2>${price}</h2></strong>
           <FavoriteToggle

@@ -9,7 +9,7 @@ function MenuListItem({ dish, jwtToken, isFavorite, favorite_id }) {
 
   return (
     <div>
-      <a href='#' onClick={() => setModalOpen(true)}>{dish.name}</a> <strong>- ${dish.price}</strong>
+      <a href='#' className="link-font" onClick={() => setModalOpen(true)}>{dish.name}</a> <strong>- ${dish.price}</strong>
       <p>Description: {dish.description}</p>
       <ModalMenu
         isOpen={modalOpen}
