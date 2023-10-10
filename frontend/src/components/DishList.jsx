@@ -51,6 +51,7 @@ const DishList = (props) => {
     const results = favorites.find((favorite) => favorite.id === dish.id);
     const isFavorite = results ? 1 : 0;
     return <DishListItem
+      setFavorites={setFavorites}
       key={index}
       id={dish.id}
       name={dish.name}
@@ -68,6 +69,8 @@ const DishList = (props) => {
       dish={dish}
       addDish={props.addDish}
       isFav={isFavorite}
+      favorites={favorites}
+
     />;
   });
   //Need to have this because categories doesn't include an all category id
@@ -75,6 +78,7 @@ const DishList = (props) => {
     const results = favorites.find((favorite) => favorite.id === dish.id);
     const isFavorite = results ? 1 : 0;
     return <DishListItem
+      setFavorites={setFavorites}
       key={index}
       id={dish.id}
       name={dish.name}
@@ -92,6 +96,7 @@ const DishList = (props) => {
       dish={dish}
       addDish={props.addDish}
       isFav={isFavorite}
+      favorites={favorites}
 
     />;
   });

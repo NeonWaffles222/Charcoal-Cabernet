@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import DishListItem from "./DishListItem";
 import '../styles/DishList.scss';
-function FavoriteList({ favorites, addDish, }) {
-  // const results = favorites.find((favorite) => favorite.id === dish.id);
-  // const isFavorite = results ? 1 : 0;
+function FavoriteList({ favorites, addDish, setFavorites }) {
+
   return (
     <div>
       <h2>Your Favorite Dishes</h2>
@@ -26,6 +25,9 @@ function FavoriteList({ favorites, addDish, }) {
             dish={favorite} // Pass the favorite dish as a prop
             addDish={addDish}
             isFav={1}
+            setFavorites={setFavorites}
+            favorites={favorites}
+
           />
         ))}
       </ul>

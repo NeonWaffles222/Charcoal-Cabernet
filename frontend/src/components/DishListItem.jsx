@@ -11,22 +11,7 @@ function DishListItem(props) {
   const [isFavorite, setIsFavorite] = useState(props.isFav);
   const token = localStorage.getItem('authToken');
 
-  // useEffect(() => {
-  //   if (props.dish && props.dish.id) { 
-  //     axios
-  //       .get(`http://localhost:3001/api/favorites/${props.dish.id}`, {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       })
-  //       .then((response) => {
-  //         setIsFavorite(response.data.length > 0); 
-  //       })
-  //       .catch((error) => {
-  //         console.error('Error checking favorite status:', error);
-  //       });
-  //   }
-  // }, []); 
+
 
   const handleClick = () => {
     props.addDish(props.dish);
@@ -54,6 +39,8 @@ function DishListItem(props) {
               onUpdate={updateFavoriteStatus} // Pass a function to update favorite status
               isFavorite={isFavorite}
               setIsFavorite={setIsFavorite}
+              setFavorites={props.setFavorites}
+              favorites={props.favorites}
             />
             <div className="side-by-side">
               <strong><p>${props.price}</p></strong>
