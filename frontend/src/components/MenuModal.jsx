@@ -97,9 +97,8 @@ function MenuModal({ isOpen, onClose, imageUrl, title, description, dish_id, fav
           />
         </div>
 
-        <button onClick={onClose}>
-          <FontAwesomeIcon icon={faTimes} /> {/* Use the FontAwesome icon */}
-        </button>
+        <button onClick={onClose}>Close Modal</button>
+
       </div>
     </div>
   );
