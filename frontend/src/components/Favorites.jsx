@@ -7,7 +7,7 @@ import "../styles/Favorite.css";
 function FavoriteDishes(props) {
   const [favorites, setFavorites] = useState([]);
   const [jwtToken, setJwtToken] = useState(null);
-console.log(props,"props")
+  console.log(props, "props");
 
 
   useEffect(() => {
