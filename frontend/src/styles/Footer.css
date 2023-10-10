@@ -20,3 +20,7 @@
   margin: 0 10px;
   /* Adjust margin for spacing between icons */
 }
+
+.footer-bar__item {
+  padding: 16px;
+}
