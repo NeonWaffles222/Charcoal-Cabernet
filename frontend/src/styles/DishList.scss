@@ -1,7 +1,7 @@
 .dish-list-grid {
   display: grid;
   grid-template-columns: repeat(3, 2fr); 
-  // gap: 5px; 
+  gap: 5px; 
   list-style: none;
   padding: 0;
   justify-items: center;
