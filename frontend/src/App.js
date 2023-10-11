@@ -143,7 +143,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home dish={state} />} />
           <Route path='/about' element={<About />} />
-          <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} favorites={favorites} />} />
+          <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories}/>} />
           <Route path='/favorites' element={<FavoriteDishes addDish={addDish} />} />
           <Route path="/reservations" element={<ReservationProvider><Reservation /></ReservationProvider>} />
           <Route path="/order-now" element={<DishList dish={state} addDish={addDish} />} />

@@ -57,19 +57,7 @@ export default function MenuList(props) {
             <div className="menu-items">
 
               {categoryDishes.map((dish, dishIndex) => {
-                //check if dish is in favorites
-                // const dishFoundInFavorites = favorites.filter((favoriteDish) => {
-                //   return favoriteDish.id === dish.id;
-                // });
-                // console.log("dishFavorite++++", dishFoundInFavorites);
-                // let isFavorite = !!dishFoundInFavorites;
-                // let favorite_id = dishFoundInFavorites ? dishFoundInFavorites.id : null; // If dish is found in favorites, assign its id to favorite_id
-                // if (dishFoundInFavorites.length > 0) {
-                //   isFavorite = true;
-                //   favorite_id = dishFoundInFavorites[0].id;
-                // } else {
-                //   isFavorite = false;
-                // }
+
                 const results = favorites.find((favorite) => favorite.id === dish.id);
                 const isFavorite = results ? 1 : 0;
 

@@ -9,7 +9,7 @@ function FavoriteToggle({ dish_id, onUpdate, isFav, isFavorite, setIsFavorite, s
 
 
   const toggleFavorite = () => {
-    if (isFavorite) {
+    if (favorites.filter((favorite) => favorite.id === dish_id).length > 0) {
       // Delete the favorite
       axios.delete(
         `http://localhost:3001/api/favorites/${dish_id}`,

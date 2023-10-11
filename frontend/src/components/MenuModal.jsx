@@ -5,7 +5,7 @@ import { faTimes, faHeart } from '@fortawesome/free-solid-svg-icons'; // Include
 import FavoriteToggle from './FavoriteToggle';
 import axios from 'axios';
 function MenuModal({ isOpen, onClose, imageUrl, title, description, dish_id, favorite_id, price, token, isFav, favorites, setFavorites, dish }) {
-  const [isFavorite, setIsFavorite] = useState(isFav);
+  const [isFavorite, setIsFavorite] = useState(favorites.filter((favorite) => favorite.id === dish_id).length > 0 ? 1 : 0);
 
   if (!isOpen) return null;
 
