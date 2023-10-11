@@ -8,6 +8,9 @@
   width: 14rem;
   border-radius: 10%;
   margin-top: 20px;
+  &:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); 
+  }
 }
 
 .side-by-side {
@@ -64,6 +67,7 @@ button {
 .favorite-button {
   display: flex;
     flex-direction: column;
+    
 }
 
 .heart-icon.favorite {
@@ -102,7 +106,8 @@ button {
   font-size: 15px
 }
 
-button{margin: 8px;
+button{
+  margin: 8px;
     font-size: 0.875rem;
     line-height: 1.5;
     background-color: rgba(0, 0, 255, 0.5);
@@ -112,4 +117,11 @@ button{margin: 8px;
     padding: 4px 8px;
     cursor: pointer;
     transition: all 150ms ease;
-    border: none;}
+    border: none;
+  }
+
+.fav-button-box{
+  &:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); 
+  }
+}

@@ -23,7 +23,7 @@ function FavoriteToggle({ dish_id, onUpdate, isFav, isFavorite, setIsFavorite, s
           setIsFavorite(false);
           if (onUpdate) onUpdate();
           setFavorites(favorites.filter((favorite) => favorite.id !== dish_id));
-          alert("Removed from favorites!");
+          // alert("Removed from favorites!");
         })
         .catch(error => {
           console.error('Error deleting from favorites:', error);
@@ -43,7 +43,7 @@ function FavoriteToggle({ dish_id, onUpdate, isFav, isFavorite, setIsFavorite, s
         .then(response => {
           setIsFavorite(true);
           setFavorites([...favorites, dish]);
-          alert("Added to favorites!");
+          // alert("Added to favorites!");
         })
         .catch(error => {
           console.error('Error adding to favorites:', error);
@@ -55,13 +55,13 @@ function FavoriteToggle({ dish_id, onUpdate, isFav, isFavorite, setIsFavorite, s
   const heartClass = isFavorite || isFav === 1 ? 'favorite' : '';
 
   return (
-    <button onClick={toggleFavorite}>
+    <button onClick={toggleFavorite} className='fav-button-box'>
       <FontAwesomeIcon
         icon={faHeart}
         size="2x"
         className={`heart-icon ${heartClass}`}
       />
-      {isFavorite || isFav === 1 ? 'Remove from Favorites' : ' Add to Favorites'}
+      {isFavorite || isFav === 1 ? 'Remove Favorite' : ' Add Favorite'}
     </button>
   );
 }

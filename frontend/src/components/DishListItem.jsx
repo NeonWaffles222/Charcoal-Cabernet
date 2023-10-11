@@ -8,10 +8,26 @@ import '../styles/DishListItem.scss';
 import FavoriteToggle from './FavoriteToggle';
 
 function DishListItem(props) {
-  const [isFavorite, setIsFavorite] = useState(props.isFav);
+  const [isFavorite, setIsFavorite] = useState(false);
   const token = localStorage.getItem('authToken');
 
-
+  // useEffect(() => {
+  //   // Check if the dish is favorited when the component mounts
+  //   if (props.dish && props.dish.id) { // Check if props.dish is defined and has an 'id'
+  //     axios
+  //       .get(`http://localhost:3001/api/favorites/${props.dish.id}`, {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       })
+  //       .then((response) => {
+  //         setIsFavorite(response.data.length > 0); // Set isFavorite based on the response
+  //       })
+  //       .catch((error) => {
+  //         console.error('Error checking favorite status:', error);
+  //       });
+  //   }
+  // }, [props.dish, token]); // Run this effect whenever props.dish or token changes
 
   const handleClick = () => {
     props.addDish(props.dish);
