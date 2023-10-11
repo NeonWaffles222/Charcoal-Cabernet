@@ -6,7 +6,7 @@
   font-family: Bebas Neue;
   text-transform: uppercase;
   font-size: 70px;
-  margin-left: 45%;
+  margin-left: 39%;
 
 }
 
@@ -31,7 +31,7 @@
   font-family: Abril Fatface;
   font-size: 120px;
   margin-top: 0px;
-  margin-left: 45%;
+  margin-left: 38%;
 }
 
 .menu-1 {
@@ -214,10 +214,9 @@ div a {
   color: black */
 }
 
-.link-font{
+.link-font {
   font-family: Bebas Neue;
   text-transform: capitalize;
   font-size: 30px;
   color: black
 }
-
