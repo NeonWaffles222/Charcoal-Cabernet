@@ -30,9 +30,10 @@ function DishListItem(props) {
     <div >
       <div className="dish-item-border container-size">
         <div className="side-by-side">
-          <div >
+          <div>
             <button onClick={handleClick} className="add-button"> <strong>Add</strong></button>
-            <img src={props.image_url} className="img-size" />
+            <img src={props.image_url} onClick={handleClick} className="img-size cursor-for-items" />
+            <div className="favorite-button">
             <FavoriteToggle
               dish_id={props.dish.id} // Pass the dish ID as a prop
               isFav={props.isFav} // Pass whether it's favorited or not
@@ -43,6 +44,7 @@ function DishListItem(props) {
               favorites={props.favorites}
               dish={props.dish}
             />
+            </div>
             <div className="side-by-side">
               <strong><p>${props.price}</p></strong>
               {props.shellfish_allergen && <FontAwesomeIcon icon={faShrimp} size='lg' />}
@@ -52,9 +54,9 @@ function DishListItem(props) {
               {props.nuts_allergen && <p><strong><GiPeanut /></strong></p>}
             </div>
           </div>
-          <div>
-            <h4>{props.name}</h4>
-            <p>{props.description}</p>
+          <div className='dish-item-text'>
+            <p className='link-font-item'>{props.name}</p>
+            <p className='description-text'>{props.description}</p>
           </div>
         </div>
       </div>
