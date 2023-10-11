@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  background-color: #060A0D;
 }
 
 .footer-bar__info {
@@ -18,9 +19,19 @@
 /* Center each individual social media icon */
 .footer-bar__media i {
   margin: 0 10px;
+  color: #E5E7EB;
   /* Adjust margin for spacing between icons */
 }
 
 .footer-bar__item {
-  padding: 16px;
+  color: #E5E7EB;
+  font-weight: 500;
+  line-height: 24px;
+  margin-left: 24px;
+  font-size: 18x;
+  text-decoration: none;
+}
+
+.link-font {
+  text-decoration: none;
 }

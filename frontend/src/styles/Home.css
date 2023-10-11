@@ -5,7 +5,9 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding-bottom: 20px;
+  background-color: #E5E7EB;
+  max-width: 100%;
   /* Adjust the padding as needed */
 }
 
@@ -13,8 +15,8 @@
   display: flex;
   flex-direction: row;
   /* Change it back to 'row' */
-  align-items: flex-start;
-  margin-top: 20px;
+  align-items: center;
+  margin: 20px;
   /* Adjust the margin as needed */
 }
 
@@ -26,10 +28,12 @@
 
 .text-box {
   flex: 1;
-  max-width: 50%;
+  max-width: 60%;
   max-height: 400px;
   max-width: 500px;
-
+  color: #060A0D;
+  font-size: 18px;
+  font-weight: 500;
   padding: 10px;
   /* Adjust the padding as needed */
 }
@@ -42,7 +46,7 @@
 /* Add more styling to your text content here */
 .box-container {
   flex: 1 1;
-  max-width: 50%;
+  max-width: 60%;
   max-height: -moz-fit-content;
   max-height: fit-content;
   min-height: 308px;
@@ -59,7 +63,7 @@
 }
 
 .box-container2 {
-  max-width: 50%;
+  max-width: 60%;
   max-height: -moz-fit-content;
   max-height: fit-content;
   min-height: 491px;
@@ -69,7 +73,7 @@
 
 .box-container3 {
   flex: 1 1;
-  max-width: 50%;
+  max-width: 60%;
   max-height: -moz-fit-content;
   max-height: fit-content;
   min-height: 308px;
@@ -86,7 +90,7 @@
 }
 
 .box-container4 {
-  max-width: 50%;
+  max-width: 60%;
   max-height: -moz-fit-content;
   max-height: fit-content;
   min-height: 308px;
@@ -114,4 +118,19 @@
 
 .box-container4 h3 {
   text-transform: capitalize;
+}
+
+.hero {
+  max-width: 100%;
+  font-size: 48px;
+  font-weight: 900;
+  color: #E5E7EB;
+  background-color: #060A0D;
+  font-family: Bebas Neue;
+}
+
+.chef {
+  color: #060A0D;
+  font-size: 24px;
+  font-weight: 200;
 }

@@ -8,3 +8,9 @@
 
 /* Set the height of the map container */
 /* Add any other styling properties as needed */
+
+.map-container {
+  position: absolute;
+  height: 45%;
+  width: 40%;
+}

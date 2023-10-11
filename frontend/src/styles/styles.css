@@ -24,7 +24,7 @@
   gap: 20px;
   /* Provides equal spacing between each grid item */
   padding: 100px;
-  margin: 2em 3em;
+
 }
 
 .menu-title {
@@ -46,63 +46,63 @@
   font-family: Bebas Neue;
   text-transform: capitalize;
   font-size: 45px;
-  color: black
+  color: #060A0D
 }
 
 .menu-2 a {
   font-family: Bebas Neue;
   text-transform: capitalize;
   font-size: 45px;
-  color: black
+  color: #060A0D
 }
 
 .menu-3 a {
   font-family: Bebas Neue;
   text-transform: capitalize;
   font-size: 45px;
-  color: black
+  color: #060A0D
 }
 
 .menu-4 a {
   font-family: Bebas Neue;
   text-transform: capitalize;
   font-size: 45px;
-  color: black
+  color: #060A0D
 }
 
 .menu-5 a {
   font-family: Bebas Neue;
   text-transform: capitalize;
   font-size: 45px;
-  color: black
+  color: #060A0D
 }
 
 .menu-6 a {
   font-family: Bebas Neue;
   text-transform: capitalize;
   font-size: 45px;
-  color: black
+  color: #060A0D
 }
 
 .menu-7 a {
   font-family: Bebas Neue;
   text-transform: capitalize;
   font-size: 45px;
-  color: black
+  color: #060A0D
 }
 
 .menu-8 a {
   font-family: Bebas Neue;
   text-transform: capitalize;
   font-size: 45px;
-  color: black
+  color: #060A0D
 }
 
 .menu-9 a {
   font-family: Bebas Neue;
   text-transform: capitalize;
   font-size: 45px;
-  color: black
+  color: #060A0D
 }
 
 
@@ -207,16 +207,16 @@ hr {
   margin-right: 30em;
 }
 
-div a {
-  /* font-family: Bebas Neue;
+/* div a {
+  font-family: Bebas Neue;
   text-transform: capitalize;
   font-size: 40px;
-  color: black */
-}
+  color: black
+} */
 
 .link-font {
   font-family: Bebas Neue;
   text-transform: capitalize;
   font-size: 30px;
-  color: black
+  color: #060A0D
 }
