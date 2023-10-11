@@ -79,7 +79,7 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
     <div className="top-nav-bar">
       {open === 'login' && <LoginModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
       {open === 'register' && <RegisterModal onLoginSelect={onLoginSelect} onRegisterSelect={onRegisterSelect} />}
-      <Link to='/' >
+      <Link to='/' className="nav-link">
         <span className="top-nav-bar__logo">Charcoal & Cabernet</span>
       </Link>
       <div className="top-nav-bar__routes">
