@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-function FavoriteToggle({ dish_id, onUpdate, isFav, isFavorite, setIsFavorite, setFavorites, favorites }) {
+function FavoriteToggle({ dish_id, onUpdate, isFav, isFavorite, setIsFavorite, setFavorites, favorites, dish }) {
   // const [isFavorite, setIsFavorite] = useState(isFav);
   const token = localStorage.getItem('authToken');
 
@@ -42,6 +42,7 @@ function FavoriteToggle({ dish_id, onUpdate, isFav, isFavorite, setIsFavorite, s
       )
         .then(response => {
           setIsFavorite(true);
+          setFavorites([...favorites, dish]);
           alert("Added to favorites!");
         })
         .catch(error => {

@@ -41,6 +41,7 @@ function DishListItem(props) {
               setIsFavorite={setIsFavorite}
               setFavorites={props.setFavorites}
               favorites={props.favorites}
+              dish={props.dish}
             />
             <div className="side-by-side">
               <strong><p>${props.price}</p></strong>

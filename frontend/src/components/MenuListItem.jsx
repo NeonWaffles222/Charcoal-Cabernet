@@ -3,14 +3,13 @@ import ModalMenu from './MenuModal';
 import axios from 'axios';
 
 
-function MenuListItem({ dish, jwtToken, isFavorite, favorite_id }) {
+function MenuListItem({ dish, jwtToken, isFavorite, favorite_id, favorites, setFavorites }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div>
       <a href='#' className="link-font" onClick={() => setModalOpen(true)}>{dish.name}</a> <strong>- ${dish.price}</strong>
       <p>Description: {dish.description}</p>
-      <p>Favorite:{isFavorite}</p>
       <ModalMenu
         isOpen={modalOpen}
         imageUrl={dish.image_url}
@@ -22,6 +21,9 @@ function MenuListItem({ dish, jwtToken, isFavorite, favorite_id }) {
         dish_id={dish.id}
         isFav={isFavorite}
         favorite_id={favorite_id}
+        favorites={favorites}
+        setFavorites={setFavorites}
+        dish={dish}
 
       />
 
