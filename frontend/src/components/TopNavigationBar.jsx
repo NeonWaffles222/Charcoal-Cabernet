@@ -104,14 +104,14 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
           </Link>
           <Stack spacing={2} direction='row'>
             <Badge badgeContent={itemsInCart} color='primary'>
-              <span className="top-nav-bar__item" onClick={() => onOrderSelect()} >Cart</span>
+              <span className="top-nav-bar__item cursor-for-items" onClick={() => onOrderSelect()} >Cart</span>
             </Badge>
           </Stack>
           {/* <span className="top-nav-bar__item" onClick={toggleFav}>Favorites</span> */}
-          <span className="top-nav-bar__item" onClick={() => { onOrderStatusSelect(); handleConfirm(); }} orderStatus={orderStatus} state={state}>Order Status</span>
-          <span className="top-nav-bar__item" onClick={() => onPastOrderSelect()}>Past Orders</span>
+          <span className="top-nav-bar__item cursor-for-items" onClick={() => { onOrderStatusSelect(); handleConfirm(); }} orderStatus={orderStatus} state={state}>Order Status</span>
+          <span className="top-nav-bar__item cursor-for-items" onClick={() => onPastOrderSelect()}>Past Orders</span>
           <span className="top-nav-bar__item">Welcome back {user.first_name}</span>
-          <span className="top-nav-bar__item" onClick={logout}>Logout</span>
+          <span className="top-nav-bar__item cursor-for-items" onClick={logout}>Logout</span>
         </>}
       </div>
     </div>

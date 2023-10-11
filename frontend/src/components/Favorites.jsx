@@ -3,13 +3,14 @@ import axios from 'axios';
 import DishList from './DishList';
 import FavoriteList from './FavoriteList';
 import "../styles/Favorite.css";
+
 function FavoriteDishes(props) {
   const [favorites, setFavorites] = useState([]);
   const [jwtToken, setJwtToken] = useState(null);
-console.log(props,"props")
+
+
   useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
-    console.log("stored++++", storedToken);
     if (storedToken) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`; // Include the JWT token in the header
       setJwtToken(storedToken);
@@ -18,8 +19,7 @@ console.log(props,"props")
     getFavoriteDishes();
   }, []);
 
-  // useEffect(() => {
-  // }, [favorites]);
+
 
   const getFavoriteDishes = () => {
     axios.get('http://localhost:3001/api/favorites')
@@ -48,14 +48,10 @@ console.log(props,"props")
         <FavoriteList
           favorites={favorites}
           addDish={props.addDish}
+          setFavorites={setFavorites}
         />
 
-        {/* // <li key={favorite.id}>
-          //   <img src={favorite.image_url} alt={favorite.name} />
-          //   <h3>{favorite.name}</h3>
-          //   <p>{favorite.description}</p>
-          //   <p>Price: ${favorite.price}</p>
-          // </li> */}
+
 
       </ul>
     </div>

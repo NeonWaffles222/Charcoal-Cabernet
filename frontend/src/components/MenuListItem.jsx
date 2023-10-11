@@ -3,9 +3,8 @@ import ModalMenu from './MenuModal';
 import axios from 'axios';
 
 
-function MenuListItem({ dish, jwtToken, isFavorite, favorite_id }) {
+function MenuListItem({ dish, jwtToken, isFavorite, favorite_id, favorites, setFavorites }) {
   const [modalOpen, setModalOpen] = useState(false);
-  console.log("IsFavrote-----", isFavorite);
 
   return (
     <div>
@@ -22,6 +21,9 @@ function MenuListItem({ dish, jwtToken, isFavorite, favorite_id }) {
         dish_id={dish.id}
         isFav={isFavorite}
         favorite_id={favorite_id}
+        favorites={favorites}
+        setFavorites={setFavorites}
+        dish={dish}
 
       />
 

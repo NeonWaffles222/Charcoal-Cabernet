@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import DishListItem from "./DishListItem";
 import '../styles/DishList.scss';
-import FavoriteDishItem from "./FavoriteDishItem";
-function FavoriteList({ favorites, addDish }) {
-  console.log(addDish)
+function FavoriteList({ favorites, addDish, setFavorites }) {
+
   return (
     <div>
       <h2>Your Favorite Dishes</h2>
       <ul>
         {favorites.map((favorite) => (
-          <FavoriteDishItem
+          <DishListItem
             key={favorite.id}
             name={favorite.name}
             category_id={favorite.category_id}
@@ -25,6 +24,10 @@ function FavoriteList({ favorites, addDish }) {
             shellfish_allergen={favorite.shellfish_allergen}
             dish={favorite} // Pass the favorite dish as a prop
             addDish={addDish}
+            isFav={1}
+            setFavorites={setFavorites}
+            favorites={favorites}
+
           />
         ))}
       </ul>

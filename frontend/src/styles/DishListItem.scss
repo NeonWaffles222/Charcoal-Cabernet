@@ -1,51 +1,51 @@
-.img-button-icon{
+.img-button-icon {
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-end;
 }
 
-.img-size{
-  width: 15rem;
+.img-size {
+  width: 14rem;
   border-radius: 10%;
-  padding-left: 5px;
   margin-top: 20px;
 }
 
-.side-by-side{
-  display:flex;
+.side-by-side {
+  display: flex;
   flex-direction: row-reverse;
   align-items: center;
 }
 
-button{
-  display:flex;
+button {
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.container-size{
+.container-size {
   height: 50px;
 }
 
 // -------
 
 
-.side-by-side{
-  display:flex;
+.side-by-side {
+  display: flex;
   flex-direction: row-reverse;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  padding-bottom: 2px;
 }
 
-.add-button{
-  position:absolute;
+.add-button {
+  position: absolute;
   margin: 10px;
-  border-radius: 5rem; 
+  border-radius: 5rem;
   margin-top: 25px;
 }
 
-.container-size{
-  display:flex;
+.container-size {
+  display: flex;
 }
 
 .dish-item-border {
@@ -53,14 +53,63 @@ button{
   margin: 1rem;
   border-radius: 5.0%;
   border-width: thin;
-  height:12rem;
-  padding:0.5rem;
+  height: 12rem;
+  padding: 0.5rem;
 }
 
-.padding{
-  padding:2rem;
+.padding {
+  padding: 2rem;
 }
 
-.favorite-button{
-  width: 100%
+.favorite-button {
+  display: flex;
+    flex-direction: column;
 }
+
+.heart-icon.favorite {
+  color: red;
+  /* Change the color to red when favorited */
+}
+
+.dish-item-border {
+  border: solid;
+  margin: 1rem;
+  border-radius: 5.0%;
+  border-width: thin;
+  height: 12rem;
+  padding: 12.5px;
+  transition: box-shadow 0.3s; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); 
+
+  &:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7); 
+  }
+}
+
+.link-font-item{
+  font-family: Bebas Neue;
+  text-transform: capitalize;
+  font-size: 22px;
+  color: black
+}
+
+.dish-item-text{
+  display: block;
+  padding-bottom: 5px;
+}
+
+.description-text{
+  font-size: 15px
+}
+
+button{margin: 8px;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    background-color: rgba(0, 0, 255, 0.5);
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: all 150ms ease;
+    border: none;}

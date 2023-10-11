@@ -4,78 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faHeart } from '@fortawesome/free-solid-svg-icons'; // Include the faHeart icon
 import FavoriteToggle from './FavoriteToggle';
 import axios from 'axios';
-function MenuModal({ isOpen, onClose, imageUrl, title, description, dish_id, favorite_id, price, token }) {
-  const [isFavorite, setIsFavorite] = useState(false);
+function MenuModal({ isOpen, onClose, imageUrl, title, description, dish_id, favorite_id, price, token, isFav, favorites, setFavorites, dish }) {
+  const [isFavorite, setIsFavorite] = useState(favorites.filter((favorite) => favorite.id === dish_id).length > 0 ? 1 : 0);
 
   if (!isOpen) return null;
 
-  const toggleFavorite = () => {
-    if (isFavorite) {
-      deleteFavorite();
-    } else {
-      addFavorite();
-    }
+
+
+  const updateFavoriteStatus = (status) => {
+    setIsFavorite(status);
   };
 
-  const addFavorite = () => {
-    console.log("dishId+++++", dish_id);
-    axios.post(
-      'http://localhost:3001/api/favorites',
-      { dish_id: dish_id },
-      {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      }
-    )
 
-      .then(response => {
-        setIsFavorite(true); // Update only on success
-        alert("Added to favorites!");  // Notify user
-        // getFavoriteDishes();
-
-      })
-      .catch(error => {
-        console.error('Error adding to favorites:', error);
-        alert("Error adding to favorites. Please try again.");
-      });
-  };
-
-  const deleteFavorite = () => {
-    console.log("favoret_+_+_+_+", favorite_id);
-    axios.delete(
-      `http://localhost:3001/api/favorites/${dish_id}`,
-      {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      }
-    )
-      .then(response => {
-        setIsFavorite(false); // Update only on success
-        alert("Removed from favorites!");  // Notify user
-      })
-      .catch(error => {
-        console.error('Error deleting from favorites:', error);
-        alert("Error removing from favorites. Please try again.");
-      });
-  };
-  const getFavoriteDishes = () => {
-    axios.get('http://localhost:3001/api/favorites')
-      .then(response => {
-        // Handle the response here
-        console.log('Favorite dishes:', response.data);
-        if (Array.isArray(response.data)) {
-          setIsFavorite(response.data);
-        } else {
-          console.error('Unexpected data structure:', response.data);
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching favorite dishes:', error);
-      });
-
-  };
 
   const heartClass = isFavorite ? 'favorite' : ''; // Add the 'favorite' class when it's favorited
 
@@ -92,8 +32,13 @@ function MenuModal({ isOpen, onClose, imageUrl, title, description, dish_id, fav
           <strong><h2>${price}</h2></strong>
           <FavoriteToggle
             dish_id={dish_id} // Pass the dish_id
-            onUpdate={getFavoriteDishes}
-            isFav={isFavorite} // Pass whether it's favorited or not
+            onUpdate={updateFavoriteStatus}
+            isFav={isFav} // Pass whether it's favorited or not
+            isFavorite={isFavorite}
+            setIsFavorite={setIsFavorite}
+            setFavorites={setFavorites}
+            favorites={favorites}
+            dish={dish}
           />
         </div>
 
@@ -106,3 +51,4 @@ function MenuModal({ isOpen, onClose, imageUrl, title, description, dish_id, fav
 }
 
 export default MenuModal;
+

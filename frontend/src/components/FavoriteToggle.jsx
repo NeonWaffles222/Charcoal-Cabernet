@@ -3,15 +3,13 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-function FavoriteToggle({ dish_id, onUpdate, isFav }) {
-  const [isFavorite, setIsFavorite] = useState(isFav);
-  console.log('+_+_+_+', isFav === isFavorite);
+function FavoriteToggle({ dish_id, onUpdate, isFav, isFavorite, setIsFavorite, setFavorites, favorites, dish }) {
+  // const [isFavorite, setIsFavorite] = useState(isFav);
   const token = localStorage.getItem('authToken');
 
-  console.log('Token:', token);
 
   const toggleFavorite = () => {
-    if (isFavorite) {
+    if (favorites.filter((favorite) => favorite.id === dish_id).length > 0) {
       // Delete the favorite
       axios.delete(
         `http://localhost:3001/api/favorites/${dish_id}`,
@@ -24,6 +22,7 @@ function FavoriteToggle({ dish_id, onUpdate, isFav }) {
         .then(response => {
           setIsFavorite(false);
           if (onUpdate) onUpdate();
+          setFavorites(favorites.filter((favorite) => favorite.id !== dish_id));
           alert("Removed from favorites!");
         })
         .catch(error => {
@@ -43,6 +42,7 @@ function FavoriteToggle({ dish_id, onUpdate, isFav }) {
       )
         .then(response => {
           setIsFavorite(true);
+          setFavorites([...favorites, dish]);
           alert("Added to favorites!");
         })
         .catch(error => {
@@ -52,7 +52,7 @@ function FavoriteToggle({ dish_id, onUpdate, isFav }) {
     }
   };
 
-  const heartClass = isFavorite ? 'favorite' : '';
+  const heartClass = isFavorite || isFav === 1 ? 'favorite' : '';
 
   return (
     <button onClick={toggleFavorite}>
@@ -61,7 +61,7 @@ function FavoriteToggle({ dish_id, onUpdate, isFav }) {
         size="2x"
         className={`heart-icon ${heartClass}`}
       />
-      {isFavorite ? ' Remove from Favorites' : ' Add to Favorites'}
+      {isFavorite || isFav === 1 ? 'Remove from Favorites' : ' Add to Favorites'}
     </button>
   );
 }

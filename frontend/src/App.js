@@ -13,7 +13,7 @@ import Home from './pages/Home';
 import TableFloorMap from './components/TableFloorMap';
 import Twilio from './components/Twilio';
 import DishList from './components/DishList';
-import DishScroll from './components/DishScroll';
+
 import FavoriteDishes from './components/Favorites';
 import OrderModal from './modals/OrderModal';
 import Footer from "./components/Footer";
@@ -50,13 +50,13 @@ function App() {
       );
   }, []);
 
-  useEffect(() => {
-    axios.get('http://localhost:3001/api/favorites')
-      .then((res) => {
-        const favorites = res.data.map((foodItem) => foodItem.id);
-        setFavorites(favorites);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios.get('http://localhost:3001/api/favorites')
+  //     .then((res) => {
+  //       const favorites = res.data.map((foodItem) => foodItem.id);
+  //       setFavorites(favorites);
+  //     });
+  // }, []);
 
 
   const {
@@ -143,7 +143,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home dish={state} />} />
           <Route path='/about' element={<About />} />
-          <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories} favorites={favorites} />} />
+          <Route path='/menu' element={<MenuList dishes={state.dishes} categories={state.categories}/>} />
           <Route path='/favorites' element={<FavoriteDishes addDish={addDish} />} />
           <Route path="/reservations" element={<ReservationProvider><Reservation /></ReservationProvider>} />
           <Route path="/order-now" element={<DishList dish={state} addDish={addDish} />} />

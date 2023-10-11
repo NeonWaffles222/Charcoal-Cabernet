@@ -1,7 +1,7 @@
 import React from "react";
 import TopNavigation from "../components/TopNavigationBar";
 import MapContainer from "../components/MapContainer";
-import DishScroll from "../components/DishScroll";
+
 import { authContext } from "../providers/AuthProvider";
 import myImage from "../assets/images/20231007_020713.jpg";
 import '../styles/Home.css';

@@ -4,6 +4,7 @@ import '../styles/styles.css';
 import axios from 'axios';
 import MenuListItem from './MenuListItem'; // Import your MenuListItem component here
 import { useCategorizeDishes } from '../hooks/useCategorizedDishes';
+
 export default function MenuList(props) {
 
 
@@ -12,6 +13,7 @@ export default function MenuList(props) {
   const allMenuItems = useCategorizeDishes(dishes, categories);
   const [jwtToken, setJwtToken] = useState(null);
   const [favorites, setFavorites] = useState([]);
+
 
   useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
@@ -55,25 +57,17 @@ export default function MenuList(props) {
             <div className="menu-items">
 
               {categoryDishes.map((dish, dishIndex) => {
-                //check if dish is in favorites
-                // const dishFoundInFavorites = favorites.filter((favoriteDish) => {
-                //   return favoriteDish.id === dish.id;
-                // });
-                // console.log("dishFavorite++++", dishFoundInFavorites);
-                // let isFavorite = !!dishFoundInFavorites;
-                // let favorite_id = dishFoundInFavorites ? dishFoundInFavorites.id : null; // If dish is found in favorites, assign its id to favorite_id
-                // if (dishFoundInFavorites.length > 0) {
-                //   isFavorite = true;
-                //   favorite_id = dishFoundInFavorites[0].id;
-                // } else {
-                //   isFavorite = false;
-                // }
-                const isFavorite = props.favorites.includes(dish.id);
+
+                const results = favorites.find((favorite) => favorite.id === dish.id);
+                const isFavorite = results ? 1 : 0;
+
                 return <MenuListItem
                   key={dishIndex + dish.id}
                   dish={dish}
                   jwtToken={jwtToken}
                   isFavorite={isFavorite}
+                  favorites={favorites}
+                  setFavorites={setFavorites}
                 />;
               })}
 
