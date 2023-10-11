@@ -48,11 +48,13 @@ function DishListItem(props) {
           <div >
             <button onClick={handleClick} className="add-button"> <strong>Add</strong></button>
             <img src={props.image_url} className="img-size" />
+            <div className="favorite-button">
             <FavoriteToggle
               dish_id={props.dish.id} // Pass the dish ID as a prop
               isFav={isFavorite} // Pass whether it's favorited or not
               onUpdate={updateFavoriteStatus} // Pass a function to update favorite status
             />
+            </div>
             <div className="side-by-side">
               <strong><p>${props.price}</p></strong>
               {props.shellfish_allergen && <FontAwesomeIcon icon={faShrimp} size='lg' />}
