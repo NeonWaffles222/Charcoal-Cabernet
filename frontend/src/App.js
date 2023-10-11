@@ -13,7 +13,7 @@ import Home from './pages/Home';
 import TableFloorMap from './components/TableFloorMap';
 import Twilio from './components/Twilio';
 import DishList from './components/DishList';
-import DishScroll from './components/DishScroll';
+
 import FavoriteDishes from './components/Favorites';
 import OrderModal from './modals/OrderModal';
 import Footer from "./components/Footer";
