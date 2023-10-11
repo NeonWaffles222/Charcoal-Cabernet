@@ -12,7 +12,7 @@ class MapContainer extends Component {
 
   render() {
     const mapStyles = {
-      width: '700px',
+      width: '500px',
       height: '500px',
     };
 
