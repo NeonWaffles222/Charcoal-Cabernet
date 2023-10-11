@@ -15,7 +15,7 @@ const TablesListItem = ({ tableObj, guests, date, time }) => {
         if (success) {
           console.log('reservation success');
           alert(`Reservation made for ${date} at table ${table.id}`);
-          window.location.reload(true);
+          window.location = "/";
         }
       } catch (error) {
         console.error('Error during reservation:', error);
