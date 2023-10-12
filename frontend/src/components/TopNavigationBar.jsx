@@ -93,9 +93,9 @@ const TopNavigation = ({ onLoginSelect, onRegisterSelect, toggleFav, onOrderSele
           <span className="top-nav-bar__item">Order Now</span>
         </Link>
         {!auth && <>
-          <span className="top-nav-bar__item" order={order} onClick={() => onLoginSelect()} >Cart</span>
-          <span className="top-nav-bar__item" onClick={() => onLoginSelect()}>Login</span>
-          <span className="top-nav-bar__item" onClick={() => onRegisterSelect()}>Register</span>
+          <span className="top-nav-bar__item cursor-for-items" order={order} onClick={() => onLoginSelect()} >Cart</span>
+          <span className="top-nav-bar__item cursor-for-items" onClick={() => onLoginSelect()}>Login</span>
+          <span className="top-nav-bar__item cursor-for-items" onClick={() => onRegisterSelect()}>Register</span>
         </>}
         {auth && <>
           <Link to='/favorites' className="nav-link">
