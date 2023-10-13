@@ -1,7 +1,6 @@
-import '../styles/OrderList.scss'
+import '../styles/OrderList.scss';
 
 function OrderList(props) {
-
 
   function handleClick(event) {
     event.preventDefault();
@@ -10,19 +9,19 @@ function OrderList(props) {
 
   return (
     <div className='line-item-padding'>
-    <tr>
-      <td>
-      </td>
-      <td>
-        {props.dish.name}
-      </td>
-      <td>  
-        ${props.dish.price}
-      </td>
-      <td>
-        <button onClick={handleClick}>X</button>
-      </td>
-    </tr>
+      <tr>
+        <td>
+        </td>
+        <td>
+          {props.dish.name}
+        </td>
+        <td>
+          ${props.dish.price}
+        </td>
+        <td>
+          <button onClick={handleClick}>X</button>
+        </td>
+      </tr>
     </div>
   );
 }

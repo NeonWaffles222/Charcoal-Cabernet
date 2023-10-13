@@ -7,6 +7,7 @@ import myImage from "../assets/images/20231007_020713.jpg";
 import '../styles/Home.css';
 import AutoRotatingCarousel from "../components/Testimonials";
 import DishScroll2 from "../components/DishScroll2";
+
 function Home(props) {
   return (
     <div className="home-container">
@@ -24,6 +25,7 @@ function Home(props) {
           </p>
         </div>
       </div>
+
       <div className="box-container content-container">
         <div className="text-box">
           <p>At Charcoal & Cabernet, our menu is a testament to culinary excellence. Featuring a diverse selection of prime cuts, delectable sides, and sumptuous desserts, each dish is crafted with precision and served with care, ensuring a truly unforgettable dining experience.
@@ -32,6 +34,7 @@ function Home(props) {
         </div>
         <img src="images/67_restaurant.jpg" alt="Inside Restaurant" />
       </div>
+
       <div className="side-by-side-container">
         <div className="box-container4">
           <img src="images/71_chef.png" alt="chef" />
@@ -40,14 +43,12 @@ function Home(props) {
         <div className="box-container2">
           <MapContainer />
         </div>
-
       </div>
-
 
       <div className="box-container3">
         <img src="images/70_Business-Hours-Template.jpg" alt="Inside Restaurant" />
-
       </div>
+
       <AutoRotatingCarousel images={[
         "images/6_test_6.jpg",
         "images/7_test_7.jpg",
@@ -56,17 +57,10 @@ function Home(props) {
         "images/10_test_10.jpg",
         "images/11_test_11.jpg",
         "images/12_test_12.jpg"
-
-
-
-
-
-
-
       ]}
-
       />
       <br></br>
+
     </div >
   );
 };

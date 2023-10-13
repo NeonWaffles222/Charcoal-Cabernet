@@ -30,7 +30,7 @@ const RegisterModal = ({ onLoginSelect, onRegisterSelect }) => {
       <button className="register-modal__close" onClick={() => onRegisterSelect()}>X</button>
       <span className="register-modal__header">Create Account</span>
       <form className="register-modal__form" onSubmit={onSubmit}>
-        <input type="text" name="firstName" value={firstName} placeholder="First Name" autoFocus = {true} onChange={event => setFirstName(event.target.value)} required />
+        <input type="text" name="firstName" value={firstName} placeholder="First Name" autoFocus={true} onChange={event => setFirstName(event.target.value)} required />
         <input type="text" name="lastName" value={lastName} placeholder="Last Name" onChange={event => setLastName(event.target.value)} required />
         <input type="text" name="phone" value={phone} placeholder="Phone Number" onChange={event => setPhone(event.target.value)} required />
         <input type="text" name="email" value={email} placeholder="Email" onChange={event => setEmail(event.target.value)} required />

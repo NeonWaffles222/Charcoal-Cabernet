@@ -155,7 +155,6 @@ function useApplicationData() {
       .then((response) => {
         console.log('Order created:', response.data);
         //Stripe endpoint
-
       })
       .catch((error) => {
         console.error('Error creating order:', error);

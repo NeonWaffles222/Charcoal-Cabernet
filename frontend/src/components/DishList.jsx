@@ -45,7 +45,6 @@ const DishList = (props) => {
   const handleTabChange = (newValue) => {
     setSelectedTab(newValue);
   };
-  // console.log(props)
   //When you select a tab
   const FilteredDishArray = filteredDishes.map((dish, index) => {
     const results = favorites.find((favorite) => favorite.id === dish.id);

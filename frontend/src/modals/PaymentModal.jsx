@@ -4,13 +4,13 @@ import '../styles/OrderModal.scss';
 // import OrderList from "./OrderList";
 import '../styles/PaymentModal.scss';
 import axios from 'axios';
-import {PaymentElement, useStripe, useElements} from '@stripe/react-stripe-js'
+import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 
 const PaymentModal = (props) => {
 
-  const stripe = useStripe()
-  const elements = useElements()
+  const stripe = useStripe();
+  const elements = useElements();
 
   const { auth, user, logout, order } = useContext(authContext);
 
@@ -20,11 +20,11 @@ const PaymentModal = (props) => {
 
   function handleStripe(event) {
     event.preventDefault();
-    if (!stripe||!elements){
-      return
+    if (!stripe || !elements) {
+      return;
     }
 
-    stripe.confirmPayment({elements, confirmParams: {return_url: "http://localhost:3000"} }).then((error) => console.log(error))
+    stripe.confirmPayment({ elements, confirmParams: { return_url: "http://localhost:3000" } }).then((error) => console.log(error));
   }
 
   let totalPrice = props.state.order.reduce((acc, dish) => {
@@ -37,7 +37,7 @@ const PaymentModal = (props) => {
         <div className="modal-content">
           <button className="order-modal__close" onClick={() => props.onPaymentSelect()}>X</button>
           <h2>Total: ${totalPrice.toFixed(2)}</h2>
-          <PaymentElement/>
+          <PaymentElement />
           <button onClick={handleStripe} type="submit" id="checkout-button">Pay Now</button>
           <button onClick={handleClick}>Close Modal</button>
         </div>

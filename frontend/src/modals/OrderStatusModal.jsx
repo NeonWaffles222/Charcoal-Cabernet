@@ -8,8 +8,7 @@ import '../styles/OrderStatusModal.scss'
 const OrderStatusModal = (props) => {
 
   let userOrders = [props.state.orders[(props.state.orders.length - 1)]];
-  // console.log(userOrders)
-  console.log(props, "Order status modal");
+
   return (
     <div className="modal">
       <div className="modal-content">

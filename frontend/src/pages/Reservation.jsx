@@ -14,7 +14,6 @@ const Reservation = () => {
 
   const { searchReservations } = useContext(reservationContext);
 
-  //const tableList = tables.map(table => <button>{table.id}</button>);
   const onSubmit = async (event) => {
     event.preventDefault();
     setTableList(searchReservations(date));

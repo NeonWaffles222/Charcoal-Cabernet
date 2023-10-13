@@ -13,15 +13,8 @@ const TableFloorMap = () => {
     }));
   };
 
-
   return (
     <div className="imageContainer">
-
-
-      {/* <button onClick={handleToggle}>
-        {isOn ? 'On' : 'Off'}
-      </button> */}
-
       <i className={`fa-solid fa-certificate but-1 ${activeButtons[1] ? 'activeButton' : ''}`} onClick={() => handleToggle(1)}></i>
       <i className={`fa-solid fa-certificate but-2 ${activeButtons[2] ? 'activeButton' : ''}`} onClick={() => handleToggle(2)}></i>
       <i className={`fa-solid fa-certificate but-3 ${activeButtons[3] ? 'activeButton' : ''}`} onClick={() => handleToggle(3)}></i>
@@ -40,17 +33,6 @@ const TableFloorMap = () => {
       <i className={`fa-solid fa-certificate but-16 ${activeButtons[16] ? 'activeButton' : ''}`} onClick={() => handleToggle(16)}></i>
       <i className={`fa-solid fa-certificate but-17 ${activeButtons[17] ? 'activeButton' : ''}`} onClick={() => handleToggle(17)}></i>
       <i className={`fa-solid fa-certificate but-18 ${activeButtons[18] ? 'activeButton' : ''}`} onClick={() => handleToggle(18)}></i>
-
-
-
-
-
-
-
-
-
-
-
 
     </div>
   );

@@ -4,9 +4,11 @@ import { authContext } from "../providers/AuthProvider";
 import '../styles/TableListItem.scss';
 
 const TablesListItem = ({ tableObj, guests, date, time }) => {
+
   const { makeReservation } = useContext(reservationContext);
   const { auth, user } = useContext(authContext);
   const { table, taken } = tableObj;
+
   const onSubmit = async (event) => {
     event.preventDefault();
     if (auth) {
@@ -24,7 +26,9 @@ const TablesListItem = ({ tableObj, guests, date, time }) => {
       alert("Please log in to make a reservation");
     }
   };
+
   let tableButton = <button className={`btn-valid but-${table.id}`} onClick={onSubmit}>Table {table.id}</button>;
+  
   if (guests > table.capacity || table.capacity > Number(guests) + 1) {
     tableButton = <button className={`btn-disabled but-${table.id}`} disabled>Table {table.id}</button>;
   } else if (taken) {

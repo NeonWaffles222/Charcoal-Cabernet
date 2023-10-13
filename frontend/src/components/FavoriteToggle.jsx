@@ -4,9 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 function FavoriteToggle({ dish_id, onUpdate, isFav, isFavorite, setIsFavorite, setFavorites, favorites, dish }) {
-  // const [isFavorite, setIsFavorite] = useState(isFav);
-  const token = localStorage.getItem('authToken');
 
+  const token = localStorage.getItem('authToken');
 
   const toggleFavorite = () => {
     if (favorites.filter((favorite) => favorite.id === dish_id).length > 0) {

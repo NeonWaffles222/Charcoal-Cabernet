@@ -3,7 +3,6 @@ import { authContext } from "../providers/AuthProvider";
 import '../styles/OrderModal.scss';
 import OrderList from "../components/OrderList";
 
-
 const OrderModal = (props) => {
 
   const { user } = useContext(authContext);

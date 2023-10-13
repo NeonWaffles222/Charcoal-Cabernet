@@ -18,7 +18,6 @@ export default function FormControlLabelPosition() {
   return (
     <div className="center-icons">
       <FormControl component="fieldset"  >
-        {/* <FormLabel component="legend">Label placement</FormLabel> */}
         <FormGroup aria-label="position" row>
           <FormControlLabel
             value="top"

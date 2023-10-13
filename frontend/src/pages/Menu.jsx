@@ -26,7 +26,6 @@ function MenuList(props) {
               {categoryDishes.map((dish, dishIndex) => (
                 <MenuListItem key={dishIndex} dish={dish} />
               ))}
-
             </div>
           </div>
         ))}

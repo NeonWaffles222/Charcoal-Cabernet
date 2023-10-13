@@ -9,13 +9,9 @@ function MenuModal({ isOpen, onClose, imageUrl, title, description, dish_id, fav
 
   if (!isOpen) return null;
 
-
-
   const updateFavoriteStatus = (status) => {
     setIsFavorite(status);
   };
-
-
 
   const heartClass = isFavorite ? 'favorite' : ''; // Add the 'favorite' class when it's favorited
 
@@ -26,7 +22,6 @@ function MenuModal({ isOpen, onClose, imageUrl, title, description, dish_id, fav
           <img src={imageUrl} alt="Dish" />
           <h1>{title}</h1>
         </div>
-
         <div className="modal-description-container ">
           <p>{description}</p>
           <strong><h2>${price}</h2></strong>
@@ -41,9 +36,7 @@ function MenuModal({ isOpen, onClose, imageUrl, title, description, dish_id, fav
             dish={dish}
           />
         </div>
-
         <button onClick={onClose}>Close Modal</button>
-
       </div>
     </div>
   );

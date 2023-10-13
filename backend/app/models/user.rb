@@ -8,7 +8,6 @@ class User < ApplicationRecord
   validates :phone_number, presence: true
   has_many :favorites
   has_many :reservations
-  # has_many :favorite_dishes, through: :favorites, source: :dish
   
   private
 

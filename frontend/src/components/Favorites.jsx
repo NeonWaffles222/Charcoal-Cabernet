@@ -8,7 +8,6 @@ function FavoriteDishes(props) {
   const [favorites, setFavorites] = useState([]);
   const [jwtToken, setJwtToken] = useState(null);
 
-
   useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
     if (storedToken) {
@@ -18,8 +17,6 @@ function FavoriteDishes(props) {
 
     getFavoriteDishes();
   }, []);
-
-
 
   const getFavoriteDishes = () => {
     axios.get('http://localhost:3001/api/favorites')
@@ -38,21 +35,14 @@ function FavoriteDishes(props) {
 
   };
 
-
-
   return (
     <div>
-
       <ul>
-
         <FavoriteList
           favorites={favorites}
           addDish={props.addDish}
           setFavorites={setFavorites}
         />
-
-
-
       </ul>
     </div>
   );

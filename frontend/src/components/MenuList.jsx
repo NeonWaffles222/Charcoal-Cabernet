@@ -7,13 +7,11 @@ import { useCategorizeDishes } from '../hooks/useCategorizedDishes';
 
 export default function MenuList(props) {
 
-
   const { dishes, categories } = props;
 
   const allMenuItems = useCategorizeDishes(dishes, categories);
   const [jwtToken, setJwtToken] = useState(null);
   const [favorites, setFavorites] = useState([]);
-
 
   useEffect(() => {
     const storedToken = localStorage.getItem('authToken');
@@ -38,9 +36,7 @@ export default function MenuList(props) {
       .catch(error => {
         console.error('Error fetching favorite dishes:', error);
       });
-
   };
-
 
 
   return (
