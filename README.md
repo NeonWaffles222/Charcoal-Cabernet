@@ -46,18 +46,17 @@ A web application for restaurants that allows users to reserve specific seating 
 ### Favorites
 ![Favorites Page](https://github.com/NeonWaffles222/Charcoal-Cabernet/blob/master/docs/Favorites%20Page%20Saved%20Between%20Sessions.png?raw=true "Favorites Page")
 
+### Cart Badge
+![Cart Badge in Navigation Bar](https://github.com/NeonWaffles222/Charcoal-Cabernet/blob/master/docs/Order%20Items%20Badge.png?raw=true "Cart Badge in Navigation Bar")
+
 ### Orders and Dishes
 ![Add Dish by Category](https://github.com/NeonWaffles222/Charcoal-Cabernet/blob/master/docs/Add%20Dish%20to%20Order%20by%20Category%20.png?raw=true "Add Dish by Category")
-
-![Add Dish by Category](https://github.com/NeonWaffles222/Charcoal-Cabernet/blob/master/docs/Add%20Dish%20to%20Order%20by%20Category%20.png?raw=true "Add Dish by Category")
-
-![Cart Badge in Navigation Bar](https://github.com/NeonWaffles222/Charcoal-Cabernet/blob/master/docs/Order%20Items%20Badge.png?raw=true "Cart Badge in Navigation Bar")
 
 ![Confirm Order Modal](https://github.com/NeonWaffles222/Charcoal-Cabernet/blob/master/docs/Confirm%20Order%20Modal.png?raw=true "Confirm Order Modal")
 
 ![Payment Modal](https://github.com/NeonWaffles222/Charcoal-Cabernet/blob/master/docs/Input%20Payment%20Info%20Modal.png?raw=true "Payment Modal")
 
-### Order Status Updates
+### Order Status Updates Twilio
 ![Status Update Confirmed](https://github.com/NeonWaffles222/Charcoal-Cabernet/blob/master/docs/User%20Texting%20Status%20Update%20Confirmed.png?raw=true "Status Update Confirmed")
 
 ![Status Update Delivered](https://github.com/NeonWaffles222/Charcoal-Cabernet/blob/master/docs/User%20Texting%20Status%20Update%20Delivered.png?raw=true "Status Update Delivered")
