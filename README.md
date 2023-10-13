@@ -1,6 +1,10 @@
-# Cahrcoal & Cabernet
+# Charcoal & Cabernet
 
-## Setup
+## Description
+A web application for restaurants that allows users to reserve specific seating while booking a reservation. A user can register and log in. A user is able to store their favorites between sessions. A user will also recieve texts that update their delivery status. 
+
+
+## Getting Started and Setup
 
  ### Backend
 
@@ -13,3 +17,15 @@
 
  1. Run `npm install` to install dependencies
  2. Run `npm start` to start the server
+ 
+## Authors
+ 
+[@Noah McMillian](https://github.com/NeonWaffles222)
+
+[@Steven Serruya](https://github.com/steven-serruya)
+
+[@Colin Spangelo](https://github.com/codingMadeSimple)
+
+## Screenshots
+
+
